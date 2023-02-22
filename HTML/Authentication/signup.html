@@ -48,9 +48,8 @@
                 <div class="left">
                     <div class="form-wrapper">
                         <div class="contact-heading">
-                            <h1>Welcome Back<span>!</span></h1>
-                            <p class="text">Or reach us via : <a
-                                    href="supritkumar30@gmail.com">supritkumar30@gmail.com</a></p>
+                            <h1>Create An Account<span>!</span></h1>
+                            <p class="text">Create an Account and take good care of your pet!</p>
                         </div>
 
                         <form action="#" method="post" class="contact-form">
@@ -72,20 +71,34 @@
                                 <i class="icon fa-solid fa-envelope"></i>
                             </div>
 
-                            <div class="input-wrap textarea w-100">
-                                <textarea name="Message" autocomplete="off" class="contact-input"></textarea>
-                                <label>Message</label>
-                                <i class="icon fa-solid fa-inbox"></i>
+                            <div class="input-wrap w-100">
+                                <input type="password" class="contact-input" name="Password" required
+                                    autocomplete="off">
+                                <label>Password</label>
+                                <i class="icon fa-solid fa-lock"></i>
+                            </div>
+
+                            <div class="input-wrap w-100">
+                                <input type="password" class="contact-input" name="Confirm Password" required
+                                    autocomplete="off">
+                                <label>Confirm Password</label>
+                                <i class="icon fa-solid fa-lock"></i>
                             </div>
 
                             <div class="contact-buttons">
-                                <button class="btn upload">
-                                    <span>
-                                        <i class="fa-solid fa-paperclip"></i> Add attachment
-                                    </span>
-                                    <input type="file" name="attachment">
-                                </button>
                                 <input type="submit" value="Send message" class="btn">
+                            </div>
+
+                            <div class="google-button">
+                                <button class="btn google">
+                                    <img alt="Google &quot;G&quot; Logo"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/16px-Google_%22G%22_Logo.svg.png">
+                                    <p>Sign Up With Google</p>
+                                </button>
+                            </div>
+
+                            <div class="no-account">
+                                <p>Already have an account? <a href="signup.html">Sign in</a></p>
                             </div>
                         </form>
 

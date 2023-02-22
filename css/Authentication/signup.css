@@ -163,11 +163,10 @@ header .container {
     width: 100%;
     overflow: hidden;
     background-color: var(--bg-color);
-    margin-top: 0.5rem;
 }
 
 .contact .container {
-    height: 100vh;
+    height: 115vh;
     min-height: 700px;
     display: grid;
     grid-template-columns: 1fr;
@@ -194,7 +193,7 @@ header .container {
 .contact-heading h1 {
     font-weight: 600;
     color: var(--text-color);
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 0.9;
     white-space: nowrap;
     margin-bottom: 1.2rem;
@@ -226,7 +225,7 @@ header .container {
 .contact-form {
     display: grid;
     margin-top: 2.55rem;
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
     row-gap: 1rem;
 }
@@ -279,7 +278,7 @@ header .container {
     transition: 0.3s;
 }
 
-/* textarea.contact-input {
+textarea.contact-input {
     resize: none;
     width: 100%;
     min-height: 9.45rem;
@@ -293,7 +292,7 @@ textarea.contact-input ~ label {
 textarea.contact-input ~ .icon {
     top: 1.3rem;
     transform: none;
-} */
+}
 
 .input-wrap.focus .contact-input {
     background-color: var(--bg-color);
@@ -315,21 +314,6 @@ textarea.contact-input ~ .icon {
     top: 0.75rem;
     transform: translateY(0);
 }
-
-.remember {
-    color: var(--text-color);
-    margin-left: 1rem;
-    transition: .5s !important;
-}
-
-.forgot a {
-    color: var(--main-color);
-    display: grid;
-    justify-content: end;
-    margin-right: 1rem;
-    transition: .3s;
-}
-
 
 .contact-buttons {
     display: grid;
@@ -353,7 +337,7 @@ textarea.contact-input ~ .icon {
     border-radius: 40px;
     font-family: inherit;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     border: none;
     transition: 0.3s;
@@ -366,7 +350,7 @@ textarea.contact-input ~ .icon {
 .btn.google {
     color: var(--text-color);
     background-color: var(--input-bg);
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -390,31 +374,6 @@ textarea.contact-input ~ .icon {
 .no-account a {
     color: var(--main-color);
 }
-/* .btn.google .google-icon {
-    font-size: 1rem;
-} */
-/* .btn.upload {
-    position: relative;
-    background-color: var(--input-bg);
-}
-
-.btn.upload span {
-    color: var(--light-text-color);
-}
-
-.btn.upload:hover {
-    background-color: var(--input-bg-hover);
-}
-
-.btn.upload input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    opacity: 0;
-} */
 
 .right {
     display: grid;
