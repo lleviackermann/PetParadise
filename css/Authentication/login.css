@@ -279,22 +279,6 @@ header .container {
     transition: 0.3s;
 }
 
-/* textarea.contact-input {
-    resize: none;
-    width: 100%;
-    min-height: 9.45rem;
-}
-
-textarea.contact-input ~ label {
-    top: 1.2rem;
-    transform: none;
-}
-
-textarea.contact-input ~ .icon {
-    top: 1.3rem;
-    transform: none;
-} */
-
 .input-wrap.focus .contact-input {
     background-color: var(--bg-color);
     border: 2px solid var(--light-main-color);
@@ -319,7 +303,10 @@ textarea.contact-input ~ .icon {
 .remember {
     color: var(--text-color);
     margin-left: 1rem;
-    transition: .5s !important;
+}
+
+.remember label {
+    transition: 0.1s !important;
 }
 
 .forgot a {
@@ -371,6 +358,7 @@ textarea.contact-input ~ .icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.1s !important;
 }
 
 .btn.google img {
@@ -385,6 +373,7 @@ textarea.contact-input ~ .icon {
     align-self: center;
     justify-self: center;
     color: var(--text-color);
+    transition: 0.1s !important;
 }
 
 .no-account a {
