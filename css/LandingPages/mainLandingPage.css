@@ -1,11 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 
 :root {
-    --slabo-text: font-family: 'Slabo 27px', serif;
+    --slabo-text: 'Roboto Condensed', sans-serif;
+    --roboto-text: 'Roboto', sans-serif;
+    --nav-background-color: #D3D3D3;
+    --main-hue: 208;
+    --main-color: hsl(var(--main-hue), 92%, 54%);
+    --main-color-hover: hsl(var(--main-hue), 77%, 48%);
+    --text-color: #000;
+    --bg-text-color: #fff;
+    --focus-padding: .7rem 1.5rem;
 }
 
 *,
 *::before,
 *::after {
-    
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
 }
+
+body {
+    padding-top: 1rem;
+}
+
+header {
+    width: 100vw;
+}
+
+header nav {
+    font-family: var(--roboto-text);
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem 1rem;
+}
+
+header nav a {
+    font-family: var(--roboto-text);
+}
+
+.brand {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    width: 9%;
+    justify-content: space-around;
+}
+
+.brand__name {
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.brand__name span {
+    color: var(--main-color);
+}
+
+.menu__section {
+    width: 40%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu__item a {
+    color: var(--text-color);
+}
+
+.menu .tag {
+    display: flex;
+    align-items: center;
+}
+
+.menu .tag .tag__icon {
+    transform: translateY(3px);
+    cursor: pointer;
+    position: relative;
+}
+
+.menu__item a:hover {
+    color: var(--main-color);
+}
+
+.menu .tag .tag__icon .more {
+    transition: all .3s ease-in;
+}
+
+.rotate {
+    transform: rotateZ(180deg);
+}
+
+.enter {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1rem;
+}
+
+.enter a {
+    color: var(--text-color);
+}
+
+.enter__item {
+    padding: var(--focus-padding);
+    border-radius: 100px;
+}
+
+.focus {
+    background-color: var(--main-color);
+}
+
+.focus a {
+    color: var(--bg-text-color);
+}
+
