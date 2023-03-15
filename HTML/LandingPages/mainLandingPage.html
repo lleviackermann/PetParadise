@@ -7,12 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/LandingPages/mainLandingPage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
-    <title>Document</title>
+    <title>PetParadise</title>
 </head>
 
 <body>
     <header>
         <nav>
+            <div class="close-open">
+                <span class="material-icons-sharp">
+                    menu
+                </span>
+                <span class="material-icons-sharp close">
+                    close
+                </span>
+            </div>
+
             <div class="brand">
                 <div class="brand__logo">
                     <span class="material-icons-sharp">
@@ -24,12 +33,13 @@
                 </div>
             </div>
 
-            
+
             <div class="menu__section">
                 <ul class="menu">
                     <li class="menu__item"><a href="">Home</a></li>
-                    <li class="menu__item">
+                    <li class="menu__item second">
                         <div class="dropdown">
+                            <div class="dropdown__tag">
                                 <a href="" class="tag">
                                     <div class="tag__name">Pets</div>
                                     <div class="tag__icon">
@@ -38,6 +48,22 @@
                                         </span>
                                     </div>
                                 </a>
+                            </div>
+
+                            <div class="dropdown__content">
+                                <div class="dropdown__item">
+                                    <a href="">Dogs</a>
+                                </div>
+                                <div class="dropdown__item">
+                                    <a href="">Cats</a>
+                                </div>
+                                <div class="dropdown__item">
+                                    <a href="">Birds</a>
+                                </div>
+                                <div class="dropdown__item">
+                                    <a href="">Fish</a>
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li class="menu__item"><a href="">Vet-Care</a></li>
@@ -46,17 +72,100 @@
                 </ul>
             </div>
             <div class="enter">
-                <div class="enter__item login">
-                    <a href="">Login</a>
-                </div>
-                <div class="enter__item signup focus">
-                    <a href="">Sign Up</a>
+                <button class="btn-grad" type="submit" href="../Authentication/login.html">Login</button>
+                <div class="enter__item profile">
+                    <span class="material-icons-sharp cart">
+                        shopping_cart
+                    </span>
+                    <span class="material-icons-sharp profile-picture">
+                        account_circle
+                    </span>
                 </div>
             </div>
         </nav>
-        <hr>
+
+        <main>
+            <div class="left">
+                <div class="heading">
+                    <p class="heading__top">pet<span>Paradise</span><img src="../../img/mainLandingPage/dog-sketch.png"
+                            alt="" class="dog-sketch"></p><br>
+                    <p class="heading__middle">Your One-Stop-Shop for Pets <br> and Pet Resources</p><br>
+                    <p class="heading__end">We provide you <span class="multiText"></span></p>
+                    <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+                    <script>
+                        let typingEffect = new Typed(".multiText", {
+                            strings: ["Dogs", "Cats", "Birds", "Fish", "Vet-Care", "Services", "Accessories"],
+                            loop: true,
+                            typeSpeed: 100,
+                            backSpeed: 80,
+                            backDelay: 1500
+                        })
+                    </script>
+                </div>
+                <div class="button">
+                    <button class="btn-grad">Services</button>
+                    <button class="normal-btn">Contact Us</button>
+                </div>
+
+                <div class="review__section">
+                    <h3>Our happy pet owners</h3>
+                    <h4><span>&starf;</span> 4.7 (1.5k Reviews)</h4>
+                    <div class="review__images">
+                        <img src="../../img/mainLandingPage/review1.jpg" alt="" class="img__item">
+                        <img src="../../img/mainLandingPage/review3.jpg" alt="" class="img__item goleft">
+                        <img src="../../img/mainLandingPage/review2.jpg" alt="" class="img__item goleft">
+                        <img src="../../img/mainLandingPage/review4.jpg" alt="" class="img__item goleft">
+                        <div class="text__item goleft">+3k</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="images">
+                    <img src="../../img/mainLandingPage/group_pet.jpg" alt="" class="group__img">
+                </div>
+            </div>
+        </main>
     </header>
 
+    <section class="choose">
+        <!-- <div class="choose__background">
+            <img src="../../img/mainLandingPage/wave_background.png" alt="">
+        </div> -->
+        <div class="choose-us">
+            <div class="choose-us__heading">Why choose us</div>
+            <div class="choose-us__grid">
+                <div class="choose-us__item customers">
+                    <h2>5k+</h2>
+                    <h3>Customers</h3>
+                </div>
+                <div class="choose-us__item pets">
+                    <h2>100+</h2>
+                    <h3>Pets</h3>
+                </div>
+                <div class="choose-us__item employees">
+                    <h2>500+</h2>
+                    <h3>Employees</h3>
+                </div>
+                <div class="choose-us__item doctors">
+                    <h2>10+</h2>
+                    <h3>Doctors</h3>
+                </div>
+                <div class="choose-us__item time">
+                    <h2>24X7</h2>
+                    <h3>Emergency Services</h3>
+                </div>
+                <div class="choose-us__item stores">
+                    <h2>5</h2>
+                    <h3>Local Stores</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="pets">
+        <h2>Get YourSelf a Friend</h2>
+    </section> -->
 
     <script src="../../JavaScript/LandingPages/mainLandingPage.js"></script>
 </body>

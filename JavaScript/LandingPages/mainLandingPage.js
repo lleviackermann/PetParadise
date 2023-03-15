@@ -1,17 +1,15 @@
-const dropdownLink = document.querySelector(".tag");
 const dropdownIcon = document.querySelector(".material-icons-sharp.more");
+const dropdownContent = document.querySelector(".dropdown__content");
+const dropdownCheck = document.querySelector(".dropdown__tag");
 
-dropdownLink.addEventListener('click', (e) => {
+dropdownCheck.addEventListener('click', (e) => {
     e.preventDefault();
-    dropdownIcon.classList.toggle("rotate");
 })
 
-dropdownLink.addEventListener('mouseover', (e) => {
-    e.preventDefault();
-    dropdownIcon.classList.add("rotate");
-})
+// dropdownContent.addEventListener('mouseover', (e) => {
+//     dropdownContent.classList.add("visible");
+// })
 
-dropdownLink.addEventListener('mouseout', (e) => {
-    e.preventDefault();
-    dropdownIcon.classList.remove("rotate");
-})
+// dropdownContent.addEventListener('mouseout', (e) => {
+//     dropdownContent.classList.remove("visible");
+// })
