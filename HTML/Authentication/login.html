@@ -52,19 +52,20 @@
                             <p class="text">Welcome Back! Please enter your details.</p>
                         </div>
 
-                        <form action="#" method="post" class="contact-form">
-
+                        <form action="/" method="post" class="contact-form">
                             <div class="input-wrap w-100">
-                                <input type="email" class="contact-input" name="Email" required autocomplete="off">
+                                <input type="email" class="contact-input" name="Email" required autocomplete="off" id="user-mail">
                                 <label>Email</label>
                                 <i class="icon fa-solid fa-envelope"></i>
+                                <p id="mail-error"></p>
                             </div>
 
                             <div class="input-wrap w-100">
                                 <input type="password" class="contact-input" name="Password" required
-                                    autocomplete="off">
+                                    autocomplete="off" id="user-password">
                                 <label>Password</label>
                                 <i class="icon fa-solid fa-lock"></i>
+                                <p id="password-error"></p>
                             </div>
 
 

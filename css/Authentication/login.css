@@ -260,7 +260,7 @@ header .container {
 
 .input-wrap label {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: calc(1.35rem + 2px);
     transform: translateY(-50%);
     color: var(--light-text-color);
@@ -271,7 +271,7 @@ header .container {
 .input-wrap .icon {
     position: absolute;
     right: calc(1.35rem + 2px);
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     pointer-events: none;
     color: var(--input-text);
@@ -493,6 +493,11 @@ header .container {
         margin-top: 1.9rem;
         column-gap: 0.8rem;
         row-gap: 0.65rem;
+    }
+
+    .contact-form .input-wrap .error{
+        border: solid;
+        border-color: red;
     }
 
     .contact-input {
