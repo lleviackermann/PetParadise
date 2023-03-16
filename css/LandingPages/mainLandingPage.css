@@ -153,15 +153,12 @@ header nav {
 
 }
 
-/* .dropdown__tag:hover + .dropdown__content, */
 .second:hover .dropdown__content,
-.dropdown__content:hover{
+.dropdown__content:hover {
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
 }
-
-
 
 .visible {
     transform: translateY(0);
@@ -380,10 +377,11 @@ main .button {
     border-radius: 50px;
     text-align: center;
     margin-top: -5rem;
+    background-position: bottom bottom;
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 3rem;
-    background-image: url(../../img/mainLandingPage/wave_background.png);
+    background-image: url(../../img/mainLandingPage/wave_background\ 1.png);
     background-size: cover;
     /* object-fit: cover; */
 }
@@ -413,6 +411,102 @@ main .button {
     color: var(--choose-us-middle-color);
 }
 
-.customers, .pets, .doctors, .time {
+.customers,
+.pets,
+.doctors,
+.time {
     border-right: 3px solid var(--choose-us-middle-color);
+}
+
+/* Choose us section Ends */
+
+/* Get Pets section starts */
+
+.pets__outer {
+    padding-top: 3rem;
+    margin-bottom: 3rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='400' preserveAspectRatio='none' viewBox='0 0 1440 400'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1152%26quot%3b)' fill='none'%3e%3cpath d='M -827.8258732248556%2c347 C -683.83%2c287.2 -395.83%2c60.6 -107.82587322485561%2c48 C 180.17%2c35.4 324.17%2c256.8 612.1741267751444%2c284 C 900.17%2c311.2 1166.61%2c187.6 1332.1741267751445%2c184 C 1497.74%2c180.4 1418.43%2c249.6 1440%2c266' stroke='rgba(51%2c 121%2c 194%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -1227.9730573696002%2c335 C -1083.97%2c300.6 -795.97%2c151.2 -507.97305736960027%2c163 C -219.97%2c174.8 -75.97%2c392.6 212.02694263039973%2c394 C 500.03%2c395.4 686.43%2c183.6 932.0269426303997%2c170 C 1177.62%2c156.4 1338.41%2c294.8 1440%2c326' stroke='rgba(51%2c 121%2c 194%2c 0.58)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1152'%3e%3crect width='1440' height='400' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+    padding-bottom: 3rem;
+}
+
+.pets__inner {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    width: 85%;
+    margin: auto;
+}
+
+.pets__inner .pets__heading {
+    font-family: var(--roboto-text);
+    font-size: 5rem;
+    margin-left: 30%;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.pets__grid {
+    width: 100%;
+    display: grid;
+    margin: auto;
+    /* margin-top: 1rem; */
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 5rem;
+    row-gap: 4rem;
+}
+
+.pets__item {
+    background-color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    overflow-x: hidden;
+    padding: 1rem;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+}
+
+.pets__item-heading {
+    position: absolute;
+    top: 90%;
+    left: 40%;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: var(--roboto-text);
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+}
+
+.pets__item:hover .pets__item-heading {
+    transform: translate(0%, -600%);
+    opacity: 1;
+}
+
+.pets__item:hover svg {
+    transform: scale(1);
+    filter: blur(3px) brightness(60%);
+}
+
+.gradient-text {
+    display: inline-block;
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%);
+    /* background-image: linear-gradient(to right, #667eea, #764ba2); */
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all .25s ease-in;
+}
+
+.gradient-text:hover {
+    transform: skewX(15deg) skewY(2deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba(#000, 0.2);
+}
+
+.pet-text {
+    /* background-image: linear-gradient(to right, #B7F8DB, #50A7C2); */
+    /* -webkit-background-clip: text; */
+    /* color: transparent; */
 }
