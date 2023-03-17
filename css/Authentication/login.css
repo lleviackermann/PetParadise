@@ -231,6 +231,12 @@ header .container {
     row-gap: 1rem;
 }
 
+.contact-form .input-wrap .error{
+    border: solid;
+    border-color: red;
+}
+
+
 .input-wrap {
     position: relative;
 }
@@ -495,10 +501,8 @@ header .container {
         row-gap: 0.65rem;
     }
 
-    .contact-form .input-wrap .error{
-        border: solid;
-        border-color: red;
-    }
+
+
 
     .contact-input {
         border-radius: 17px;
