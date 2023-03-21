@@ -17,79 +17,62 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="close-open">
+    <header class="header">
+        <div class="close-open">
+            <span class="material-icons-sharp open">
+                menu
+            </span>
+            <span class="material-icons-sharp close">
+                close
+            </span>
+        </div>
+
+        <div class="brand">
+            <div class="brand__logo">
                 <span class="material-icons-sharp">
-                    menu
-                </span>
-                <span class="material-icons-sharp close">
-                    close
+                    pets
                 </span>
             </div>
-
-            <div class="brand">
-                <div class="brand__logo">
-                    <span class="material-icons-sharp">
-                        pets
-                    </span>
-                </div>
-                <div class="brand__name">
-                    <a href="" class="brand__name">pet<span>paradise</span></a>
-                </div>
+            <div class="brand__name">
+                <a href="" class="brand__name">pets <span>paradise</span></a>
             </div>
+        </div>
 
 
-            <div class="menu__section">
-                <ul class="menu">
-                    <li class="menu__item"><a href="">Home</a></li>
-                    <li class="menu__item second">
-                        <div class="dropdown">
-                            <div class="dropdown__tag">
-                                <a href="" class="tag">
-                                    <div class="tag__name">Pets</div>
-                                    <div class="tag__icon">
-                                        <span class="material-icons-sharp more">
-                                            expand_more
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
+        <nav class="menu__section">
+            <ul class="menu">
+                <li class="menu__item"><a href="">Home</a></li>
+                <li class="menu__item second">
+                    <a href="" class="tag">
+                        Pets
+                    </a>
+                    <ul>
+                        <li><a href="">Dogs</a></li>
+                        <li><a href="">Cats</a></li>
+                        <li><a href="">Birds</a></li>
+                        <li><a href="">Fish</a></li>
+                    </ul>
+                </li>
+                <li class="menu__item"><a href="">Vet-Care</a></li>
+                <li class="menu__item"><a href="">Services</a></li>
+                <li class="menu__item last--item"><a href="">Accesssories</a></li>
+            </ul>
 
-                            <div class="dropdown__content">
-                                <div class="dropdown__item">
-                                    <a href="">Dogs</a>
-                                </div>
-                                <div class="dropdown__item">
-                                    <a href="">Cats</a>
-                                </div>
-                                <div class="dropdown__item">
-                                    <a href="">Birds</a>
-                                </div>
-                                <div class="dropdown__item">
-                                    <a href="">Fish</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu__item"><a href="">Vet-Care</a></li>
-                    <li class="menu__item"><a href="">Services</a></li>
-                    <li class="menu__item"><a href="">Accesssories</a></li>
-                </ul>
-            </div>
-            <div class="enter">
-                <button class="btn-grad" type="submit" href="../Authentication/login.html">Login</button>
-                <div class="enter__item profile">
-                    <span class="material-icons-sharp cart">
-                        shopping_cart
-                    </span>
-                    <span class="material-icons-sharp profile-picture">
-                        account_circle
-                    </span>
-                </div>
-            </div>
         </nav>
+        <div class="enter">
+            <button class="btn-grad" type="submit" href="../Authentication/login.html">Login</button>
+            <div class="enter__item profile">
+                <span class="material-icons-sharp cart">
+                    shopping_cart
+                </span>
+                <span class="material-icons-sharp profile-picture">
+                    account_circle
+                </span>
+            </div>
+        </div>
+    </header>
 
+    <header>
         <main>
             <div class="left">
                 <div class="heading">
@@ -136,7 +119,7 @@
     </header>
 
     <section class="categories__main">
-        <p class="categories--heading">Explore Categories</p>
+        <p class="categories--heading small">Explore Categories</p>
         <section class="categories__section">
             <div class="container">
                 <button class="learn-more">
@@ -213,7 +196,7 @@
     </section>
 
     <section class="our__services">
-        <p class="services--heading">Our services</p>
+        <p class="services--heading small">Our services</p>
         <div class="services">
             <div class="services__info">
                 <h3>Pet Gromming</h3>
@@ -290,7 +273,7 @@
             </div>
         </div>
 
-        <p class="services--heading product--heading">Our Products</p>
+        <p class="services--heading product--heading small">Our Products</p>
         <div class="services">
             <div class="services__info little-pad-top">
                 <h3 class="product-heading">Pet Food</h3>
@@ -350,8 +333,7 @@
 
 
     <section class="choose-us">
-        <p class="choose-us-heading1">Why Choose Us</p>
-
+        <p class="choose-us-heading1 small">Why Choose Us</p>
         <div class="choose-us-grid">
             <div class="choose-us-cards">
                 <img src="../../img/mainLandingPage/feature-bird.png" alt="">
@@ -408,7 +390,7 @@
     </section>
 
     <section class="contact">
-        <p class="services--heading contact-head">Contact Us</p>
+        <p class="services--heading contact-head small">Contact Us</p>
 
         <div class="contact-container">
             <div class="content">
@@ -456,7 +438,7 @@
     </section>
 
     <footer class="footer__section">
-        
+
     </footer>
 
     <script src="../../JavaScript/LandingPages/mainLandingPage.js"></script>

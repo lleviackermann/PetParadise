@@ -1,15 +1,31 @@
-const dropdownIcon = document.querySelector(".material-icons-sharp.more");
-const dropdownContent = document.querySelector(".dropdown__content");
-const dropdownCheck = document.querySelector(".dropdown__tag");
+const hamburger = document.querySelector(".header .close-open .open");
+const close = document.querySelector(".header .close-open .close");
 
-dropdownCheck.addEventListener('click', (e) => {
-    e.preventDefault();
+const navMenu = document.querySelector(".header nav")
+
+hamburger.addEventListener("click", (e) => {
+    navMenu.style.display = "flex";
+    hamburger.style.display = "none";
+    close.style.display = "block";
 })
 
-// dropdownContent.addEventListener('mouseover', (e) => {
-//     dropdownContent.classList.add("visible");
-// })
+close.addEventListener("click", (e) => {
+    navMenu.style.display = "none";
+    hamburger.style.display = "block";
+    close.style.display = "none";
+})
 
-// dropdownContent.addEventListener('mouseout', (e) => {
-//     dropdownContent.classList.remove("visible");
-// })
+console.log(window.innerWidth)
+
+window.addEventListener("resize", (e) => {
+        console.log("hi")
+        if(window.innerWidth > 800) {
+            navMenu.style.display = "flex";
+        }
+    }, true
+)
+
+
+// if(window.innerWidth > 850px) {
+
+// }
