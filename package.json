@@ -21,6 +21,7 @@
     "postcss-cli": "^10.1.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
@@ -30,5 +31,8 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.21",
     "sqlite3": "^5.1.6"
+=======
+    "express": "^4.18.2"
+>>>>>>> 82fe589ae4c998b085bff81915df6eb3cf53da8d
   }
 }
