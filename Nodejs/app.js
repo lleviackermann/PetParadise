@@ -7,9 +7,12 @@ const app = express()
 app.use(bdparser.urlencoded({extended: true}))
 
 
+app.set('views engine','ejs')
+
+
 app.use(bdparser.json())
 
-app.use(express.static("C:/Users/chk24/OneDrive/Desktop/pet paradise"))
+app.use(express.static(path.join(__dirname,"..")))
 const dbpath = path.join("data","demo.db")
 const db = new sqlite.Database(dbpath,sqlite.OPEN_READWRITE,err=>{
     if(err){
@@ -24,6 +27,7 @@ const createTable = "create table if not exists userdata(firstName varchar(50) n
 const adddata = "insert into userdata values(?,?,?,?)"
 const getdata = "select * from userdata"
 const loginquery = "select * from userdata where mailId=?"
+const updatequery = "update userdata set password=? where mailId=?"
 db.run(createTable,(err)=>{
     if(err){
         console.log("error in creating the table");
@@ -47,15 +51,18 @@ app.listen(8000,function(){
 })
 
 app.get("/",function(req,res){
-    res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/signup.html"))
+    // res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/signup.html"))
+    res.render('login.ejs')
 })
 
-app.get("/login.html",function(req,res){
-    res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/login.html"))
+app.get("/login",function(req,res){
+    // res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/login.html"))
+    res.render('login.ejs')
 })
 
-app.get("/signup.html",function(req,res){
-    res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/signup.html"))
+app.get("/signup",function(req,res){
+    // res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/signup.html"))
+    res.render('signup.ejs')
 })
 
 
@@ -69,18 +76,57 @@ if(req.body.Password === req.body.ConfirmPassword){
         })    
     })}
     res.end("Data added to the database successfully");
-
 })
 
 const checkPassword = (Password,hashedPassword)=>{
       return bcrypt.compareSync(Password,hashedPassword)
 }
 
+
+// const encryptPassword =  bcrypt.hashSync(password,1,function(err,hash){
+//         console.log("password is:"+password);
+//         console.log(hash+" "+typeof(hash));
+//         return hash
+//      })
+
+
+
+var success
+
+app.get('/forgot',function(req,res){
+    res.sendFile(path.resolve(__dirname,"..","HTML/Authentication/forgot password.html"))
+})
+
+app.post('/verify',async function(req,res){
+    let mail = req.body.Email
+    db.all(loginquery,[mail],await  function(err,rows){
+        if(err){
+            console.log(err.message);
+        }
+        if(rows.length == 0){
+            res.end("Incorrect UserName")
+        }
+        else{
+            bcrypt.hash(req.body.Password,1,function(err,hash){
+                console.log("password is:"+req.body.Password);
+                console.log(hash+" "+typeof(hash));
+                db.run(updatequery,[hash,mail])
+                res.end("password changed successfully")
+             })
+        }
+    })
+
+    // res.end("skdjskd")
+
+
+})
+
+
 app.post("/login",async function(req,res){
     let mail = req.body.Email
     let password = req.body.Password
     let matched;
-    await db.all(`select * from userdata where mailId=?`,[mail], function(err,rows){
+    await db.all(loginquery,[mail], function(err,rows){
             if(err){
                 console.log(err.message);
             }
@@ -94,6 +140,8 @@ app.post("/login",async function(req,res){
             console.log(matched);
             if(matched == true){
                 res.end("Password succesfully  matched")
+                success = true
+
             }else{
                 res.end("Password is incorrect")
             }        
@@ -104,3 +152,7 @@ app.post("/login",async function(req,res){
 
 // db.run(`drop table userdata`)
 
+/* if(success){
+    console.log("Hello");
+    document.getElementById("#verify").innerText = "User logged in successfully"
+} */
