@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat website</title>
+  <link rel="stylesheet" href="../../css/LandingPages/catLandingPage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="../../JavaScript/LandingPages/catLandingPage.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="active">
+      <section class="opening-btn">
+        <button type="button" class="menu-button" title="Openeing Menu btn">
+          <div class="menu-icon"></div>
+        </button>
+      </section>
+      <button class="closing-btn" title="Closing Menu Btn"></button>
+
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <div class="petsDropDown">
+          <button class="petsBtn">Pets</button>
+          <div class="content">
+            <a href="#">Dog</a>
+            <a href="#">Bird</a>
+            <a href="#">Fish</a>
+          </div>
+        </div>
+        <a href="#Shop-Fish">Shop-Fish</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+      </nav>
+    </div>
+    <div class="logo">
+      <i class="fa-solid fa-paw"></i>
+      <p style="display: inline-block" onclick="Logo()">Pet's Paradise</p>
+    </div>
+    <div class="icons">
+      <div class="fa-solid fa-cart-shopping"></div>
+      <div onclick="XMark(this)" class="fa-solid fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="/" class="login-form">
+      <h3>Sign in</h3>
+      <input type="email" placeholder="enter your email" class="box" id="mail" />
+      <p id="mail-error"></p>
+      <input type="password" name="" placeholder="enter your password" class="box" id="password" />
+      <p id="password-error"></p>
+      <div class="remember">
+        <input type="checkbox" name="" id="remember-me" />
+        <label for="remember-me">remember me</label>
+      </div>
+      <input type="submit" value="sign in" id="sign-in" class="btn sign-in" />
+      <input type="submit" value="sign up" id="sign-up" class="btn sign-up" />
+      <div class="links">
+        <a href="" class="forgot">forgot password</a>
+        <a href="" class="sign">sign up</a>
+      </div>
+    </form>
+  </header>
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Find your <span> Perfect Cat</span> on our website</h3>
+      <a href="#" class="glow-on-hover">Shop Now</a>
+    </div>
+    <img src="../../img/catLandingPage/bottom_wave.png" alt="" class="wave" />
+  </section>
+
+  <section class="about"></section>
+
+  <section id="Shop-Cat" class="Shop-Cat">
+    <h3 class="detail">
+      <span class="word1">Our</span> <span class="word2"> Popular</span>
+      <span class="word3"> Breeds</span>
+    </h3>
+
+    <div class="products">
+      <div class="product">
+        <h3>Persian Cat</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/catLandingPage/Cat_Breeds/persian.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">8 Weeks Old</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 20000 <span>Rs. 35000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Ragdoll</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/catLandingPage/Cat_Breeds/Ragdoll.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">8 Weeks Old</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 25000 <span>Rs. 35000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>British Shorthair</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/catLandingPage/Cat_Breeds/british shorthair.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">8 Weeks Old</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 40000 <span>Rs. 60000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Scottish Fold</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/catLandingPage/Cat_Breeds/scottish-fold.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">8 Weeks Old</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 15000 <span>Rs. 18000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="explore"><a href="#" class="expBtn">Explore More</a></div>
+  </section>
+
+  <section id="services" class="services">
+    <h3 class="heading">Our Services</h3>
+    <div class="services-list">
+      <div class="service">
+        <img src="../../img/catLandingPage/Cat_Breeds/cat-accessories.png" alt="" />
+        <div class="content">
+          <h3>Accesories</h3>
+          <p>
+            Here, You can find all best deals on Accesories related to pet
+            including Toys,Harnesses
+          </p>
+          <a class="pet pet-service" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="service">
+        <img src="../../img/catLandingPage/Cat_Breeds/cat-care.png" alt="" height="250px" width="250px" />
+        <h3>Pet Care</h3>
+        <p>Here You can find all the best medicines to care your Pet</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+      <div class="service">
+        <img src="../../img/catLandingPage/Cat_Breeds/cat-food.png" alt="" />
+        <h3>Food</h3>
+        <p>Feed Your Pet with Love , Affection and High Quality Food!</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+      <div class="service">
+        <img src="../../img/catLandingPage/Cat_Breeds/pet-grooming.png" alt="" />
+        <h3>Saloon</h3>
+        <p>Every Pet deserves Celebrity Care</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+      <div class="service">
+        <img src="../../img/catLandingPage/Dog_Breeds/dog-training.png" alt="" />
+        <h3>Training</h3>
+        <p>Give You Pet the best training for desired behaviours</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="Delivered">
+      <span class="count">999</span>
+      <p>Dogs Delivered</p>
+    </div>
+
+    <div class="feedback">
+      <span class="count">99%</span>
+      <p>Positive Customers</p>
+    </div>
+
+    <div class="happy-families">
+      <span class="count">500</span>
+      <p>Happy Families</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="pet-side">
+      <p>Shop Pet</p>
+      <a href="#" class="pets">Dog</a>
+      <a href="#" class="pets">Cat</a>
+      <a href="#" class="pets">Fish</a>
+      <a href="#" class="pets">Bird</a>
+    </div>
+
+    <div class="pet-services">
+      <p>Services Offered</p>
+      <a href="#" class="pets">Accessories</a>
+      <a href="#" class="pets">Training</a>
+      <a href="#" class="pets">Pet Care</a>
+      <a href="#" class="pets">Spa & Grooming</a>
+    </div>
+
+    <div class="social">
+      <p>Lets Stay Connected</p>
+      <div class="input">
+        <input type="text" placeholder="Your Mail" />
+        <button type="button">Submit</button>
+      </div>
+      <p>Follow Us</p>
+      <a href="#"><i class="fa-brands fa-facebook facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-square-instagram instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-twitter twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-pinterest pinterest"></i></a>
+    </div>
+    <div class="credit">
+      created by <span>&copy;Group 7</span>|all rights reserved!
+    </div>
+  </footer>
+
+  <!-- <a href="" class="pet"><span>Shop Now</span></a> -->
+  <!-- <button type="button" class="pet"><span>Shop Now</span></button> -->
+</body>
+
+</html>

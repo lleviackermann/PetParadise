@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    
+    <!-- swiper  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="../../css/LandingPages/petfoodLandingPage.css">
+</head>
+<body>
+
+    <!-- header start -->
+    <header class="header">
+        <a href="#" class="logo"><i class="fa-solid fa-paw"></i> PETS PARADISE</a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#features">features</a>
+            <a href="#products">products</a>
+            <a href="#categories">categories</a>
+            <a href="#review">reviews</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="shopping-cart">
+            <!-- <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                <div class="content">
+                    <h3>watermelon</h3>
+                    <span class="price">Rs.150</span>
+                    <span class="quantity">qty :<input type="number" min="1" class="qty" value="1"></span>
+                    <span class="remove"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                <div class="content">
+                    <h3>Tomato</h3>
+                    <span class="price">Rs.150</span>
+                     <span class="quantity">qty : <input type="number" min="1"  class="qty" value="1"></span>
+                     <span class="remove"><i class="fa-solid fa-xmark"></i></span>  
+                </div>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                <div class="content">
+                    <h3>Potato</h3>
+                    <span class="price">Rs.150</span>
+                    <span class="quantity">qty : <input type="number" min="1"  class="qty" value="1"></span>
+                    <span class="remove"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+            </div> -->
+            <div class="total">total : 0</div>
+            <a href="" class="btn">checkout</a>
+        </div>
+
+        <form action="" class="login-form">
+        <h3>login now</h3>
+        <input type="email" placeholder="Enter your email" class="box">
+        <input type="password" placeholder="Enter your password" class="box">
+        <p>Forget your password <a href="#">click here</a></p>
+        <p>Dont have an account <a href="#">create now</a></p>
+        <input type="submit" value="login now" class="btn">
+    </form>
+    </header>
+
+    <!-- header end -->
+
+    <!-- home start -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>healthy and <span>nutritious</span> food for your pets</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste aliquid eum velit explicabo magni corrupti.</p>
+            <a href="#products" class="btn">Shop now</a>
+        </div>
+    </section>
+    <!-- home end -->
+
+    <!-- features start -->
+    <section class="features" id="features">
+        <h1 class="heading">Our <span>features</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px">
+                <h3>healthy and nutritious</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, temporibus?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px">
+                <h3>free delivery</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, temporibus?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px">
+                <h3>easy payment</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, temporibus?</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+    </section>
+    <!-- features end -->
+
+    <!-- products start -->
+    <section class="products" id="products">
+        <h1 class="heading">our <span>products</span></h1>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title" >dog 1</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>449</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">fish 1</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">cat 1</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>649</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">bird 1</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">dog 2</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">fish 2</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>.349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">cat 2</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>.349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">bird 2</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">dog 3</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title">fish 3</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>449</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                         </div>
+                    </div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title">cat 3</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div  class="des"><h3 class="title">bird 3</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>649</div>
+                        <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title">dog 4</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title" >fish 4</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title" >cat 4</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title">bird 4</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title">dog 5</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+                <div class="swiper-slide box">
+                    <img class="imgsrc" src="../../img/foodservicesLandingPage/i1.jpg" style="width: 200px;">
+                    <div class="des"><h3 class="title">fish 5</h3>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div></div>
+                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- products end -->
+
+    <!-- categories start -->
+    <section class="categories" id="categories">
+        <h1 class="heading">Product <span>categories</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px;">
+                <h3>Dog food</h3>
+                <p>for all breeds</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px;">
+                <h3>Cat food</h3>
+                <p>for all breeds</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px;">
+                <h3>Bird food</h3>
+                <p>for specific breeds</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/i1.jpg" style="width:200px;">
+                <h3>Fish food</h3>
+                <p>for all breeds</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+        </div>
+    </section>
+    <!-- categories end -->
+
+    <!-- reviews start -->
+    <section class="review" id="review">
+        <h1 class="heading">customer's <span>review</span></h1>
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper ">
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg" >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg" >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg" >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg" >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="../../img/foodservicesLandingPage/i1.jpg" >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quisquam aspernatur aut nisi possimus impedit maiores fugit expedita dolorum iusto dolor, ipsum saepe provident? Delectus voluptas dignissimos voluptates dolorum est.</p>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- reviews end -->
+
+    <!-- footer start -->
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>PETS PARADISE <i class="fas fa-shopping-basket"></i></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, amet a fugiat voluptatum cum vitae!</p>
+                    <div class="share">
+                        <a href="#" class="fab fa-facebook-f"></a>
+                        <a href="#" class="fab fa-twitter"></a>
+                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="#" class="fab fa-linkedin"></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3>Contact info</h3>
+                    <a href="#" class="links"><i class="fas fa-phone"> 1234567890</i></a>
+                    <a href="#" class="links"><i class="fas fa-phone"> 1234567890</i></a>
+                    <a href="#" class="links"><i class="fas fa-envelope"> example@gmail.com</i></a>
+                    <a href="#" class="links"><i class="fas fa-map-marker-alt"> hyderabd, india</i></a>
+                </div>
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="#home" class="links"><i class="fas fa-arrow-right"></i> home</a>
+                    <a href="#features" class="links"><i class="fas fa-arrow-right"></i> features</a>
+                    <a href="#products" class="links"><i class="fas fa-arrow-right"></i> products</a>
+                    <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> categories</a>
+                    <a href="#review" class="links"><i class="fas fa-arrow-right"></i> reviews</a>
+                </div>
+            </div>
+        </section>
+    <!-- footer end -->
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- custom js file link  -->
+    <script src="../../JavaScript/LandingPages/petfoodLandingPage.js"></script>
+</body>
+</html>

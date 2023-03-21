@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bird website</title>
+  <link rel="stylesheet" href="../../css/LandingPages/birdLandingPage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="../../JavaScript/LandingPages/birdLandingPage.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="active">
+      <section class="opening-btn">
+        <button type="button" class="menu-button" title="Openeing Menu btn">
+          <div class="menu-icon"></div>
+        </button>
+      </section>
+      <button class="closing-btn" title="Closing Menu Btn"></button>
+
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <div class="petsDropDown">
+          <button class="petsBtn">Pets</button>
+          <div class="content">
+            <a href="#">Dog</a>
+            <a href="#">Cat</a>
+            <a href="#">Fish</a>
+          </div>
+        </div>
+        <a href="#Shop-Fish">Shop-Fish</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+      </nav>
+    </div>
+    <div class="logo">
+      <!-- <i class="fa-solid fa-paw"></i> -->
+      <img src="../../img/birdLandingPage/bird_icon.png" alt="" height="40px" width="40px" />
+      <p style="display: inline-block" onclick="Logo()">Pet's Paradise</p>
+    </div>
+    <div class="icons">
+      <div class="fa-solid fa-cart-shopping"></div>
+      <div onclick="XMark(this)" class="fa-solid fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="/" class="login-form">
+      <h3>Sign in</h3>
+      <input type="email" placeholder="enter your email" class="box" id="mail" />
+      <p id="mail-error"></p>
+      <input type="password" name="" placeholder="enter your password" class="box" id="password" />
+      <p id="password-error"></p>
+      <div class="remember">
+        <input type="checkbox" name="" id="remember-me" />
+        <label for="remember-me">remember me</label>
+      </div>
+      <input type="submit" value="sign in" id="sign-in" class="btn sign-in" />
+      <input type="submit" value="sign up" id="sign-up" class="btn sign-up" />
+      <div class="links">
+        <a href="" class="forgot">forgot password</a>
+        <a href="" class="sign">sign up</a>
+      </div>
+    </form>
+  </header>
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Find your <span> Perfect Friend</span> on our website</h3>
+      <a href="#" class="glow-on-hover">Shop Now</a>
+    </div>
+    <img src="../../img/birdLandingPage/bottom_wave.png" alt="" class="wave" />
+  </section>
+
+  <section class="about"></section>
+
+  <section id="Shop-Bird" class="Shop-Bird">
+    <h3 class="detail">
+      <span class="word1">Our</span> <span class="word2"> Popular</span>
+      <span class="word3"> Breeds</span>
+    </h3>
+
+    <div class="products">
+      <div class="product">
+        <h3>Budgerigar</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/birdLandingPage/Bird_breeds/Budgerigar.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">5-11 inch</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 1500 <span>Rs. 3000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Cockatiel</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/birdLandingPage/Bird_breeds/Cocktail.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">12-13 inch</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 5000 <span>Rs. 10000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Dove</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/birdLandingPage/Bird_breeds/dove.jpg" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">10-30 inch</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 7500 <span>Rs. 10000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <h3>Finch</h3>
+        <div class="card">
+          <div class="front">
+            <img src="../../img/birdLandingPage/Bird_breeds/Finch.png" alt="" />
+          </div>
+          <div class="back">
+            <p class="info">5-10 inch</p>
+            <p class="info">Male|Female</p>
+            <p class="info cost">Rs. 2000 <span>Rs. 4000.00</span></p>
+            <a href="" class="pet"><span>Shop Now</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product exploreMore">
+        <div><a href="#" class="explore">Find More</a></div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="explore"><a href="#" class="expBtn">Explore More</a></div>
+  </section>
+
+  <section id="services" class="services">
+    <h3 class="heading">Our Services</h3>
+    <div class="services-list">
+      <div class="service">
+        <img src="../../img/birdLandingPage/Bird_breeds/bird_accessories.png" alt="" width="100%" height="100%" />
+        <div class="content">
+          <h3>Accesories</h3>
+          <p>
+            Here, You can find all best deals on Accesories related to pet
+            including Toys,Harnesses
+          </p>
+          <a class="pet pet-service" href="#">Learn More</a>
+        </div>
+      </div>
+      <div class="service">
+        <img src="../../img/birdLandingPage/Bird_breeds/bird_care.png" alt="" height="250px" width="250px" />
+        <h3>Pet Care</h3>
+        <p>Here You can find all the best medicines to care your Pet</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+      <div class="service">
+        <img src="../../img/birdLandingPage/Bird_breeds/bird_food.png" alt="" />
+        <h3>Food</h3>
+        <p>Feed Your Pet with Love , Affection and High Quality Food!</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+      <div class="service">
+        <img src="../../img/birdLandingPage/Bird_breeds/bird_training.png" alt="" />
+        <h3>Training</h3>
+        <p>Give You Pet the best training for desired behaviours</p>
+        <a class="pet pet-service" href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="Delivered">
+      <span class="count">999</span>
+      <p>Dogs Delivered</p>
+    </div>
+
+    <div class="feedback">
+      <span class="count">99%</span>
+      <p>Positive Customers</p>
+    </div>
+
+    <div class="happy-families">
+      <span class="count">500</span>
+      <p>Happy Families</p>
+    </div>
+  </section>
+
+  <footer>
+    <img src="../../img/birdLandingPage/top_wave.png" alt="" />
+    <div class="pet-side">
+      <p>Shop Pet</p>
+      <a href="#" class="pets">Dog</a>
+      <a href="#" class="pets">Cat</a>
+      <a href="#" class="pets">Fish</a>
+      <a href="#" class="pets">Bird</a>
+    </div>
+
+    <div class="pet-services">
+      <p>Services Offered</p>
+      <a href="#" class="pets">Accessories</a>
+      <a href="#" class="pets">Training</a>
+      <a href="#" class="pets">Pet Care</a>
+      <a href="#" class="pets">Spa & Grooming</a>
+    </div>
+
+    <div class="social">
+      <p>Lets Stay Connected</p>
+      <div class="input">
+        <input type="text" placeholder="Your Mail" />
+        <button type="button">Submit</button>
+      </div>
+      <p>Follow Us</p>
+      <a href="#"><i class="fa-brands fa-facebook facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-square-instagram instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-twitter twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-pinterest pinterest"></i></a>
+    </div>
+    <div class="credit">
+      created by <span>&copy;Group 7</span>|all rights reserved!
+    </div>
+  </footer>
+
+  <!-- <a href="" class="pet"><span>Shop Now</span></a> -->
+  <!-- <button type="button" class="pet"><span>Shop Now</span></button> -->
+</body>
+
+</html>
