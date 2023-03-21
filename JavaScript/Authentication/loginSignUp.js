@@ -40,7 +40,7 @@ const passwordError = document.getElementById("password-error")
 form.addEventListener('click', (event) => {
     let mailErrorMessages = []
     let passwordErrorMessages = []
-    if (userMail.value == "" || userMail.value == null) {
+    if (userMail.value == " " || userMail.value == null) {
         mailErrorMessages.push("User Mail cannot be empty")
         document.querySelector(".contact-form #user-mail").classList.add("error")
     }
