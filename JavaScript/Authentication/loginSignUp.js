@@ -44,7 +44,7 @@ form.addEventListener('click', (event) => {
         mailErrorMessages.push("User Mail cannot be empty")
         document.querySelector(".contact-form #user-mail").classList.add("error")
     }
-    if (mailErrorMessages.length > 0) {
+    if (mailErrorMessages.length > 0) { 
         event.preventDefault()
         mailError.innerText = mailErrorMessages.join(",")
     }

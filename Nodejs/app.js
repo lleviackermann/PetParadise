@@ -74,8 +74,12 @@ if(req.body.Password === req.body.ConfirmPassword){
                 console.log(err.message);
             }
         })    
-    })}
+    })
     res.end("Data added to the database successfully");
+}
+    else{
+        res.end("Password not matched")
+    }
 })
 
 const checkPassword = (Password,hashedPassword)=>{
