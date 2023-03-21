@@ -40,11 +40,11 @@ const passwordError = document.getElementById("password-error")
 form.addEventListener('click', (event) => {
     let mailErrorMessages = []
     let passwordErrorMessages = []
-    if (userMail.value == "" || userMail.value == null) {
+    if (userMail.value == " " || userMail.value == null) {
         mailErrorMessages.push("User Mail cannot be empty")
         document.querySelector(".contact-form #user-mail").classList.add("error")
     }
-    if (mailErrorMessages.length > 0) {
+    if (mailErrorMessages.length > 0) { 
         event.preventDefault()
         mailError.innerText = mailErrorMessages.join(",")
     }
@@ -54,7 +54,7 @@ form.addEventListener('click', (event) => {
     }
     let lowerCaseLetters = /[a-z]/g;
     let upperCaseLetters = /[A-Z]/g;
-    if (userPassword.value.length == 0 || !userPassword.value.match(lowerCaseLetters) || !userPassword.value.match(upperCaseLetters) || userPassword.value.length < 6 || userPassword.value.length > 14) {
+    if (userPassword.value.length == 0 || !userPassword.value.match(lowerCaseLetters) || !userPassword.value.match(upperCaseLetters) || userPassword.value.length < 8) {
         passwordErrorMessages.push("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
         document.querySelector(".contact-form #user-password").classList.add("error")
     }
