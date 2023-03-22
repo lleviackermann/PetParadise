@@ -1,4 +1,5 @@
 const express = require("express")
+const sqlite = require("sqlite3")
 const authRouter = require("./routes/auth/authRoutes");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
@@ -19,9 +20,12 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/client"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//Static files are files that clients download from the server
 app.use(express.static("client"));
 
-
+//authRouter is called everytime the /auth is used in the server
+//Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", (req, res) => {
     res.render("./HTML/LandingPages/mainLandingPage.ejs");
@@ -43,10 +47,47 @@ app.use("/user/profile", userProfile)
 app.use("/user/payment", userPayment)
 
 
-app.listen(3000, (err) => {
+app.listen(8000, (err) => {
     if (err) {
         return console.error(err);
     }
-
     console.log("server started successfully!");
 })
+
+
+
+//creating database if not exists
+const dbpath = path.join("data","index.db")
+const db = new sqlite.Database(dbpath,sqlite.OPEN_READWRITE,err=>{
+    if(err){
+        console.log("error in connecting the database");
+    }
+    else{
+        console.log("Database Connected");
+    }
+})
+
+const createTable1 = "create table if not exists userdata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)"
+const createTable2 = "create table if not exists employeedata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)"
+
+
+db.run(createTable1,(err)=>{
+    if(err){
+        console.log("error in creating the table");
+    }
+    else{
+    console.log("table userdata is created successfully");
+    }
+})
+
+db.run(createTable2,(err)=>{
+    if(err){
+        console.log("error in creating the table");
+    }
+    else{
+    console.log("table employeedata is created successfully");
+    }
+})
+
+
+// db.run(`drop table userdata`)
