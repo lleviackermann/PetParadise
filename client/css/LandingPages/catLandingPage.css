@@ -383,7 +383,7 @@ header .navbar a:hover {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: url(../../img/catLandingPage/Cat_Breeds/Screenshot\ 2023-03-16\ 224905.png) no-repeat;
+  background: url(../../img/dogLandingPage/Cat_Breeds/Screenshot\ 2023-03-16\ 224905.png) no-repeat;
   background-position: center;
   background-size: cover;
   position: relative;
@@ -1114,11 +1114,11 @@ footer .credit span {
   header .logo {
     margin-left: 0;
   }
-  .Shop-Bird .products {
+  .Shop-Cat .products {
     margin: 0;
     padding: 0;
   }
-  .Shop-Bird .products .product {
+  .Shop-Cat .products .product {
     min-width: 90%;
   }
   footer .social .facebook, footer .social .instagram, footer .social .twitter, footer .social .pinterest {
