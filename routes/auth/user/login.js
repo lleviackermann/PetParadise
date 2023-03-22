@@ -7,7 +7,7 @@ var session = require('express-session')
 var flush = require('connect-flash')
 
 router.get("/", (req, res) => {
-    res.render("./HTML/Authentication/login.ejs")
+    res.render("./HTML/Authentication/login.ejs", { error: false })
 })
 
 router.use(session({    
@@ -21,43 +21,44 @@ router.use(flush())
 
 
 const loginquery = "select * from userdata where mailId=?"
-const dbpath = path.join(__dirname,"..","..","..","data","index.db")
-const db = new sqlite.Database(dbpath,sqlite.OPEN_READWRITE,err=>{
-    if(err){
+const dbpath = path.join(__dirname, "..", "..", "..", "data", "index.db")
+const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, err => {
+    if (err) {
         console.log(dbpath);
     }
-    else{
+    else {
         console.log("Database Connected");
     }
 })
 
-const checkPassword = (Password,hashedPassword)=>{
-    return bcrypt.compareSync(Password,hashedPassword)
+const checkPassword = (Password, hashedPassword) => {
+    return bcrypt.compareSync(Password, hashedPassword)
 }
-router.post("/post",async function(req,res){
+
+router.post("/", async function (req, res) {
     let mail = req.body.Email
     let password = req.body.Password
     let matched;
-    await db.all(loginquery,[mail], function(err,rows){
-            if(err){
-                console.log(err.message);
-            }
-            if(rows.length == 0){
-                res.end("Incorrect UserName")
-            }
-          rows.forEach(async (row) => {
+    await db.all(loginquery, [mail], function (err, rows) {
+        if (err) {
+            console.log(err.message);
+        }
+        if (rows.length == 0) {
+            res.render("./HTML/Authentication/login", { error: true, message: "Invalid Username!Please try again"})
+        }
+        rows.forEach(async (row) => {
             console.log(row)
-            matched = await checkPassword(password,row.password)
-            // console.log("matched:"+checkPassword(password,row.password));
+            matched = await checkPassword(password, row.password)
             console.log(matched);
-            if(matched == true){
-                res.end(req.protocol + '://' + req.get('host') + req.originalUrl)
+            if (matched == true) {
+                res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!"})
                 success = true
-            }else{
-                res.end("Password is incorrect")
-            }        
+
+            } else {
+                res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again"})
+            }
         });
-        })
+    })
     // res.end("received request successfully")
 })
 
