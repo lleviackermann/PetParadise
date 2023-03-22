@@ -174,12 +174,16 @@ section{
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
-    width: 40rem;
+    width: 45rem;
     background: #fff;
     height: 500px;
     overflow: hidden;
     overflow-y: scroll;
 
+}
+
+.header .shopping-cart input{
+    border: #ff7800 2px solid;
 }
 
 .header .shopping-cart.active{
@@ -293,7 +297,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("../../img/foodservicesLandingPage/back2.jpg") no-repeat;
+    background: url("../../img/foodservicesLandingPage/back5.jpg") no-repeat;
     background-position: center;
     background-size: cover;
     padding-top: 20rem;
