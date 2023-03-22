@@ -29,7 +29,7 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", (req, res) => {
-    res.render("./HTML/LandingPages/mainLandingPage.ejs");
+    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false});
 });
 
 app.get("/admin", (req, res) => {
