@@ -13,8 +13,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -31,15 +29,15 @@
           <div class="petsDropDown">
             <button class="petsBtn">Pets</button>
             <div class="content">
-              <a href="#">Dog</a>
-              <a href="#">Cat</a>
-              <a href="#">Bird</a>
-              <a href="#">Fish</a>
+              <a href="/dogs">Dog</a>
+              <a href="/cats">Cat</a>
+              <a href="/birds">Bird</a>
+              <a href="/fish">Fish</a>
             </div>
           </div>
-          <a href="#">Vet-Care</a>
-          <a href="#">Services</a>
-          <a href="#">Accessories</a>
+          <a href="/vet-care">Vet-Care</a>
+          <a href="/services">Services</a>
+          <a href="/products">Accessories</a>
         </nav>
       </div>
       <div class="logo">
@@ -175,6 +173,12 @@
             </div>
           </div>
         </div>
+        <div class="product exploreMore">
+          <div class="explore"><a href="#" class="expBtn">Find More</a></div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <div class="explore"><a href="#" class="expBtn">Explore More</a></div>
     </section>
@@ -255,18 +259,18 @@
       <img src="../../img/fishLandingPage/top_wave.png" alt="" />
       <div class="pet-side">
         <p>Shop Pet</p>
-        <a href="#" class="pets">Dog</a>
-        <a href="#" class="pets">Cat</a>
-        <a href="#" class="pets">Fish</a>
-        <a href="#" class="pets">Bird</a>
+        <a href="/dogs" class="pets">Dog</a>
+        <a href="/cats" class="pets">Cat</a>
+        <a href="/fish" class="pets">Fish</a>
+        <a href="/birds" class="pets">Bird</a>
       </div>
 
       <div class="pet-services">
         <p>Services Offered</p>
-        <a href="#" class="pets">Accessories</a>
-        <a href="#" class="pets">Training</a>
-        <a href="#" class="pets">Pet Care</a>
-        <a href="#" class="pets">Spa & Grooming</a>
+        <a href="/products" class="pets">Accessories</a>
+        <a href="/petsfoods" class="pets">Food</a>
+        <a href="/vet-care" class="pets">Vet Care</a>
+        <a href="/services" class="pets">Spa & Grooming</a>
       </div>
 
       <div class="social">
@@ -289,4 +293,5 @@
     <!-- <a href="" class="pet"><span>Shop Now</span></a> -->
     <!-- <button type="button" class="pet"><span>Shop Now</span></button> -->
   </body>
+  <script src="../../JavaScript/LandingPages/catLandingPage.js"></script>
 </html>

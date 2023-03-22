@@ -118,7 +118,7 @@ function showSlides(n) {
             console.log("Tablet size Matches");
             slideIndex = 2
             showSlides(slideIndex)
-            // document.getElementsByClassName("explore")[1].style.display = "none"
+            document.getElementsByClassName("explore")[1].style.display = "none"
             // document.getElementById("exploreMore").style.display = "none"
         }
         else if (mobileWidth.matches) {
@@ -127,7 +127,7 @@ function showSlides(n) {
             showSlides(slideIndex)
         }
         else{
-            // document.getElementsByClassName("explore")[1].style.display = "block"
+            document.getElementsByClassName("explore")[1].style.display = "block"
             console.log("explore more button is turned on");
         }
         let myWidth = window.innerWidth;
@@ -143,4 +143,3 @@ function showSlides(n) {
         }
     };
 })();
-
