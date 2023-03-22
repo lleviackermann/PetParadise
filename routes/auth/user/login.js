@@ -2,12 +2,23 @@ const express = require("express");
 const path = require('path')
 const sqlite = require('sqlite3')
 const bcrypt = require('bcryptjs')
-
 const router = express.Router();
+var session = require('express-session')
+var flush = require('connect-flash')
 
 router.get("/", (req, res) => {
     res.render("./HTML/Authentication/login.ejs", { error: false })
 })
+
+router.use(session({    
+    secret: 'secret',
+    cookie: {maxAge:60000},
+    resave: false,
+    saveUninitialized: false
+}))
+
+router.use(flush())
+
 
 const loginquery = "select * from userdata where mailId=?"
 const dbpath = path.join(__dirname, "..", "..", "..", "data", "index.db")
