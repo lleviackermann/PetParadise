@@ -1,0 +1,34 @@
+.messageUp {
+  display: block;
+    text-align: center;
+    width: 100%;
+    background-color: #00A36C;
+    animation-name: messageAnimation;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes messageAnimation {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    75% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+      position: absolute;
+    }
+  }
