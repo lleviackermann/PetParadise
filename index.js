@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
     res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false});
 });
 
-app.get("/admin", (req, res) => {
+app.get("/auth/admin/dashboard", (req, res) => {
     res.render("./HTML/Admin/admin.ejs");
 })
 
