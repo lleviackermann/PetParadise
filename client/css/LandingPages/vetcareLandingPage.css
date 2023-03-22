@@ -86,7 +86,7 @@ html{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .background-image{
-    background: url("../../img/vetcareLandingPage/ba.jpg");
+    background: url("../../img/vetcareLandingPage/ba.jpeg");
     width: 100%;
     height: 100vh;
     background-size: cover;

@@ -13,14 +13,17 @@
 
 <body>
     <section id="header">
-        <a href="#"><img src="../../img/productLandingPage/logo.jpg" class="logo" alt=""></a>
+        <a href="#"><img src="../../img/foodservicesLandingPage/paw-solid.svg" class="logo" alt=""></a>
+        <p class="heading">PETS PARADISE</p>
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#"><i class="fas fa-search" id="search-btn"></i></a></li>
-                <li><a href="#"><i class="fas fa-user" id="login-btn"></i></a></li>
+                <li><a class="active" href="/">Home</a></li>
+                <li><a href="/services">services</a></li>
+                <li><a href="/vet-care">Vet-Care</a></li>
+                <li><a href="/petsfoods">Food</a></li>
+
+                <!-- <li><a href="#"><i class="fas fa-search" id="search-btn"></i></a></li> -->
+                <li><a href="/auth/user/login"><i class="fas fa-user" id="login-btn"></i></a></li>
                 <!-- <div class="fas fa-search" id="search-btn"></div>
                 <div class="fas fa-shopping-cart" id="cart-btn"></div>
                 <div class="fas fa-user" id="login-btn"></div> -->
@@ -32,6 +35,9 @@
             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="#"><i id="bar" class="fas fa-bars"></i></a>
         </div>
+        <!-- <div class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </div> -->
 
         <form action="" class="search-form">
             <input type="search" id="search-box" placeholder="search here">
@@ -427,12 +433,10 @@
             <img src="../../img/productLandingPage/paycards.jpg" class="ins" alt="">
         </div>
 
-        <!-- <div class="copy-right">
-        <p>Copy right text</p>
-    </div> -->
-
     </footer>
     <script>
+
+
         const bar = document.getElementById('bar');
         const nav = document.getElementById('navbar');
         const clo = document.getElementById('close');
@@ -448,32 +452,32 @@
             })
         }
 
-        let searchForm = document.querySelector('.search-form');
+        // let searchForm = document.querySelector('.search-form');
 
-        document.querySelector('#search-btn').onclick = () => {
-            searchForm.classList.toggle('active');
-            shoppingCart.classList.remove('active');
-            login.classList.remove('active');
-            navbar.classList.remove('active');
-        }
+        // document.querySelector('#search-btn').onclick = () => {
+        //     searchForm.classList.toggle('active');
+        //     shoppingCart.classList.remove('active');
+        //     login.classList.remove('active');
+        //     navbar.classList.remove('active');
+        // }
 
         let shoppingCart = document.querySelector('.shopping-cart');
 
         document.querySelector('#cart-btn').onclick = () => {
             shoppingCart.classList.toggle('active');
-            searchForm.classList.remove('active');
+            // searchForm.classList.remove('active');
             login.classList.remove('active');
             navbar.classList.remove('active');
         }
 
-        let login = document.querySelector('.login-form');
+        // let login = document.querySelector('.login-form');
 
-        document.querySelector('#login-btn').onclick = () => {
-            login.classList.toggle('active');
-            searchForm.classList.remove('active');
-            shoppingCart.classList.remove('active');
-            navbar.classList.remove('active');
-        }
+        // document.querySelector('#login-btn').onclick = () => {
+        //     login.classList.toggle('active');
+        //     // searchForm.classList.remove('active');
+        //     shoppingCart.classList.remove('active');
+        //     navbar.classList.remove('active');
+        // }
 
         let removeCartItemButtons = document.getElementsByClassName('remove')
         for (let i = 0; i < removeCartItemButtons.length; i++) {
