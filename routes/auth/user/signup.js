@@ -29,7 +29,7 @@ router.post("/post",async function(req, res){
             res.end(`User with the mailId already exists`)
         }
     else if(req.body.Password === req.body.ConfirmPassword){
-        bcrypt.hashSync(req.body.Password,1, await function(err,hash){
+        bcrypt.hash(req.body.Password,1, await function(err,hash){
             db.run(adddata,[req.body.FirstName,req.body.LastName,req.body.Email,hash],err=>{
                 if(err){
                     console.log(err.message);
