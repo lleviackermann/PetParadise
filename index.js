@@ -15,6 +15,7 @@ const vetcarePage = require("./routes/pages/vetcare")
 const petfoodPage = require("./routes/pages/petfood")
 const userProfile = require("./routes/profiles/userProfile")
 const userPayment = require("./routes/payments/payment")
+const bcrypt = require('bcryptjs')
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/client"));
@@ -68,8 +69,18 @@ const db = new sqlite.Database(dbpath,sqlite.OPEN_READWRITE,err=>{
 })
 
 const createTable1 = "create table if not exists userdata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)"
-const createTable2 = "create table if not exists employeedata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)"
+const createTable2 = "create table if not exists employeedata(mailId varchar(30),password varchar(60) not null)"
 
+const createTable3 = "insert into employeedata values(?,?)"
+
+
+// bcrypt.hash("Koushik1234",1,  function(err,hash){
+//     db.run(createTable3,["koushik@iiits.in",hash],err=>{
+//         if(err){
+//             console.log(err.message);
+//         }
+//     })    
+// })
 
 db.run(createTable1,(err)=>{
     if(err){
@@ -90,4 +101,4 @@ db.run(createTable2,(err)=>{
 })
 
 
-// db.run(`drop table userdata`)
+// db.run(`drop table employeedata`)

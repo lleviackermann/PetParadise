@@ -2,14 +2,22 @@ const express = require("express");
 const path = require('path')
 const sqlite = require('sqlite3')
 const bcrypt = require('bcryptjs')
-
 const router = express.Router();
+var session = require('express-session')
+var flush = require('connect-flash')
 
 router.get("/", (req, res) => {
     res.render("./HTML/Authentication/login.ejs")
 })
 
+router.use(session({    
+    secret: 'secret',
+    cookie: {maxAge:60000},
+    resave: false,
+    saveUninitialized: false
+}))
 
+router.use(flush())
 
 
 const loginquery = "select * from userdata where mailId=?"
@@ -43,9 +51,8 @@ router.post("/post",async function(req,res){
             // console.log("matched:"+checkPassword(password,row.password));
             console.log(matched);
             if(matched == true){
-                res.end("Password succesfully  matched")
+                res.end(req.protocol + '://' + req.get('host') + req.originalUrl)
                 success = true
-
             }else{
                 res.end("Password is incorrect")
             }        
