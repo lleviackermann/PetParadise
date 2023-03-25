@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fish website</title>
     <link rel="stylesheet" href="../../css/LandingPages/fishLandingPage.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+  
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -54,6 +57,8 @@
         />
         <p style="display: inline-block" onclick="Logo()">Pet's Paradise</p>
       </div>
+
+
       <!-- <div class="icons">
         <div class="fa-solid fa-cart-shopping"></div>
         <div
@@ -62,7 +67,22 @@
           id="login-btn"
         ></div>
       </div> -->
+      <!-- <a href="/auth/user/login" class="login-btn">Login</a> -->
+
+      <div class="enter">
+        <% if (notlogin) { %>
       <a href="/auth/user/login" class="login-btn">Login</a>
+      <% }else{ %>
+        <div class="enter__item profile">
+          <span class="material-icons-sharp cart" style="font-size: 3.5rem;"> shopping_cart </span>
+          <a href="/user/profile"><span class="material-icons-sharp profile-picture" style="font-size: 3.5rem;">
+            account_circle
+          </span>
+        </a>
+        </div>
+        <% } %>
+    </div>
+
 
       <form action="/send" method="post" class="login-form">
         <h3>Sign in</h3>

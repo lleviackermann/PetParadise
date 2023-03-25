@@ -59,3 +59,7 @@ body {
 .sidebar .card-body {
     background-color: rgb(125, 170, 169);
 }
+
+.userName {
+    text-transform:uppercase;
+}

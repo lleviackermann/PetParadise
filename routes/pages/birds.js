@@ -3,7 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("./HTML/LandingPages/birdLandingPage.ejs")
+    let notlogin = true;
+    if (req.session.userName) {
+        notlogin = false
+    }
+    res.render("./HTML/LandingPages/birdLandingPage.ejs", { notlogin })
 })
 
 router.post("/", (req, res) => {

@@ -15,12 +15,28 @@ const vetcarePage = require("./routes/pages/vetcare")
 const petfoodPage = require("./routes/pages/petfood")
 const userProfile = require("./routes/profiles/userProfile")
 const userPayment = require("./routes/payments/payment")
-const bcrypt = require('bcryptjs')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+
+app.use(session({
+    secret: "some secret",
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24,
+    },
+    resave: true,
+    saveUninitialized: false,
+}))
+
+app.use(cookieParser())
+
+
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/client"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 
 //Static files are files that clients download from the server
 app.use(express.static("client"));
@@ -29,7 +45,12 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", (req, res) => {
-    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false});
+    let notlogin = true
+    console.log(req.session.userName);
+    if (req.session.userName) {
+        notlogin = false
+    }
+    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
 app.get("/auth/admin/dashboard", (req, res) => {
@@ -58,12 +79,12 @@ app.listen(8000, (err) => {
 
 
 //creating database if not exists
-const dbpath = path.join("data","index.db")
-const db = new sqlite.Database(dbpath,sqlite.OPEN_READWRITE,err=>{
-    if(err){
+const dbpath = path.join("data", "index.db")
+const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, err => {
+    if (err) {
         console.log("error in connecting the database");
     }
-    else{
+    else {
         console.log("Database Connected");
     }
 })
@@ -82,21 +103,21 @@ const createTable3 = "insert into employeedata values(?,?)"
 //     })    
 // })
 
-db.run(createTable1,(err)=>{
-    if(err){
+db.run(createTable1, (err) => {
+    if (err) {
         console.log("error in creating the table");
     }
-    else{
-    console.log("table userdata is created successfully");
+    else {
+        console.log("table userdata is created successfully");
     }
 })
 
-db.run(createTable2,(err)=>{
-    if(err){
+db.run(createTable2, (err) => {
+    if (err) {
         console.log("error in creating the table");
     }
-    else{
-    console.log("table employeedata is created successfully");
+    else {
+        console.log("table employeedata is created successfully");
     }
 })
 

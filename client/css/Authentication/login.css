@@ -13,6 +13,7 @@
     --input-text: #8c9aaf;
     --input-shadow: hsla(var(--main-hue), 92%, 54%, 0.169);
     --light-main-color: hsl(var(--main-hue), 91%, 55%);
+    --error-color: var(--text-color)
 }
 
 .dark {
@@ -24,6 +25,7 @@
     --input-text: hsl(var(--main-hue), 10%, 55%)
     --input-shadow: hsla(var(--main-hue), 92%, 58%, 0.2);
     --text-color: #fff; 
+    --error-color: var(--text-color);
 }
 
 .dark .logo img.logo-forDark {
@@ -234,6 +236,11 @@ header .container {
 .contact-form .input-wrap .error{
     border: solid;
     border-color: red;
+    color: var(--error-color);
+}
+
+#mail-error,#password-error{
+    color: var(--error-color);
 }
 
 .input-wrap {
