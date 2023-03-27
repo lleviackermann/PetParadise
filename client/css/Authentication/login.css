@@ -28,6 +28,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    /* min-height: 100vh; */
 }
 
 .background {
@@ -115,7 +116,7 @@ header .container {
 }
 
 .contact .container {
-    height: 90vh;
+    height: 95vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;

@@ -114,8 +114,7 @@ header .container {
 }
 
 .contact .container {
-  /* height: 115vh; */
-  /* min-height: 700px; */
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
