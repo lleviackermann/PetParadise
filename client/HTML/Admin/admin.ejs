@@ -21,9 +21,17 @@
     />
 
     <title>Admin</title>
+  <link rel="stylesheet" href="/css/helper/message.css">
+
   </head>
 
   <body>
+    <% if (error) { %>
+      <div class="messageUp">
+        <%= message %>
+      </div>
+      <% } %>
+
     <div class="admin">
       <!-- SIDEBAR START -->
       <aside>
