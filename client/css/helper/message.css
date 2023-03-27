@@ -14,21 +14,26 @@
 
 @keyframes messageAnimation {
   0% {
+    position: relative;
     opacity: 0;
   }
   25% {
+    position: relative;
     opacity: 0.5;
   }
 
   50% {
+    position: relative;
     opacity: 1;
   }
 
   75% {
+    position: relative;
     opacity: 0.5;
   }
   100% {
     opacity: 0;
     position: absolute;
+    /* display: none; */
   }
 }

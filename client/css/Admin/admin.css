@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+
 :root {
-    --color-primary: #7380ec;
-    --color-danger: #ff7782;
-    --color-success: #41f1b6;
+    /* --color-primary: #7380ec; */
+    --main-hue: 208;
+    --color-primary: hsl(var(--main-hue), 92%, 54%);
+    --roboto-text: "Roboto", sans-serif;
+
+    --color-danger: #FA5F55;
+    --color-success: #00a36c;
     --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #7d8da1;
@@ -19,7 +26,8 @@
     --padding-1: 1.2rem;
     --box-shadow: 0 2rem 3rem var(--color-light);
 
-    --size-1: 56.25em; /*900 pixel*/
+    --size-1: 56.25em;
+    /*900 pixel*/
 }
 
 .dark-theme-variables {
@@ -57,7 +65,7 @@ body {
     font-size: 1rem;
     background-color: var(--color-background);
     user-select: none;
-    color:var(--color-dark);
+    color: var(--color-dark);
     overflow-x: hidden;
 }
 
@@ -71,6 +79,7 @@ body {
 
 a {
     color: var(--color-dark);
+    font-family: var(--roboto-text);
 }
 
 img {
@@ -129,6 +138,7 @@ b {
 .success {
     color: var(--color-success);
 }
+
 .primary {
     color: var(--color-primary);
 }
@@ -155,6 +165,7 @@ aside .admin__logo {
     display: flex;
     gap: 0.8rem;
 }
+
 aside .admin__logo img {
     width: 2rem;
     height: 2rem;
@@ -243,6 +254,7 @@ main.admin__dashboard {
     margin-top: 1.4rem;
     grid-column: 2 / 3;
 }
+
 main.admin__dashboard h1 {
     text-transform: uppercase;
 }
@@ -253,7 +265,7 @@ main.admin__dashboard .insights {
     gap: 1.6rem;
 }
 
-main.admin__dashboard .insights > div {
+main.admin__dashboard .insights>div {
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -262,11 +274,11 @@ main.admin__dashboard .insights > div {
     transition: all .3s ease;
 }
 
-main.admin__dashboard .insights > div:hover {
+main.admin__dashboard .insights>div:hover {
     box-shadow: none;
 }
 
-main.admin__dashboard .insights > div span {
+main.admin__dashboard .insights>div span {
     background: var(--color-primary);
     padding: 0.5rem;
     border-radius: 50%;
@@ -274,15 +286,15 @@ main.admin__dashboard .insights > div span {
     font-size: 2rem;
 }
 
-main.admin__dashboard .insights > div.expenses span {
+main.admin__dashboard .insights>div.expenses span {
     background: var(--color-danger);
 }
 
-main.admin__dashboard .insights > div.income span {
+main.admin__dashboard .insights>div.income span {
     background: var(--color-success);
 }
 
-main.admin__dashboard .insights > div .middle {
+main.admin__dashboard .insights>div .middle {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -530,7 +542,7 @@ main.admin__dashboard a {
 
     aside .admin__logo h2 {
         display: none;
-    } 
+    }
 
     aside .admin__sidebar h3 {
         display: none;
