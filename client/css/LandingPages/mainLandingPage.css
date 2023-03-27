@@ -84,7 +84,7 @@ a {
 }
 
 .enter__item.profile {
-  display: none;
+  /* display: none; */
 }
 
 .brand {

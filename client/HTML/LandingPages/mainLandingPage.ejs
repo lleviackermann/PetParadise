@@ -55,15 +55,19 @@
           </ul>
         </nav>
         <div class="enter">
+          <% if (notlogin) { %>
           <a href="/auth/user/login">
             <button class="btn-grad" type="submit">Login</button>
           </a>
+        <% }else{ %>
           <div class="enter__item profile">
-            <span class="material-icons-sharp cart"> shopping_cart </span>
-            <span class="material-icons-sharp profile-picture">
+            <span class="material-icons-sharp cart" style="font-size: 3.5rem;"> shopping_cart </span>
+            <a href="/user/profile"><span class="material-icons-sharp profile-picture" style="font-size: 3.5rem;">
               account_circle
             </span>
+          </a>
           </div>
+        <% } %>
         </div>
       </header>
 

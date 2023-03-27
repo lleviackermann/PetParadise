@@ -200,20 +200,30 @@ header .navbar .petsDropDown:hover .content a {
 header .active {
   order: 1;
 }
-header .login-btn {
+
+header .enter {
   order: 2;
   font-size: 1.5rem;
   margin-left: 2rem;
+  /* margin-right: 10rem; */
+}
+
+header .enter .login-btn{
   cursor: pointer;
-  margin-right: 10rem;
   background-color: hsl(208, 92%, 54%);
   padding: 0.5rem 1.25rem;
   border-radius: 2rem;
-  color: var(--white);
+  color: var(--white);  
 }
-header .login-btn:hover {
+header .enter .login-btn:hover {
   background-color: hsl(208, 77%, 48%);
 }
+
+header .enter .profile a:visited{
+  color: var(--black);
+} 
+
+
 header .icons {
   order: 2;
   font-size: 2.5rem;

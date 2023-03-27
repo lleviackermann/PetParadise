@@ -33,18 +33,18 @@ form.addEventListener('click', (event) => {
     if (userMail.value == "" || userMail.value == null) {
         mailErrorMessages.push("User Mail cannot be empty")
         console.log("User mail cannot be empty");
-        document.querySelector(".contact-form #user-mail").classList.add("error")
     }
-    else if(!userMail.value.match(validMailFormat)){
+    else if (!userMail.value.match(validMailFormat)) {
         mailErrorMessages.push("Incorrect Mail Format!")
     }
     else if (document.querySelector("#user-mail").classList.contains("error")) {
         document.querySelector("#user-mail").classList.toggle("error")
         mailError.innerText = ""
     }
-    if (mailErrorMessages.length > 0) { 
+    if (mailErrorMessages.length > 0) {
         event.preventDefault()
         mailError.innerText = mailErrorMessages.join(",")
+        document.querySelector(".contact-form #user-mail").classList.add("error")
     }
     let lowerCaseLetters = /[a-z]/g;
     let upperCaseLetters = /[A-Z]/g;
@@ -53,15 +53,15 @@ form.addEventListener('click', (event) => {
         document.querySelector(".contact-form #user-password").classList.add("error")
     }
 
-    if((confirmPassword) != null && (confirmPasswordError) != null){
-        if (userPassword!=null && confirmPassword!=null && userPassword.value!= confirmPassword.value) {
+    if ((confirmPassword) != null && (confirmPasswordError) != null) {
+        if (userPassword != null && confirmPassword != null && userPassword.value != confirmPassword.value) {
             event.preventDefault()
             confirmPasswordError.innerText = "Passwords doesnot match"
             document.querySelector(".contact-form #user-confirm").classList.add("error")
         }
-        else if(document.querySelector("#user-confirm").classList.contains("error")){
+        else if (document.querySelector("#user-confirm").classList.contains("error")) {
             document.querySelector(".contact-form #user-confirm").classList.remove("error")
-            confirmPasswordError.innerText=""
+            confirmPasswordError.innerText = ""
         }
         console.log("hello");
     }
