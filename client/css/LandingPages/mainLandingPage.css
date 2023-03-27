@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Mukta:700");
+/* @import url("https://fonts.googleapis.com/css?family=Mukta:700"); */
 
 :root {
   --heading-text: "Signika Negative", sans-serif;
@@ -89,7 +89,6 @@ a {
 
 .brand {
   margin-left: 5rem;
-  /* flex-grow: 1; */
   display: flex;
   gap: 1.3rem;
   align-items: center;
@@ -120,6 +119,7 @@ a {
   font-size: 2rem;
   padding: 2rem;
   color: #333;
+  font-family: var(--roboto-text);
 }
 
 .header nav ul li ul {
@@ -132,6 +132,7 @@ a {
   z-index: 4;
   display: none;
   transition: all 0.25s ease-in-out;
+  background-color: #fff;
 }
 
 .header nav ul li ul li {
@@ -1068,6 +1069,12 @@ footer .credit span {
 
   .last--item {
     margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: 850px) {
+  .header nav{
+    display: flex;
   }
 }
 
