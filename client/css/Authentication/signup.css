@@ -116,23 +116,26 @@ header .container {
 .contact .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
-.contact .container>div {
+/* .contact .container>div {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-}
+} */
 
-.left {
+.right {
+  grid-column: 2 / 3;
   width: 100%;
-  max-width: 80rem;
+  /* max-width: 80rem; */
+  /* min-width: 37rem; */
   margin: 0 auto;
   padding: 6rem 1.5rem 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
   align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 3;
 }
@@ -331,61 +334,32 @@ textarea.contact-input~.icon {
   color: var(--main-color);
 }
 
-.right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   overflow: hidden;
   pointer-events: none;
+  padding-top: 4rem;
 }
 
-.image-wrapper {
-  position: relative;
-  grid-column: 2;
-}
 
-.image-wrapper .img {
-  position: absolute;
+.left .img {
   height: 130%;
-  left: 60%;
-  top: 50%;
-  transform: translate(-55%, -50%);
-  height: 40rem;
-  width: 40rem;
-}
-
-#wave {
-  fill: var(--bg-color);
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
   height: 100%;
-}
-
-.dashed-wave {
-  position: absolute;
-  z-index: 3;
-  height: 130%;
-  bottom: 60%;
-  left: -28px;
-  transform: translateY(50%);
-}
-
-#dashed-wave {
-  fill: none;
-  stroke: var(--nav-color);
-  stroke-width: 1px;
-  stroke-dasharray: 6.5;
-  opacity: 0.8;
-}
-
-@media screen and (max-width: 1300px) {
-  .image-wrapper .img {
-    height: 35rem;
-    width: 35rem;
-  }
+  width: 100%;
 }
 
 @media screen and (max-width: 1150px) {
-  .image-wrapper .img {
-    height: 30rem;
-    width: 30rem;
+  .left .img {
+    height: 80%;
+    width: 80%;
+    transform: translateY(4rem);
+  }
+
+  .right {
+    margin-left: -5rem;
   }
 }
 
@@ -488,16 +462,14 @@ textarea.contact-input~.icon {
   }
 }
 
-@media screen and (max-width: 810px) {
-  .image-wrapper .img {
-    height: 20rem;
-    width: 20rem;
-  }
-}
 
 @media screen and (max-width: 700px) {
   header .container {
     height: 50px;
+  }
+
+  main .contact .container {
+    grid-template-columns: 1fr;
   }
 
   .logo .images {
@@ -505,9 +477,16 @@ textarea.contact-input~.icon {
   }
 
   .left {
+    display: none;
+  }
+
+  .right {
     padding: 50px 1.5rem 0;
-    grid-template-columns: 1fr;
     justify-items: center;
+    margin-left: 0rem;
+    min-width: none;
+    width: 100%;
+    grid-column: 1 / 2;
   }
 
   .form-wrapper {
@@ -528,9 +507,6 @@ textarea.contact-input~.icon {
     margin-left: 0;
   }
 
-  .right {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 450px) {

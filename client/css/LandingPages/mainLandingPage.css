@@ -833,6 +833,7 @@ footer {
   gap: 4rem;
   background-color: #98fb98;
   font-size: 200%;
+  padding-bottom: 4rem;
 }
 footer img {
   position: absolute;
@@ -977,12 +978,6 @@ footer .credit span {
   }
 }
 
-/* Footer starts */
-/* .footer__section {
-  height: 50rem;
-  background-image: url("../../img/mainLandingPage/wave.png");
-  background-size: cover;
-} */
 
 @media (max-width: 1200px) {
   html {
