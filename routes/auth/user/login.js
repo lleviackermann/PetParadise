@@ -45,19 +45,23 @@ router.post("/", function (req, res) {
         if (rows.length == 0) {
             res.render("./HTML/Authentication/login", { error: true, message: "Invalid Username!Please try again" })
         }
+
         // rows.forEach((row) => {
         // console.log(row)
-        matched = checkPassword(password, rows[0].password)
-        console.log(matched);
-        if (matched == true) {
-            req.session.userMail = mail
-            // //  console.log("row is:" + typeof (row));
-            // // console.log("matched is true:" + req.session.user);
-            let name = rows[0].firstName.concat(" ", rows[0].lastName)
-            req.session.userName = name
-            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
-        } else {
-            res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
+        if(rows.length > 0) {
+
+            matched = checkPassword(password, rows[0].password)
+            console.log(matched);
+            if (matched == true) {
+                req.session.userMail = mail
+                // //  console.log("row is:" + typeof (row));
+                // // console.log("matched is true:" + req.session.user);
+                let name = rows[0].firstName.concat(" ", rows[0].lastName)
+                req.session.userName = name
+                res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
+            } else {
+                res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
+            }
         }
     })
 })

@@ -52,7 +52,9 @@ form.addEventListener('click', (event) => {
     }
     let lowerCaseLetters = /[a-z]/g;
     let upperCaseLetters = /[A-Z]/g;
-    if (userPassword.value.length == 0 || !userPassword.value.match(lowerCaseLetters) || !userPassword.value.match(upperCaseLetters) || userPassword.value.length < 8) {
+    let numbers = /[0-9]/g;
+    if (userPassword.value.length == 0 || !userPassword.value.match(lowerCaseLetters) || !userPassword.value.match(upperCaseLetters)
+        || !userPassword.value.match(numbers) || userPassword.value.length < 8) {
         passwordErrorMessages.push("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
         document.querySelector(".contact-form #user-password").classList.add("error")
     }
