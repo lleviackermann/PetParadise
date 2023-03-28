@@ -24,12 +24,16 @@ const mailError = document.getElementById("mail-error")
 const passwordError = document.getElementById("password-error")
 const confirmPasswordError = document.getElementById("confirm-error")
 
-
+// p.q q followed by p
+//^p any string with p at the beginning of it
+//p+ It matches any string containing one or more p's.
+//p$ Matches any string with n at the end of it
 
 form.addEventListener('click', (event) => {
     let mailErrorMessages = []
     let passwordErrorMessages = []
-    let validMailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // let validMailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let validMailFormat = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     if (userMail.value == "" || userMail.value == null) {
         mailErrorMessages.push("User Mail cannot be empty")
         console.log("User mail cannot be empty");
@@ -54,10 +58,11 @@ form.addEventListener('click', (event) => {
     }
 
     if ((confirmPassword) != null && (confirmPasswordError) != null) {
-        if (userPassword != null && confirmPassword != null && userPassword.value != confirmPassword.value) {
+        if (userPassword != null && userPassword.value != confirmPassword.value) {
             event.preventDefault()
             confirmPasswordError.innerText = "Passwords doesnot match"
             document.querySelector(".contact-form #user-confirm").classList.add("error")
+            // document.getElementById("password-label").style = 'transform: translateY(-30rem)';
         }
         else if (document.querySelector("#user-confirm").classList.contains("error")) {
             document.querySelector(".contact-form #user-confirm").classList.remove("error")

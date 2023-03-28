@@ -34,35 +34,32 @@ const checkPassword = (Password, hashedPassword) => {
     return bcrypt.compareSync(Password, hashedPassword)
 }
 
-router.post("/", async function (req, res) {
+router.post("/", function (req, res) {
     let mail = req.body.Email
     let password = req.body.Password
     let matched;
-    await db.all(loginquery, [mail], function (err, rows) {
+    db.all(loginquery, [mail], function (err, rows) {
         if (err) {
             console.log(err.message);
         }
         if (rows.length == 0) {
             res.render("./HTML/Authentication/login", { error: true, message: "Invalid Username!Please try again" })
         }
-        rows.forEach(async (row) => {
-            console.log(row)
-            matched = await checkPassword(password, row.password)
-            console.log(matched);
-            if (matched == true) {
-                req.session.userMail = mail
-                // //  console.log("row is:" + typeof (row));
-                // // console.log("matched is true:" + req.session.user);
-                let name = row.firstName.concat(" ", row.lastName)
-                req.session.userName = name
-                res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
-                // success = true
-            } else {
-                res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
-            }
-        });
+        // rows.forEach((row) => {
+        // console.log(row)
+        matched = checkPassword(password, rows[0].password)
+        console.log(matched);
+        if (matched == true) {
+            req.session.userMail = mail
+            // //  console.log("row is:" + typeof (row));
+            // // console.log("matched is true:" + req.session.user);
+            let name = rows[0].firstName.concat(" ", rows[0].lastName)
+            req.session.userName = name
+            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
+        } else {
+            res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
+        }
     })
-    // res.end("received request successfully")
 })
 
 
