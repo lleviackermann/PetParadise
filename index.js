@@ -1,10 +1,10 @@
 const express = require("express")
 const sqlite = require("sqlite3")
-const authRouter = require("./routes/auth/authRoutes");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require("path")
+const authRouter = require("./routes/auth/authRoutes");
 const dogsPage = require("./routes/pages/dogs");
 const catsPage = require("./routes/pages/cats")
 const birdsPage = require("./routes/pages/birds")
@@ -28,9 +28,6 @@ app.use(session({
 }))
 
 app.use(cookieParser())
-
-
-
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/client"));
@@ -93,15 +90,6 @@ const createTable1 = "create table if not exists userdata(firstName varchar(50) 
 const createTable2 = "create table if not exists employeedata(mailId varchar(30),password varchar(60) not null)"
 
 const createTable3 = "insert into employeedata values(?,?)"
-
-
-// bcrypt.hash("Koushik1234",1,  function(err,hash){
-//     db.run(createTable3,["koushik@iiits.in",hash],err=>{
-//         if(err){
-//             console.log(err.message);
-//         }
-//     })    
-// })
 
 db.run(createTable1, (err) => {
     if (err) {
