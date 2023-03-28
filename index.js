@@ -50,10 +50,6 @@ app.get("/", (req, res) => {
     res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
-app.get("/auth/admin/dashboard", (req, res) => {
-    res.render("./HTML/Admin/admin.ejs");
-})
-
 app.use("/dogs", dogsPage)
 app.use("/cats", catsPage)
 app.use("/birds", birdsPage)
