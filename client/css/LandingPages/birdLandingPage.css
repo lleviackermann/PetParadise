@@ -96,6 +96,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+  height: 50px;
 }
 header .logo {
   font-size: 2.5rem;
@@ -699,7 +700,7 @@ header .navbar a:hover {
 footer {
   position: relative;
   width: 100%;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -989,7 +990,7 @@ footer .credit span {
   header .active:focus-within nav {
     display: block;
   }
-  header:focus-within .closing-btn {
+  header .active:focus-within .closing-btn {
     display: block;
   }
   header:focus-within .closing-btn:focus + nav {

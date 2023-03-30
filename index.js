@@ -76,6 +76,7 @@ const dbpath = path.join("data", "index.db")
 const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, err => {
     if (err) {
         console.log("error in connecting the database");
+        console.log(err);
     }
     else {
         console.log("Database Connected");
