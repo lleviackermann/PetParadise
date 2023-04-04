@@ -13,29 +13,14 @@
   integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
   <!-- icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />  
 </head>
 
 <body>
-  <header class="header" id="header">
-    <div class="navbar">
-      <div class="logo">
-        <h1><img src="../../img/foodservicesLandingPage/paw-solid.svg" style="width: 30px;"> PETS PARADISE</h1>
-      </div>
-      <nav class="nav-menu" id="nav-menu">
-        <ul class="nav-list">
-          <li><a href="/" class="nav-link active">Home</a></li>
-          <li><a href="/products" class="nav-link">Products</a></li>
-          <li><a href="#services" class="nav-link">services</a></li>
-          <li><a href="#package" class="nav-link">package</a></li>
-          <li><a href="#gallery" class="nav-link">gallery</a></li>
-          <li><a href="#contact" class="nav-link">Contact us</a></li>
-        </ul>
-      </nav>
-      <div class="nav-toggle" id="nav-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </header>
+  <%- include("../components/navbar", {notlogin: true}); %>
+
+
   <!-- start home section -->
   <section class="home">
     <div class="container">

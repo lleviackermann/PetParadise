@@ -1,130 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fish website</title>
-    <link rel="stylesheet" href="../../css/LandingPages/fishLandingPage.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
-  
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-    <script
-      src="../../JavaScript/LandingPages/petsLandingPage.js"
-      defer
-    ></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="active">
-        <section class="opening-btn">
-          <button type="button" class="menu-button" title="Openeing Menu btn">
-            <div class="menu-icon"></div>
-          </button>
-        </section>
-        <button class="closing-btn" title="Closing Menu Btn"></button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fish website</title>
+  <link rel="stylesheet" href="../../css/LandingPages/fishLandingPage.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
 
-        <nav class="navbar">
-          <a href="/">Home</a>
-          <div class="petsDropDown">
-            <button class="petsBtn">Pets</button>
-            <div class="content">
-              <a href="/dogs">Dog</a>
-              <a href="/cats">Cat</a>
-              <a href="/birds">Bird</a>
-              <a href="/fish">Fish</a>
-            </div>
-          </div>
-          <a href="/vet-care">Vet-Care</a>
-          <a href="/services">Services</a>
-          <a href="/products">Accessories</a>
-        </nav>
-      </div>
-      <div class="logo">
-        <img
-          src="../../img/fishLandingPage/Fish_Images/Screenshot 2023-03-20 185713.png"
-          alt=""
-          height="40px"
-          width="40px"
-        />
-        <p style="display: inline-block" onclick="Logo()">Pet's Paradise</p>
-      </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="../../JavaScript/LandingPages/petsLandingPage.js" defer></script>
+</head>
+
+<body>
+  <%- include("../components/navbar", {notlogin: true}); %>
 
 
-      <!-- <div class="icons">
-        <div class="fa-solid fa-cart-shopping"></div>
-        <div
-          onclick="XMark(this)"
-          class="fa-solid fa-user"
-          id="login-btn"
-        ></div>
-      </div> -->
-      <!-- <a href="/auth/user/login" class="login-btn">Login</a> -->
-
-      <div class="enter">
-        <% if (notlogin) { %>
-      <a href="/auth/user/login" class="login-btn">Login</a>
-      <% }else{ %>
-        <div class="enter__item profile">
-          <span class="material-icons-sharp cart" style="font-size: 3.5rem;"> shopping_cart </span>
-          <a href="/user/profile"><span class="material-icons-sharp profile-picture" style="font-size: 3.5rem;">
-            account_circle
-          </span>
-        </a>
-        </div>
-        <% } %>
-    </div>
-
-
-      <form action="/send" method="post" class="login-form">
-        <h3>Sign in</h3>
-        <input
-          type="email"
-          placeholder="enter your email"
-          class="box"
-          id="mail"
-          name="usermail"
-        />
-        <p id="mail-error"></p>
-        <input
-          type="password"
-          name="userpassword"
-          placeholder="enter your password"
-          class="box"
-          id="password"
-        />
-        <p id="password-error"></p>
-        <div class="remember">
-          <input type="checkbox" name="" id="remember-me" />
-          <label for="remember-me">remember me</label>
-        </div>
-        <input type="submit" value="sign in" id="sign-in" class="btn sign-in" />
-        <input type="submit" value="sign up" id="sign-up" class="btn sign-up" />
-        <div class="links">
-          <a href="" class="forgot">forgot password</a>
-          <a href="" class="sign">sign up</a>
-        </div>
-      </form>
-    </header>
 
     <section class="home" id="home">
       <div class="content">
         <h3>Enjoy the joy of <span>Owning fish</span></h3>
         <a href="#" class="glow-on-hover">Shop Now</a>
       </div>
-      <img
-        src="../../img/fishLandingPage/bottom_wave.png"
-        alt=""
-        class="wave"
-      />
+      <img src="../../img/fishLandingPage/bottom_wave.png" alt="" class="wave" />
     </section>
 
     <section class="about"></section>
@@ -140,10 +43,7 @@
           <h3>Gold Fish</h3>
           <div class="card">
             <div class="front">
-              <img
-                src="../../img/fishLandingPage/Fish_Images/gold_fish.png"
-                alt=""
-              />
+              <img src="../../img/fishLandingPage/Fish_Images/gold_fish.png" alt="" />
             </div>
             <div class="back">
               <p class="info">2-3 inch inch</p>
@@ -158,10 +58,7 @@
           <h3>Koi Fish</h3>
           <div class="card">
             <div class="front">
-              <img
-                src="../../img/fishLandingPage/Fish_Images/koi_fish.png"
-                alt=""
-              />
+              <img src="../../img/fishLandingPage/Fish_Images/koi_fish.png" alt="" />
             </div>
             <div class="back">
               <p class="info">3-5 inch</p>
@@ -176,10 +73,7 @@
           <h3>Tiger barb</h3>
           <div class="card">
             <div class="front">
-              <img
-                src="../../img/fishLandingPage/Fish_Images/tiger_barb.png"
-                alt=""
-              />
+              <img src="../../img/fishLandingPage/Fish_Images/tiger_barb.png" alt="" />
             </div>
             <div class="back">
               <p class="info">1.2-1.6 inch</p>
@@ -194,10 +88,7 @@
           <h3>molly fish</h3>
           <div class="card">
             <div class="front">
-              <img
-                src="../../img/fishLandingPage/Fish_Images/molly_fish.png"
-                alt=""
-              />
+              <img src="../../img/fishLandingPage/Fish_Images/molly_fish.png" alt="" />
             </div>
             <div class="back">
               <p class="info">3.5-6 inch</p>
@@ -224,10 +115,7 @@
       <h3 class="heading">Our Services</h3>
       <div class="services-list">
         <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_accessories.png"
-            alt=""
-          />
+          <img src="../../img/fishLandingPage/Fish_Images/fish_accessories.png" alt="" />
           <div class="content">
             <h3>Accessories</h3>
             <p>
@@ -238,21 +126,13 @@
           </div>
         </div>
         <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_care.png"
-            alt=""
-            height="250px"
-            width="250px"
-          />
+          <img src="../../img/fishLandingPage/Fish_Images/fish_care.png" alt="" height="250px" width="250px" />
           <h3>Pet Care</h3>
           <p>Here You can find all the best medicines to care your Pet</p>
           <a class="pet pet-service" href="#">Learn More</a>
         </div>
         <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_food.png"
-            alt=""
-          />
+          <img src="../../img/fishLandingPage/Fish_Images/fish_food.png" alt="" />
           <h3>Food</h3>
           <p>Feed Your Pet with Love , Affection and High Quality Food!</p>
           <a class="pet pet-service" href="#">Learn More</a>
@@ -315,5 +195,6 @@
 
     <!-- <a href="" class="pet"><span>Shop Now</span></a> -->
     <!-- <button type="button" class="pet"><span>Shop Now</span></button> -->
-  </body>
+</body>
+
 </html>

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../css/LandingPages/vetcareLandingPage.css">
     <!-- <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />  
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
@@ -14,22 +16,7 @@
 </head>
 <body>
     
-    <header class="header">
-        <img src="../../img/vetcareLandingPage/logo.jpg" id="logo" alt="">
-
-        <nav class="navbar">
-            <a href="/">home</a>
-            <a href="/services">services</a>
-            <a href="/products">products</a>
-            <a href="/petsfoods">food</a>
-            <a href="#contact">contact</a>
-        </nav>
-
-        <div class="icons">
-            <div id="menubar" class="fas fa-bars"></div>
-            <a href="/auth/user/login">Login</a>
-        </div>
-    </header>
+    <%- include("../components/navbar", {notlogin: true}); %>
 
     <div class="background-image">
         <div class="background-content">

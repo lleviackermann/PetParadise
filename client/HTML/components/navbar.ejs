@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="../../css/components/navbar.css">
+
+<header class="components-navbar-header">
+    <div class="components-navbar-close-open">
+        <span class="material-icons-sharp components-navbar-open"> menu </span>
+        <span class="material-icons-sharp components-navbar-close"> close </span>
+    </div>
+
+    <div class="components-navbar-brand">
+        <div class="components-navbar-brand__logo">
+            <span class="material-icons-sharp">pets</span>
+        </div>
+        <div class="components-navbar-brand__name">
+            <a href="/" class="components-navbar-brand__name">pets <span>paradise</span></a>
+        </div>
+    </div>
+
+    <nav class="components-navbar-menu__section">
+        <ul class="components-navbar-menu">
+            <li class="components-navbar-menu__item"><a href="/">Home</a></li>
+            <li class="components-navbar-menu__item second">
+                <a href="" class="components-navbar-tag"> Pets </a>
+                <ul>
+                    <li><a href="/dogs">Dogs</a></li>
+                    <li><a href="/cats">Cats</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/fish">Fish</a></li>
+                </ul>
+            </li>
+            <li class="components-navbar-menu__item"><a href="/vet-care">Vet-Care</a></li>
+            <li class="components-navbar-menu__item"><a href="/services">Services</a></li>
+            <li class="components-navbar-menu__item"><a href="/petsfoods">Pet-Foods</a></li>
+            <li class="components-navbar-menu__item components-navbar-last--item">
+                <a href="/products">Accesssories</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="components-navbar-enter">
+        <% if (notlogin) { %>
+            <a href="/auth/user/login">
+                <button class="components-navbar-btn-grad" type="submit">Login</button>
+            </a>
+            <% }else{ %>
+                <div class="components-navbar-enter__item components-navbar-profile">
+                    <span class="material-icons-sharp components-navbar-cart" style="font-size: 3.5rem;"> shopping_cart
+                    </span>
+                    <a href="/user/profile"><span class="material-icons-sharp components-navbar-profile-picture"
+                            style="font-size: 3.5rem;">
+                            account_circle
+                        </span>
+                    </a>
+                </div>
+                <% } %>
+    </div>
+</header>
+
+<script src="../../JavaScript/components/navbar.js"></script>
