@@ -477,56 +477,7 @@ section{
 }
 /* reviews end */
 
-/* footer start */
-.footer{
-    background: #fff;
-}
-.footer .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
-    gap: 1.5rem;
-}
-.footer .box-container .box h3{
-    font-size: 2.5rem;
-    columns: var(--black);
-    padding: 1rem 0;
-}
-.footer .box-container .box .links{
-    display: block;
-    font-size: 1.5rem;
-    color: var(--light-color);
-    padding: 1rem 0;
-}
-.footer .box-container .box .links i{
-    color: var(--orange);
-    padding-right: 0.5rem;
-}
-.footer .box-container .box .links:hover i{
-    padding-right: 2rem;
-}
-.footer .box-container .box p{
-    line-height: 1.8;
-    font-size: 1.5rem;
-    color: var(--light-color);
-    padding: 1rem 0;
-}
-.footer .box-container .box .share a{
-    height: 4rem;
-    width: 4rem;
-    line-height: 4rem;
-    border-radius: 0.5rem;
-    font-size: 2rem;
-    color: var(--black);
-    margin-left: 0.2rem;
-    background: #eee;
-    text-align: center;
-}
-.footer .box-container .box .share a:hover{
-    background: var(--orange);
-    color: #fff;
-}
-/* footer end */
- 
+
 /* media query */
 @media (max-width:1020px){
     html{

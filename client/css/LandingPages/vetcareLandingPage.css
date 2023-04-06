@@ -358,36 +358,6 @@ html{
     font-size: 1.5rem;
     line-height: 1;
 }
-.footer{
-    padding: 6rem 7%;
-    background: var(--third);
-}
-.main-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.inner-footer{
-    flex: 1 1 200px;
-}
-.inner-footer h2{
-    font-size: 2rem;
-    color: black;
-}
-.inner-footer a{
-    font-size: 1.5rem;
-    font-weight: bolder;
-    color: black;
-    display: block;
-    margin-top: 1rem;
-    padding-top: 1rem;
-}
-.inner-footer a:hover{
-    margin-left: 10px;
-}
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -410,16 +380,6 @@ html{
   ::-webkit-scrollbar-thumb:hover {
     background: var(--third); 
   }
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width:767px) {
 
