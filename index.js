@@ -17,6 +17,18 @@ const userProfile = require("./routes/profiles/userProfile")
 const userPayment = require("./routes/payments/payment")
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
+const mongoose = require('mongoose');
+const Users = require("./client/Schemas/userSchema")
+const connection = require("./mongodbConnection")
+
+
+// const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
+
+// main().catch(err => console.log(err));
+// async function main() {
+//     console.log("mongoose database connected");
+//     await mongoose.connect(connectionString);
+// }
 
 app.use(session({
     secret: "some secret",
@@ -85,8 +97,6 @@ const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, err => {
 
 const createTable1 = "create table if not exists userdata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)"
 const createTable2 = "create table if not exists employeedata(mailId varchar(30),password varchar(60) not null)"
-
-const createTable3 = "insert into employeedata values(?,?)"
 
 db.run(createTable1, (err) => {
     if (err) {
