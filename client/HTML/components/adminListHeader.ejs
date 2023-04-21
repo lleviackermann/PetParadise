@@ -1,0 +1,60 @@
+<div class="message__records">
+  <h2>Messages Records</h2>
+  <div class="records__container">
+    <div class="records__header">
+      <div class="sort__section">
+        <h3>Sort By:</h3>
+
+        <form action="/profile/admin/messages" method="GET" id="modeForm">
+            <% for(let i = 0; i < sortList.length; i++) { %> 
+            <button type="text" name="sortSelector" value="<%= sortList[i].value %>"><%= sortList[i].name %></button>
+            <% } %>
+        </form>
+      </div>
+
+      
+      <div class="search__section">
+          <form
+          action="/profile/admin/messages/search"
+          method="get"
+          id="searchForm"
+          >
+          <input type="text" class="search" name="search"/>
+          <input type="submit" value="search" class="search__button" />
+        </form>
+      </div>
+    </div>
+
+    <div class="records__header-2">
+        <div class="filters__applied">
+            <h3>Filters applied: </h3>
+        </div>
+
+        <% if (filters.length > 0) { %>
+        <div class="filters__modal">
+          <span class="material-icons-sharp"> tune </span>
+          <button href="" id="filterButton"> filters</button>
+        </div>
+        <% } %>
+    </div>
+    
+  </div>
+  
+  <div class="message__records-container">
+    <div class="message__records-header">
+        <div class="select-all">
+          <input type="checkbox" name="selectAll" value="selectAll" id="selectAll">
+          <label for="selectAll">Select All</label>
+        </div>
+
+        <div class="delete-selected">
+          <button>Delete Selected Items</button>
+        </div>
+    </div>
+
+
+    <%- include("../components/adminMessagesRecords", { messages: messages}) %>
+  </div>
+
+</div>
+

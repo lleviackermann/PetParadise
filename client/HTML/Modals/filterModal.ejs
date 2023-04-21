@@ -1,0 +1,25 @@
+<div class="overlay no-show"></div>
+<div class="filter__modal no-show">
+    <!-- <h2>Filters</h2> -->
+    <div class="filter__close">
+        <span class="material-icons-sharp close-filter" onclick="closeModal()">
+            close
+        </span>
+    </div>
+    
+    <div class="filters__container">
+        <% for(let i = 0; i < filters.length; i++) { %>
+            <div class="category">
+                <h3 class="category__heading">&#8618; <%= filters[i].category %></h3>
+                <% for(let j = 0; j < filters[i].list.length; j++) { %>
+                    <button class="category-btn"><%= filters[i].list[j] %></button>
+                <% } %> 
+            </div>
+        <% } %>
+    </div>
+
+    <form action="" class="apply-form">
+        <input type="submit" value="Apply Filters">
+    </form>
+  </div>
+</div>
