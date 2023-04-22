@@ -39,6 +39,7 @@
   --white: #fff;
   --black: #000;
   --social-color: var(--black);
+  
 }
 
 *,
@@ -51,7 +52,7 @@
   list-style: none;
 }
 
-html {
+body > .components-navbar-header * {
   font-size: 62.5%;
 }
 
@@ -72,7 +73,6 @@ html {
   display: none;
 }
 
-
 .components-navbar-brand {
   margin-left: 5rem;
   display: flex;
@@ -84,8 +84,16 @@ html {
   color: var(--main-color);
 }
 
+.components-navbar-brand__logo span{
+  font-size: 2rem;
+}
+
 .components-navbar-brand__name {
   text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.components-navbar-brand__name a{
   font-size: 2rem;
 }
 
@@ -93,6 +101,7 @@ html {
   color: var(--main-color);
   text-transform: uppercase;
   font-family: var(--roboto-text);
+  font-size: 2rem;
 }
 
 .components-navbar-header nav ul {
@@ -157,6 +166,10 @@ html {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.components-navbar-enter a{
+  font-size: 2rem;
 }
 
 .components-navbar-btn-grad:hover {
