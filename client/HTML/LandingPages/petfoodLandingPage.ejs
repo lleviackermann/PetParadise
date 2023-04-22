@@ -65,11 +65,30 @@
     <!-- products start -->
     <section class="products" id="products">
         <h1 class="heading">our <span>products</span></h1>
-        <div class="swiper product-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide box">
-                    <img class="imgsrc" src="../../img/foodservicesLandingPage/dogFood1.jpg" style="width: 200px;">
-                    <div class="des"> <h3 class="title" >Pedigree ofr adult dogs</h3>
+
+        <div class="wrapper">
+            <div id="search-container">
+             <input type="search" id="search-input" placeholder="Search for items">
+             <button id="search">Search</button>
+            </div>
+            <div id="buttons">
+                <a href="#products" class="button-value" onclick="reefresh()" value="all">All</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="dog">Dog</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="cat">Cat</a>    
+                <a href="#products"  class="button-value" onclick="refresh()" value="bird">Bird</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="fish">Fish</a>
+                <a href="#products"  class="button-value" onclick="filterProduct('all')" value="price">Price</a>
+            </div>
+            <div id="view-products"></div>
+        </div>
+
+        <!-- <div class="product-slider"> -->
+            <div class="product-content">
+
+                
+                <!-- <div class="swiper-slide dogs box">
+                    <img class="imgsrc " src="../../img/foodservicesLandingPage/dogFood1.jpg" style="width: 200px;">
+                    <div class="des"> <h3 class="title" >Pedigree for adult dogs</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>449</div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -80,7 +99,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide fishes box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/fishFood1.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Omega One pellets for fish</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -93,8 +113,9 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
-                    <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood1.jpg" style="width: 200px;">
+
+                <div class="swiper-slide cats box">
+                    <img class="imgsrc ex1" src="../../img/foodservicesLandingPage/catFood1.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Whiskas food for cats</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>649</div>
                     <div class="stars">
@@ -106,7 +127,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide birds box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/birdFood1.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">IuPreem food for parrots</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -119,7 +141,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide dogs box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/dogFood2.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Barking Dogs food for dogs</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -132,10 +155,11 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide fishes box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/fishFood2.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Tetra Min flakes for fish</h3>
-                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>.349</div>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -145,10 +169,11 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide cats box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood2.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">IAMS food for cats</h3>
-                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>.349</div>
+                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -158,7 +183,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide birds box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/birdFood2.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Wagner's food for birds</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -171,7 +197,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide dogs box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/dogFood3.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Crunch Bites for dogs</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -189,7 +216,8 @@
 
         <div class="swiper product-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide fishes box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/fishFood3.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title">Discus food mix for fish</h3>
                         <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>449</div>
@@ -203,7 +231,8 @@
                     </div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide cats box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood3.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title">Perfect Bistro for cats</h3>
                         <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -217,7 +246,8 @@
                     </div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide birds box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/birdFood3.jpg" style="width: 200px;">
                     <div  class="des"><h3 class="title">Wild Harvest for parrots</h3>
                         <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>649</div>
@@ -231,7 +261,8 @@
                     </div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide dogs box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/dogFood4.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title">IAMS food for dogs</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -244,7 +275,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                  <div class="swiper-slide fishes box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/fishFood4.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title" >Discovery food for fish</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -257,7 +289,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide cats box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood4.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title" >Kit Cat food for cat</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -270,7 +303,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide birds box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/birdFood4.jpg" style="width: 200px;">
                     <div class="des"><h3 class="title">Meal Worms for birds</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -283,7 +317,8 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
+
+                <div class="swiper-slide dogs box">
                     <img class="imgsrc" src="../../img/foodservicesLandingPage/dogFood5.jpg" style="width: 200px;">
                     <div class="des"> <h3 class="title">Wild Earth food for dogs</h3>
                     <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
@@ -296,21 +331,54 @@
                     </div></div>
                     <div class="cart"><a href="#products" class="btn">add to cart</a></div>
                 </div>
-                <div class="swiper-slide box">
-                    <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood5.jpg" style="width: 200px;">
-                    <div class="des"><h3 class="title">Top Cat food for cats</h3>
-                    <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div></div>
-                    <div class="cart"><a href="#products" class="btn">add to cart</a></div>
-                </div>
+
+                    <div class="swiper-slide cats box">
+                        <img class="imgsrc" src="../../img/foodservicesLandingPage/catFood5.jpg" style="width: 200px;">
+                        <div class="des"><h3 class="title">Top Cat food for cats</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>349</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div></div>
+                        <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                    </div>
+
+                    <div class="swiper-slide cats box">
+                        <img class="imgsrc" src="../../img/foodservicesLandingPage/fishFood6.jpg" style="width: 200px;">
+                        <div class="des"><h3 class="title">Dried worms for fishes</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>549</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div></div>
+                        <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                    </div>
+
+                    <div class="swiper-slide cats box">
+                        <img class="imgsrc" src="../../img/foodservicesLandingPage/birdFood6.jpg" style="width: 200px;">
+                        <div class="des"><h3 class="title">Peckish food for birds</h3>
+                        <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>599</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div></div>
+                        <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+                    </div> -->
             </div>
+        <!-- </div> -->
+        <div class="view-more">
+            <center><button href="#products" class="btn viewbtn">View more</button></center>
         </div>
+        
 
     </section>
     <!-- products end -->
@@ -351,7 +419,7 @@
     <section class="review" id="review">
         <h1 class="heading">customer's <span>review</span></h1>
         <div class="swiper review-slider">
-            <div class="swiper-wrapper ">
+            <div class="swiper-wrapper">
                 <div class="swiper-slide box">
                     <img src="../../img/foodservicesLandingPage/r1.jpg">
                     <p>I was a little worried to try this website since they have started very recently. But it turned out to be good and cost effective.. My dog, 55kg Rottweiler, ate less when I introduced this food to him, but eventually got used to it.
@@ -459,7 +527,7 @@
     <%- include("../components/footer"); %>
 
     <!-- swiper js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
     <!-- custom js file link  -->
     <script src="../../JavaScript/LandingPages/petfoodLandingPage.js"></script>
 </body>
