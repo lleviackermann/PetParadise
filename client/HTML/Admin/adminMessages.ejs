@@ -40,13 +40,12 @@
       </div>
 
       <%- include('../components/adminListHeader.ejs', { sortList:
-      [{value: 0, name: "NewestFirst"}, {value: 1, name: "OldestFirst"}], filters: [{ category: "dog", list: ["gs",
-      "labrador"]}, { category: "cats", list: ["asfdk", "kjdkjsf"] }] }); %>
+      [{value: 0, name: "NewestFirst"}, {value: 1, name: "OldestFirst"}], filters: [] }); %>
     </main>
 
-    <%- include('../Modals/filterModal.ejs', { filters: [{ category: "dogs",
-    list: ["gs", "labrador"]}, { category: "cats", list: ["asfdk", "kjdkjsf"] }]
-    }); %> <% } else { %>
+    <div class="overlay no-show"></div>
+
+    <% } else { %>
 
     <h1>No page found</h1>
 

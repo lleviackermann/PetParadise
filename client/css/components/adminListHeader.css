@@ -32,11 +32,20 @@
     font-size: 1.6rem;
 }
 
-.sort__section form {
+.sort__section #modeForm {
     display: flex;
     gap: .5rem;
 }
-.sort__section button {
+
+.sort__section #modeForm button input {
+    /* height: 0;
+    width: 0;
+    background-color: #fff; */
+    visibility: hidden;
+    display: none;
+}
+
+.sort__section #modeForm button {
     background-color: var(--color-white);
     padding: .5rem 1rem;
     border-radius: 50px;
@@ -48,7 +57,12 @@
     width: fit-content;
 }
 
-.sort__section button:hover {
+.sort__section #modeForm button label {
+    cursor: pointer;
+}
+
+.sort__section #modeForm button:hover,
+.sort__section #modeForm button:has(input[checked]) {
     background-color: var(--color-primary);
     color: #fff;
 }
@@ -64,14 +78,14 @@
     width: 40rem;
 }
 
-.search__section input.search__button {
+.search__section button.search__button {
     padding: 1rem;
-    background-color: var(--color-light);
+    background-color: var(--color-primary);
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
     font-size: 1.6rem;
     font-family: var(--roboto-text);
-    color: var(--color-primary);
+    color: var(--color-white);
     cursor: pointer;
 }
 
@@ -106,6 +120,26 @@
     cursor: pointer;
 }
 
+.filters__modal-disable {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .6rem;
+    padding: .8rem 1.2rem;
+    background-color: #C0C0C0;
+    border-radius: 50px;
+    cursor: not-allowed;
+}
+
+.filters__modal-disable button {
+    font-size: 1.8rem;
+    font-family: inherit;
+    color: #ccc;
+    cursor: not-allowed;
+
+}
+
 .message__records-container {
     margin-top: 1rem;
     background-color: #fff;
@@ -138,6 +172,7 @@
     color: #fff;
     font-size: 1.6rem;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 input[type='checkbox'] {

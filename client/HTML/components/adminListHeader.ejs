@@ -1,27 +1,28 @@
 <div class="message__records">
   <h2>Messages Records</h2>
-  <div class="records__container">
+  <form action="/profile/admin/messages" method="GET" class="records__container">
     <div class="records__header">
       <div class="sort__section">
         <h3>Sort By:</h3>
 
-        <form action="/profile/admin/messages" method="GET" id="modeForm">
+        <div id="modeForm">
             <% for(let i = 0; i < sortList.length; i++) { %> 
-            <button type="text" name="sortSelector" value="<%= sortList[i].value %>"><%= sortList[i].name %></button>
+            <button>
+              <input type="radio" name="sortSelector" value="<%= sortList[i].value %>" id="<%= i %>" <%= select === i ? "checked" : null   %> />
+              <label name="sortSelector" value="<%= sortList[i].value %>" for="<%= i %>"><%= sortList[i].name %></label>
+            </button>
             <% } %>
-        </form>
+        </div>
       </div>
 
       
       <div class="search__section">
-          <form
-          action="/profile/admin/messages"
-          method="get"
+          <div
           id="searchForm"
           >
-          <input type="text" class="search" name="search"/>
-          <input type="submit" value="search" class="search__button" />
-        </form>
+          <input type="text" class="search" name="search" value="<%= searchText %>" placeholder="Search by name or email"/>
+          <button type="submit" class="search__button" >search</button>
+          </div>
       </div>
     </div>
 
@@ -31,30 +32,39 @@
         </div>
 
         <% if (filters.length > 0) { %>
-        <div class="filters__modal">
+        <div class="filters__modal" onclick="modalOpenOrClose()">
           <span class="material-icons-sharp"> tune </span>
-          <button href="" id="filterButton"> filters</button>
+          <div href="" id="filterButton"> filters</div>
         </div>
+        <% } else { %>
+          <div class="filters__modal-disable">
+            <span class="material-icons-sharp"> tune </span>
+            <div href="" id="filterButton"> filters</div>
+          </div>
         <% } %>
     </div>
     
-  </div>
+    <% if (filters.length > 0) { %>
+      <%- include('../Modals/filterModal.ejs', { filters: filters }); %>
+    <% } %>
+
+  </form>
   
-  <div class="message__records-container">
+  <form action="/profile/admin/messages/delete" method="get" class="message__records-container">
     <div class="message__records-header">
-        <div class="select-all">
-          <input type="checkbox" name="selectAll" value="selectAll" id="selectAll">
-          <label for="selectAll">Select All</label>
-        </div>
-
-        <div class="delete-selected">
-          <button>Delete Selected Items</button>
-        </div>
+      <div class="select-all">
+        <input type="checkbox" name="selectAll" value="selectAll" id="selectAll">
+        <label for="selectAll">Select All</label>
+      </div>
+      
+      <div class="delete-selected">
+        <button type="submit">Delete Selected Items</button>
+      </div>
     </div>
-
-
+    
     <%- include("../components/adminMessagesRecords", { messages: messages}) %>
-  </div>
+
+  </form>
 
 </div>
 

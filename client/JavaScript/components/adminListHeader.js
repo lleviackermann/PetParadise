@@ -1,4 +1,4 @@
-const filterButton = document.getElementById("filterButton");
+const filterButton = document.getElementsByClassName("filters__modal")[0];
 const overlayArray = document.getElementsByClassName("overlay")
 const filterModalArray = document.getElementsByClassName("filter__modal");
 const selectAll = document.getElementById("selectAll");
@@ -8,12 +8,7 @@ const allCheckBox = document.getElementsByClassName("message-checkbox");
 const overlay = overlayArray[0]
 const filterModal = filterModalArray[0]
 
-filterButton.addEventListener('click', () => {
-    overlay.classList.toggle('no-show');
-    filterModal.classList.toggle('no-show');
-})
-
-const closeModal = () => {
+const modalOpenOrClose = () => {
     overlay.classList.toggle('no-show');
     filterModal.classList.toggle('no-show');
 };

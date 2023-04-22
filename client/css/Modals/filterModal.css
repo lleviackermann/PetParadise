@@ -63,14 +63,21 @@
   gap: 2rem;
 }
 
-.filters__container .category .category-btn {
+.filters__container .category input {
+  visibility: hidden;
+  display: none;
+}
+
+.filters__container .category label {
   background-color: var(--color-white);
-  padding: 1rem 2rem;
+  padding: .5rem 1rem;
   border-radius: 50px;
   border: 2px solid var(--color-primary);
   font-size: 1.6rem;
   cursor: pointer;
   transition: all .25s;
+  font-family: var(--roboto-text);
+  width: fit-content;
 }
 
 .filters__container h3 {
@@ -81,7 +88,12 @@
   color: var(--color-primary);
 }
 
-.filters__container .category .category-btn:hover {
+.filters__container .category label {
+  cursor: pointer;
+}
+
+.filters__container .category label:hover,
+.filters__container .category input[checked]+label {
   background-color: var(--color-primary);
   color: #fff;
 }
