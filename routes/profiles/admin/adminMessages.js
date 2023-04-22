@@ -19,14 +19,13 @@ router.get('/search', async (req, res) => {
         console.log(req.query);
         let messagesTemp;
         const str = req.query.search.toString();
-        console.log(str)
         if(str.includes('@')) {
             messagesTemp = await messageModel.find({ email: str });
         } else {
             messagesTemp = await messageModel.find({ name: str })
         }
         const messages = messagesTemp;
-        console.log(messages);
+        // console.log(messages);
         res.render('./HTML/Admin/adminMessages.ejs', { login: true, messages: messages});
     } catch (err) {
         console.log(err);
