@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <%- include("../components/navbar", {notlogin: true}); %>
+  <%- include("../components/navbar", {notlogin}); %>
 
 
     <section class="home" id="home">
@@ -36,9 +36,13 @@
         <span class="word1">Our</span> <span class="word2"> Popular</span>
         <span class="word3"> Breeds</span>
       </h3>
-
-      <div class="products">
-        <div class="product">
+      
+      <button class="filter-btn" onclick="expandFilter()">Filter</button> 
+      <div class="filter-options" id="filter-options">
+      <button class="filter-option" id="filter-option" onclick="filter('price')">price</button>
+      </div>
+                <div class="products">
+        <!-- <div class="product">
           <h3>Budgerigar</h3>
           <div class="card">
             <div class="front">
@@ -100,7 +104,7 @@
 
         <div class="product exploreMore">
           <div><a href="#" class="explore">Find More</a></div>
-        </div>
+        </div> -->
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
