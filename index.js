@@ -21,8 +21,8 @@ const mongoose = require('mongoose');
 const Users = require("./client/Schemas/userSchema")
 const products = require("./client/Schemas/productSchema")
 const employee = require("./client/Schemas/employeeSchema")
-const connection = require("./mongodbConnection")
-
+const profilesRoutes = require("./routes/profiles/profilesRoutes");
+const messgaeContact = require('./routes/others/message');
 
 app.use(session({
     secret: "some secret",
@@ -56,6 +56,7 @@ app.get("/", (req, res) => {
     res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
+app.use("/profile", profilesRoutes);
 app.use("/dogs", dogsPage)
 app.use("/cats", catsPage)
 app.use("/birds", birdsPage)
