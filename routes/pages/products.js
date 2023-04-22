@@ -1,6 +1,6 @@
 const express = require("express");
 const bdparser = require("body-parser")
-const productSchema = require("../../client/Schemas/productSchema")
+const productSchema = require("../../models/productSchema")
 const router = express.Router();
 
 // // router.use(bdparser.json());

@@ -1,5 +1,4 @@
 const express = require("express")
-const sqlite = require("sqlite3")
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const app = express();
@@ -18,9 +17,6 @@ const userPayment = require("./routes/payments/payment")
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
-const Users = require("./client/Schemas/userSchema")
-const products = require("./client/Schemas/productSchema")
-const employee = require("./client/Schemas/employeeSchema")
 const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messgaeContact = require('./routes/others/message');
 

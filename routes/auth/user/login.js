@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require('bcryptjs')
 const router = express.Router();
-const User = require("../../../client/Schemas/userSchema");
+const User = require("../../../models/userSchema");
 // var session = require('express-session')
 var flush = require('connect-flash')
 
