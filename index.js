@@ -85,36 +85,4 @@ mongoose
   });
 
 //creating database if not exists
-const dbpath = path.join("data", "index.db");
-const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.log("error in connecting the database");
-    console.log(err);
-  } else {
-    console.log("Database Connected");
-  }
-});
-
-const createTable1 =
-  "create table if not exists userdata(firstName varchar(50) not null,lastName varchar(50),mailId varchar(30),password varchar(60) not null)";
-const createTable2 =
-  "create table if not exists employeedata(mailId varchar(30),password varchar(60) not null)";
-
-const createTable3 = "insert into employeedata values(?,?)";
-
-db.run(createTable1, (err) => {
-  if (err) {
-    console.log("error in creating the table");
-  } else {
-    console.log("table userdata is created successfully");
-  }
-});
-
-db.run(createTable2, (err) => {
-  if (err) {
-    console.log("error in creating the table");
-  } else {
-    console.log("table employeedata is created successfully");
-  }
-});
 
