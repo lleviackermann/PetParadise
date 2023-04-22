@@ -441,16 +441,63 @@ header .navbar a:hover {
   --color3: #abc4ff;
   --color1: #ccff33;
 }
+
+.Shop-Cat .filter-btn{
+  background: darkgoldenrod;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 0;
+  outline: 0;
+  text-align: left;
+  min-width: 150px;
+  display: inline-flex;
+  justify-content: space-between;
+  color: #f5f5f5;
+  cursor: pointer;
+  display: block;
+}
+
+.Shop-Cat .filter-option{
+  background: var(--login-form-color);
+  padding: 0.5em 1em;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.Shop-Cat .filter-options{
+  display: none;
+}
+.Shop-Cat .filter-options.active{
+  display: block;
+}
+
+
+.Shop-Cat .filter-option.active{
+  background-color: var(--green-color);
+}
+.Shop-Cat .filter-option.active::after{
+  content: " v";
+}
+
+
+
 .Shop-Cat .products {
   display: flex;
-  margin: 50px 20px;
-  flex-wrap: wrap;
+  flex-direction: row;
+  /* margin: 50px 20px; */
+  flex-wrap: nowrap;
   position: relative;
   gap: 3rem;
+  justify-content: space-between;
+  margin: 10px auto;
+  overflow: hidden;
 }
 .Shop-Cat .products .product {
-  width: 345px;
+  /* width: 345px; */
   height: 345px;
+  min-width: 340px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 20%;
@@ -530,10 +577,39 @@ header .navbar a:hover {
 .Shop-Cat .products .product.exploreMore {
   display: none;
 }
-.Shop-Cat .products .prev,
+.Shop-Cat .products .prev {
+  position: absolute;
+  display: block;
+  font-size: 4rem;
+  left: 0%;
+  bottom: 45%;
+  cursor: pointer;
+  color: var(--light-color);
+  z-index: 1000;
+}
+
+
+.Shop-Cat .products .next {
+  position: absolute;
+  display: block;
+  font-size: 4rem;
+  right: 0%;
+  bottom: 45%;
+  cursor: pointer;
+  color: var(--light-color);
+  z-index: 1000;
+}
+
+.Shop-Cat .products:hover .next, .Shop-Cat .products:hover .prev{
+  color: var(--black);
+}
+
+
+
+/* .Shop-Cat .products .prev,
 .Shop-Cat .products .next {
   display: none;
-}
+} */
 .Shop-Cat .explore {
   text-align: center;
   transform: translateX(-90px);

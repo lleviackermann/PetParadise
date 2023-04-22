@@ -1,22 +1,9 @@
 const express = require("express");
-const path = require('path')
-const sqlite = require('sqlite3')
 const bcrypt = require('bcryptjs')
 const router = express.Router();
 
 router.get("/", (req, res) => {
     res.render("./HTML/Authentication/employeeLogin.ejs");
-})
-
-const loginquery = "select * from employeedata where mailId=?"
-const dbpath = path.join(__dirname, "..", "..", "..", "data", "index.db")
-const db = new sqlite.Database(dbpath, sqlite.OPEN_READWRITE, err => {
-    if (err) {
-        console.log(dbpath);
-    }
-    else {
-        console.log("Database Connected");
-    }
 })
 
 const checkPassword = (Password, hashedPassword) => {
