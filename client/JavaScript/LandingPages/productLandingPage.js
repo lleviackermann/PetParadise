@@ -45,9 +45,7 @@ for (let i = 0; i < qunatityInputs.length; i++) {
 
 function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('shopping-cart')[0]
-    // console.log(cartItemContainer)
     let x = cartItemContainer.getElementsByClassName('box')
-    // console.log(x[0])
     let total = 0;
     for (let i = 0; i < x.length; i++) {
         let cartRows = x[i].getElementsByClassName('content');
@@ -103,10 +101,6 @@ for (let i = 0; i < addToCartButtons.length; i++) {
                 .then(function (result) {
                     alert(result);
                 })
-
-            // xhr.open("POST", '/products/product', true)
-            // xhr.setRequestHeader('Content-type', 'application/json')
-            // xhr.send(JSON.stringify(productDetails))
             addToCartItems(title, price, imagSource)
         }
     })

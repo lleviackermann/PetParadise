@@ -506,6 +506,67 @@ header .navbar a:hover {
   --color1: #ccff33;
 }
 
+.Shop-Bird .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.Shop-Bird .searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.Shop-Bird .searchTerm:focus{
+  color: #00B4CC;
+}
+
+.Shop-Bird .searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.Shop-Bird .searchButton.active {
+  
+}
+
+.Shop-Bird .search-bar{
+  width: 30%;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.Shop-Bird .search-option {
+  background: var(--login-form-color);
+  padding: 0.25em 0.5em;
+  min-width: 75px;
+  cursor: pointer;
+  margin:0 0.2rem;
+}
+
+.Shop-Bird .search-option::after {
+  content: '  X';
+  color: red;
+}
+
+
+
+
 .Shop-Bird .filter-btn{
   background: darkgoldenrod;
   padding: 1em 2em;
@@ -523,18 +584,23 @@ header .navbar a:hover {
   display: block;
 }
 
-.Shop-Bird .filter-option{
-  background: var(--login-form-color);
-  padding: 0.5em 1em;
-  min-width: 100px;
-  cursor: pointer;
-}
 .Shop-Bird .filter-options{
   display: none;
 }
+
 .Shop-Bird .filter-options.active{
   display: block;
 }
+
+ .filter-option{
+  background: var(--login-form-color);
+  padding: 0.5em 1em;
+  min-width: 150px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
 
 .Shop-Bird .filter-option.active{
   background-color: var(--green-color);
@@ -1264,5 +1330,3 @@ header .navbar a:hover {
     font-size: 98%;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

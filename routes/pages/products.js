@@ -31,7 +31,6 @@ router.post("/product", async (req, res) => {
         console.log(req.body);
         await productSchema.findOneAndDelete({ productType: "Accessory", "productDetails.Name": req.body.title, "productDetails.price": req.body.price, "productDetails.src": req.body.imagSource.trim() })
     }
-    res.send([1, 2, 3])
 })
 
 module.exports = router;
