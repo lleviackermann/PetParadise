@@ -67,33 +67,23 @@
 
   <form action="/profile/admin/messages/pagination" method="get" class="pagination-container">
     <button class="previous<%= currentPage != 1 ? '-active' : '';%>">
-      <input type="radio" name="pagination" value="<%= currentPage - 1 %>" id="<%= currentPage - 1 %>" />
-      <label name="pagination" value="<%= currentPage - 1 %>" for="<%= currentPage - 1 %>">Previous Page</label>
+      <input type="radio" name="pagination" value="<%= Number(currentPage) - 1 %>" id="<%= Number(currentPage) * 1000 %>" />
+      <label for="<%= Number(currentPage) * 1000 %>">Previous Page</label>
     </button>
+
     <button>
-      <input type="radio" name="pagination" value="<%= 1 %>" id="<%= 1 %>" <%= currentPage === 1 ? "checked" : null   %> />
-      <label name="pagination" value="<%= 1 %>" for="<%= currentPage %>">1</label>
+      <input type="radio" name="pagination" value="<%= currentPage %>" id="<%= currentPage %>" checked />
+      <label for="<%= currentPage %>"><%= currentPage %></label>
     </button>
-    <% if(currentPage != 1) { %>
-      <button>
-        <input type="radio" name="pagination" value="<%= currentPage %>" id="<%= currentPage %>" checked />
-        <label name="pagination" value="<%= currentPage %>" for="<%= currentPage %>"><%= currentPage %></label>
-      </button>
-    <% } %>
-    <% if(endingPage != currentPage) { %>
-      <button>
-        <input type="radio" name="pagination" value="<%= endingPage %>" id="<%= endingPage %>" />
-        <label name="pagination" value="<%= endingPage %>" for="<%= endingPage %>"><%= endingPage %></label>
-      </button>
-    <% } %>
+
     <button class="next<%= currentPage != endingPage ? '-active' : '';%>">
-      <input type="radio" name="pagination" value="<%= currentPage + 1 %>" id="<%= currentPage + 1 %>" />
-      <label name="pagination" value="<%= currentPage + 1 %>" for="<%= currentPage + 1 %>">Next Page</label>
+      <input type="radio" name="pagination" value="<%= Number(currentPage) + 1 %>" id="<%= Number(currentPage) * 10010 %>" />
+      <label for="<%= Number(currentPage) * 10010 %>">Next Page</label>
     </button>
-    <input type="hidden" name="login" value="<%= login %>">
-    <input type="hidden" name="messages" value="<%= messages %>">
+
     <input type="hidden" name="select" value="<%= select %>">
     <input type="hidden" name="searchText" value="<%= searchText %>">
+    
 
   </form>
 

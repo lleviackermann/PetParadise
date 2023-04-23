@@ -1,5 +1,5 @@
 const messageModel = require("../models/message");
-const pageLimitSize = 2;
+const pageLimitSize = 10;
 
 exports.contactUs = (req, res) => {
   const name = req.body.name;
@@ -88,14 +88,12 @@ exports.messageSortSearchAndFilters = async (req, res) => {
       allMessages = await messageModel.find().sort({ createdAt: sortingOrder });
     }
 
-    console.log(name, email);
     if (name != "All") {
       allMessages = allMessages.filter((message) => {
         return message.name == name;
       });
     }
     if (email != "All") {
-      console.log("Email filter applied");
       allMessages = allMessages.filter((message) => {
         return message.email == email;
       });
@@ -132,16 +130,39 @@ exports.deleteMessages = async (req, res) => {
 };
 
 
-exports.pageChange = (req, res) => {
-  console.log(req.query);
-  res.render("./HTML/Admin/adminMessages.ejs", {
-    login: req.query.login,
-    messages: req.query.messages,
-    select: req.query.select,
-    searchText: searchText,
-    endingPage: endingPage,
-    currentPage: 1,
-    limit: pageLimitSize
-  });
-  // res.redirect('/page/admin/messages');
+exports.pageChange = async (req, res) => {
+  try {
+    let allMessages;
+    const sortingOrder = req.query.select == 1 ? 1 : -1;
+    const searchText = req.query.searchText;
+    if (searchText && searchText != "" && searchText.length > 0) {
+      if (searchText.includes("@")) {
+        allMessages = await messageModel
+          .find({ email: searchText })
+          .sort({ createdAt: sortingOrder });
+      } else {
+        allMessages = await messageModel
+          .find({ name: searchText })
+          .sort({ createdAt: sortingOrder });
+      }
+    } else {
+      allMessages = await messageModel.find().sort({ createdAt: sortingOrder });
+    }
+    const messages = allMessages;
+
+    const select = sortingOrder == -1 ? 0 : 1;
+    const endingPage = Math.ceil(messages.length / pageLimitSize);
+    res.render("./HTML/Admin/adminMessages.ejs", {
+      login: true,
+      messages: messages,
+      select: select,
+      searchText: searchText,
+      endingPage: endingPage,
+      currentPage: req.query.pagination,
+      limit: pageLimitSize
+    });
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(404);
+  }
 }
