@@ -289,26 +289,29 @@
           <span>book by your convenience</span>
         </div>
         <div class="form-content">
-          <form action="/appointment" method="post">
-            <label for="sel-pack">Select the package you want : </label>
-            <select name="sel-pack" id="sel-pack">
+          <form action="services/appointment" method="post">
+            <!-- <label for="selname">Enter your name: </label>
+              <input type="text" name="selname" id="selname" placeholder="Name cannot contain numbers">
+            <br> -->
+            <label for="selpack">Select the package you want : </label>
+            <select name="selpack" id="selpack">
               <option value="">Select package</option>
               <option value="299">BRONZE</option>
-             <option value="499">SILVER</option>
-             <option value="999">GOLD</option>
-             <option value="1299">DIAMOND</option>
+              <option value="499">SILVER</option>
+              <option value="999">GOLD</option>
+              <option value="1299">DIAMOND</option>
             </select>
             <br>
-            <label for="sel-num">Select the number of pets : </label>
-              <input type="number" name="sel-mun" id="sel-num" min="1" value="1">
+            <label for="selnum">Select the number of pets : </label>
+              <input type="number" name="selmun" id="selnum" min="1" value="1">
             <br>
-            <label for="sel-date">Select the date of your appointment : </label>
-              <input type="date" name="sel-date" id="sel-date">
+            <label for="seldate">Select the date of your appointment : </label>
+              <input type="date" name="seldate" id="seldate">
             <br>
-            <label for="sel-time">Select the time of your appointment :</label>  
-              <input type="time" name="sel-time" id="sel-time">
+            <label for="seltime">Select the time of your appointment :</label>  
+              <input type="time" name="seltime" id="seltime">
             <br>  
-            <a href="../../../user/payment" class="a-app">Confirm appointment</a>  
+            <button type="submit" class="btn    a-app">Confirm appointment</button>  
           </form>
         </div>
       </div>
@@ -354,7 +357,7 @@
   <!-- end gallery -->
 
   <!-- start testimonials -->
-  <section class="testimonials">
+  <!-- <section class="testimonials">
     <div class="testimonials-content">
       <div class="section-title">
         <h1>Testimonials</h1>
@@ -447,7 +450,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- start testimonials -->
 
   <!-- start footer -->

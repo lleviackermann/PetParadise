@@ -52,7 +52,11 @@
   list-style: none;
 }
 
-body > .components-navbar-header * {
+/* body > .components-navbar-header * {
+  font-size: 62.5%;
+} */
+
+html {
   font-size: 62.5%;
 }
 

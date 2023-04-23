@@ -8,6 +8,7 @@ const productDetails = new mongoose.Schema({
 
 const product = new mongoose.Schema({
     productType: String,
+    petType: String,
     productDetails: productDetails
 })
 

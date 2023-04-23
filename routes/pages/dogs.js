@@ -45,23 +45,23 @@ router.get("/", async (req, res) => {
     res.render("./HTML/LandingPages/dogLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData })
 })
 
-router.post("/data", async (req, res) => {
-    console.log("req received");
-    const pets = await petSchema.find({ "pet": "dog" })
-    let pricesData = []
-    let imgsrcData = []
-    let productNamesData = []
-    pets.forEach(element => {
-        pricesData.push(element.Details.petPrice);
-        imgsrcData.push(element.Details.petImgSrc)
-        productNamesData.push(element.Details.petName)
-    });
-    data = {
-        prices: pricesData,
-        Names: productNamesData,
-        src: imgsrcData
-    }
-    res.send(data)
-})
+// router.post("/data", async (req, res) => {
+//     console.log("req received");
+//     const pets = await petSchema.find({ "pet": "dog" })
+//     let pricesData = []
+//     let imgsrcData = []
+//     let productNamesData = []
+//     pets.forEach(element => {
+//         pricesData.push(element.Details.petPrice);
+//         imgsrcData.push(element.Details.petImgSrc)
+//         productNamesData.push(element.Details.petName)
+//     });
+//     data = {
+//         prices: pricesData,
+//         Names: productNamesData,
+//         src: imgsrcData
+//     }
+//     res.send(data)
+// })
 
 module.exports = router;

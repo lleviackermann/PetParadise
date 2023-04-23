@@ -1,261 +1,203 @@
-// const reviewSlider = new Swiper('.review-slider',{
-//     loop:true,
-//     spaceBetween:20,
-//     autoplay: {
-//         delay:3000,
-//         disableOnInteraction: false,
-//     },
-//     centeredSlides: true,
-//     breakpoints: {
-//         0: {
-//             slidesPerView:1,
-//         },
-//         768: {
-//             slidesPerView:2,
-//         },
-//         1020: {
-//             slidesPerView:3,
-//         },
-//     },
-// });
-
-// backend start
-
-// const express = require("express");
-// const bdparser = require("body-parser")
-// const productSchema = require("../../client/Schemas/productSchema")
-// const router = express.Router();
-
-// // // router.use(bdparser.json());
-// // router.use(bdparser.urlencoded({ extended: true }));
-// // router.use(express.urlencoded({ extended: true }))
-
-// router.get("/", async (req, res) => {
-//     const products = await productSchema.find({ productType: "Accessory" })
-//     let Names = []
-//     let prices = []
-//     let src = []
-//     products.forEach(element => {
-//         Names.push(element.productDetails.Name);
-//         prices.push(element.productDetails.price)
-//         src.push(element.productDetails.src)
-//     });
-//     res.render("./HTML/LandingPages/productLandingPage.ejs", { Names, prices, src })
-// })
-
-// router.post("/product", async (req, res) => {
-//     if (req.body.type === "add") {
-//         const product = await productSchema.create({ productType: "Accessory", productDetails: { Name: req.body.title, price: req.body.price, src: req.body.imagSource } })
-//         product.save()
-//     }
-//     else if (req.body.type === "remove") {
-//         console.log(req.body);
-//         await productSchema.findOneAndDelete({ productType: "Accessory", "productDetails.Name": req.body.title, "productDetails.price": req.body.price, "productDetails.src": req.body.imagSource.trim() })
-//         // console.log(result);
-//     }
-// })
-
-// module.exports = router;
-
-// backend end
-
-// search and filter
-let products = {
-    data: [
-       {
-           productName: "Pedigree for adult dog",
-           category: "dogs",   
-           price: "449",
-           image: "../../img/foodservicesLandingPage/dogFood1.jpg",
-           stars: 3,
-       },
-       {
-           productName: "Omega One pellets for fish",
-           category: "fishes",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/fishFood1.jpg",
-       },
-       {
-           productName: "Whiskas food for cats",
-           category: "cats",   
-           price: "649",
-           image: "../../img/foodservicesLandingPage/catFood1.jpg",
-       },
-       {
-           productName: "IuPreem food for parrots",
-           category: "birds",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/birdFood1.jpg",
-       },
-       {
-           productName: "Barking Dogs food for dogs",
-           category: "dogs",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/dogFood2.jpg",
-       },
-       {
-           productName: "Tetra Min flakes for fish",
-           category: "fishes",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/fishFood2.jpg",
-       },
-       {
-           productName: "IAMS food for cats",
-           category: "cats",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/catFood2.jpg",
-       },
-       {
-           productName: "Wagner's food for birds",
-           category: "birds",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/birdFood2.jpg",
-       },
-       {
-           productName: "Crunch Bites for dogs",
-           category: "dogs",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/dogFood3.jpg",
-       },
-       {
-           productName: "Discus food mix for fish",
-           category: "fishes",   
-           price: "449",
-           image: "../../img/foodservicesLandingPage/fishFood3.jpg",
-       },
-       {
-           productName: "Perfect Bistro for cats",
-           category: "cats",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/catFood3.jpg",
-       },
-       {
-           productName: "Wild Harvest for parrots",
-           category: "birds",   
-           price: "649",
-           image: "../../img/foodservicesLandingPage/birdFood3.jpg",
-       },
-       {
-           productName: "IAMS food for dogs",
-           category: "dogs",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/dogFood4.jpg",
-       },
-       {
-           productName: "Discovery food for fish",
-           category: "fishes",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/fishFood4.jpg",
-       },
-       {
-           productName: "Kit Cat food for cat",
-           category: "cats",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/catFood4.jpg",
-       },
-       {
-           productName: "Meal Worms for birds",
-           category: "birds",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/birdFood4.jpg",
-       },
-       {
-           productName: "Wild Earth food for dogs",
-           category: "dogs",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/dogFood5.jpg",
-       },
-       {
-           productName: "Top Cat food for cats",
-           category: "cats",   
-           price: "349",
-           image: "../../img/foodservicesLandingPage/catFood5.jpg",
-       },
-       {
-           productName: 'Dried worms for fishes',
-           category: 'fishes',
-           price: '549',
-           image: '../../img/foodservicesLandingPage/fishFood6.jpg',
-       },
-       {
-           productName: 'Peckish food for birds',
-           category: 'birds',
-           price: '599',
-           image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       }
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // },
-       // {
-       //     productName: 'Peckish food for birds',
-       //     category: 'birds',
-       //     price: '599',
-       //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
-       // }   
+let data = {
+    products: [
+        JSON.parse(document.querySelector('.data').innerText)
+    //    {
+    //        productName: "Pedigree for adult dog",
+    //        category: "dogs",   
+    //        price: "449",
+    //        image: "../../img/foodservicesLandingPage/dogFood1.jpg",
+    //    },
+    //    {
+    //        productName: "Omega One pellets for fish",
+    //        category: "fishes",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/fishFood1.jpg",
+    //    },
+    //    {
+    //        productName: "Whiskas food for cats",
+    //        category: "cats",   
+    //        price: "649",
+    //        image: "../../img/foodservicesLandingPage/catFood1.jpg",
+    //    },
+    //    {
+    //        productName: "IuPreem food for parrots",
+    //        category: "birds",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/birdFood1.jpg",
+    //    },
+    //    {
+    //        productName: "Barking Dogs food for dogs",
+    //        category: "dogs",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/dogFood2.jpg",
+    //    },
+    //    {
+    //        productName: "Tetra Min flakes for fish",
+    //        category: "fishes",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/fishFood2.jpg",
+    //    },
+    //    {
+    //        productName: "IAMS food for cats",
+    //        category: "cats",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/catFood2.jpg",
+    //    },
+    //    {
+    //        productName: "Wagner's food for birds",
+    //        category: "birds",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/birdFood2.jpg",
+    //    },
+    //    {
+    //        productName: "Crunch Bites for dogs",
+    //        category: "dogs",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/dogFood3.jpg",
+    //    },
+    //    {
+    //        productName: "Discus food mix for fish",
+    //        category: "fishes",   
+    //        price: "449",
+    //        image: "../../img/foodservicesLandingPage/fishFood3.jpg",
+    //    },
+    //    {
+    //        productName: "Perfect Bistro for cats",
+    //        category: "cats",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/catFood3.jpg",
+    //    },
+    //    {
+    //        productName: "Wild Harvest for parrots",
+    //        category: "birds",   
+    //        price: "649",
+    //        image: "../../img/foodservicesLandingPage/birdFood3.jpg",
+    //    },
+    //    {
+    //        productName: "IAMS food for dogs",
+    //        category: "dogs",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/dogFood4.jpg",
+    //    },
+    //    {
+    //        productName: "Discovery food for fish",
+    //        category: "fishes",   
+    //        price: "349",
+    //        image: "../../img/foodservicesLandingPage/fishFood4.jpg",
+    //    },
+    //    {
+    //        productName: "Kit Cat food for cat",
+    //        category: "cats",   
+    //        price: "649",
+    //        image: "../../img/foodservicesLandingPage/catFood4.jpg",
+    //    },
+    //    {
+    //        productName: "Meal Worms for birds",
+    //        category: "birds",   
+    //        price: "549",
+    //        image: "../../img/foodservicesLandingPage/birdFood4.jpg",
+    //    },
+    //    {
+    //        productName: "Wild Earth food for dogs",
+    //        category: "dogs",   
+    //        price: "449",
+    //        image: "../../img/foodservicesLandingPage/dogFood5.jpg",
+    //    },
+    //    {
+    //        productName: "Top Cat food for cats",
+    //        category: "cats",   
+    //        price: "399",
+    //        image: "../../img/foodservicesLandingPage/catFood5.jpg",
+    //    },
+    //    {
+    //        productName: 'Dried worms for fishes',
+    //        category: 'fishes',
+    //        price: '549',
+    //        image: '../../img/foodservicesLandingPage/fishFood6.jpg',
+    //    },
+    //    {
+    //        productName: 'Peckish food for birds',
+    //        category: 'birds',
+    //        price: '599',
+    //        image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    }
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // },
+    //    // {
+    //    //     productName: 'Peckish food for birds',
+    //    //     category: 'birds',
+    //    //     price: '599',
+    //    //     image: '../../img/foodservicesLandingPage/birdFood6.jpg',
+    //    // }   
     ]
-}
+    ,
+    reviews:[
+        JSON.parse(document.querySelector('.revdata').innerText)
+    ]
 
+}
 
 
 let card = document.getElementsByClassName('product-content');
 let xyz = card[0];
 
-for(let i=0 ; i<products.data.length; i++){
-   xyz.innerHTML += `<div class="${products.data[i].category} items">
-       <img class="imgsrc " src="${products.data[i].image}" style="width: 200px;">
-       <div class="des"> <h3 class="title" >${products.data[i].productName}</h3>
-       <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>${products.data[i].price}</div>
+for(let i=0 ; i<data.products[0].length; i++){
+   xyz.innerHTML += `<div class="${data.products[0][i].petType} items">
+   <img class="imgsrc " src="${data.products[0][i].productDetails.src}" style="width: 200px;">
+       <div class="des"> <h3 class="title" >${data.products[0][i].productDetails.Name}</h3>
+       <div class="price"><i class="fa-solid fa-indian-rupee-sign"></i>${data.products[0][i].productDetails.price}</div>
        <div class="stars">
            <i class="fas fa-star"></i>
            <i class="fas fa-star"></i>
@@ -263,9 +205,21 @@ for(let i=0 ; i<products.data.length; i++){
            <i class="fas fa-star"></i>
            <i class="fas fa-star-half-alt"></i>
        </div></div>
-       <div class="cart"><a href="#products" class="btn">add to cart</a></div>
+       <div class="cart"><a href="#products" class="btn">Add to cart</a></div>
        </div>`; 
 }
+
+// review fetching
+let revcard = document.getElementsByClassName('review-slider');
+let fetchRev = revcard[0];
+
+for(let i=0 ; i<data.reviews[0].length; i++){
+    fetchRev.innerHTML += `<div class="box">
+        <h3>${data.reviews[0][i].Name}</h3>
+        <p>${data.reviews[0][i].review}</p>
+        </div>`; 
+ }
+
 
 
 function refresh(){
@@ -372,10 +326,10 @@ let show = document.querySelector('.product-content');
 
 document.getElementById("search").addEventListener("click", () => {
    let searchInput = document.getElementById("search-input").value;
-   console.log(searchInput);
+//    console.log(searchInput);
    let elements = document.querySelectorAll(".title");
    let cards = document.querySelectorAll(".items");
-   console.log(elements);
+//    console.log(elements);
    elements.forEach((element, index) => {
      if (element.innerHTML.includes(searchInput) ){
        cards[index].classList.remove("inactive");
@@ -402,7 +356,6 @@ view.addEventListener("click",()=>{
        view.innerHTML = "View more";
    }
 });
-
 
 
 // cart button
