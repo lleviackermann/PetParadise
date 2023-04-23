@@ -46,9 +46,9 @@
                   <p class="text">Welcome Back! Please enter your details.</p>
                 </div>
 
-                <form action="/auth/user/login" method="post" class="contact-form">
+                <form action="/auth/user/login" method="post" name="search-theme-form" class="contact-form">
                   <div class="input-wrap w-100">
-                    <input type="email" class="contact-input" name="Email" required autocomplete="off" id="user-mail" />
+                    <input type="text" class="contact-input" name="Email" required autocomplete="off" id="user-mail" />
                     <label>Email</label>
                     <i class="icon fa-solid fa-envelope"></i>
                     <p id="mail-error"></p>
@@ -62,10 +62,10 @@
                     <p id="password-error"></p>
                   </div>
 
-                  <div class="remember">
+                  <!-- <div class="remember">
                     <input type="checkbox" name="Remember" id="remember" />
                     <label for="Remember">Remember For 30 Days</label>
-                  </div>
+                  </div> -->
                   <div class="forgot">
                     <a href="forgot">Forgot Password</a>
                   </div>
@@ -73,14 +73,6 @@
                   <div class="contact-buttons">
                     <input type="submit" value="Sign in" class="btn" />
                   </div>
-
-                  <!-- <div class="google-button">
-                    <button class="btn google" type="button">
-                      <img alt='Google "G" Logo'
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/16px-Google_%22G%22_Logo.svg.png" />
-                      <p>Sign in with Google</p>
-                    </button>
-                  </div> -->
 
                   <div class="no-account">
                     <p>Don't have an account? <a href="signup">Sign up</a></p>

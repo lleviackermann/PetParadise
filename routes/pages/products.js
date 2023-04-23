@@ -1,6 +1,6 @@
 const express = require("express");
 const bdparser = require("body-parser")
-const productSchema = require("../../client/Schemas/productSchema")
+const productSchema = require("../../models/productSchema")
 const router = express.Router();
 
 // // router.use(bdparser.json());
@@ -31,7 +31,6 @@ router.post("/product", async (req, res) => {
         console.log(req.body);
         await productSchema.findOneAndDelete({ productType: "Accessory", "productDetails.Name": req.body.title, "productDetails.price": req.body.price, "productDetails.src": req.body.imagSource.trim() })
     }
-    res.send([1, 2, 3])
 })
 
 module.exports = router;

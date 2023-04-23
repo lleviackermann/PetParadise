@@ -1,5 +1,4 @@
 const express = require("express")
-const sqlite = require("sqlite3")
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const app = express();
@@ -18,11 +17,8 @@ const userPayment = require("./routes/payments/payment")
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
-const Users = require("./client/Schemas/userSchema")
-const products = require("./client/Schemas/productSchema")
-const employee = require("./client/Schemas/employeeSchema")
-const connection = require("./mongodbConnection")
-
+const profilesRoutes = require("./routes/profiles/profilesRoutes");
+const messgaeContact = require('./routes/others/message');
 
 app.use(session({
     secret: "some secret",
@@ -56,6 +52,7 @@ app.get("/", (req, res) => {
     res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
+app.use("/profile", profilesRoutes);
 app.use("/dogs", dogsPage)
 app.use("/cats", catsPage)
 app.use("/birds", birdsPage)
@@ -67,10 +64,16 @@ app.use("/petsfoods", petfoodPage)
 app.use("/user/profile", userProfile)
 app.use("/user/payment", userPayment)
 
+app.use('/others', messgaeContact);
 
-app.listen(8000, (err) => {
-    if (err) {
-        return console.error(err);
-    }
+mongoose
+  .connect(
+    "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
+  )
+  .then((result) => {
+    app.listen(8000);
     console.log("server started successfully!");
-})
+  })
+  .catch((err) => {
+    console.log(err);
+  });

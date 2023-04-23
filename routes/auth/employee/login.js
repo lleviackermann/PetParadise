@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require('bcryptjs')
 const router = express.Router();
+const Employee = require('../../../models/employeeSchema')
 
 router.get("/", (req, res) => {
     res.render("./HTML/Authentication/employeeLogin.ejs");
@@ -10,30 +11,25 @@ const checkPassword = (Password, hashedPassword) => {
     return bcrypt.compareSync(Password, hashedPassword)
 }
 router.post("/", async function (req, res) {
-    let mail = req.body.Email
-    let password = req.body.Password
-    let matched;
-    await db.all(loginquery, [mail], function (err, rows) {
-        if (err) {
-            console.log(err.message);
+    let mail = req.body.name
+    let password = req.body.passWord
+    const employees = await Employee.find({ mailId: mail })
+    if (employees.length != 0) {
+        matched = checkPassword(password, employees[0].password)
+        if (matched == true) {
+            req.session.userMail = mail
+            let name = employees[0].name.firstName.concat(" ", employees[0].name.lastName)
+            req.session.userName = name
+            console.log(req.session);
+            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
         }
-        if (rows.length == 0) {
-            res.end("Incorrect UserName")
+        else {
+            res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
         }
-        rows.forEach(async (row) => {
-            console.log(row)
-            matched = await checkPassword(password, row.password)
-            // console.log("matched:"+checkPassword(password,row.password));
-            console.log(matched);
-            if (matched == true) {
-                res.end("Password succesfully  matched")
-                success = true
-
-            } else {
-                res.end("Password is incorrect")
-            }
-        });
-    })
+    }
+    else {
+        res.render("./HTML/Authentication/login", { error: true, message: "Invalid Mail!Please try again" })
+    }
 })
 
 

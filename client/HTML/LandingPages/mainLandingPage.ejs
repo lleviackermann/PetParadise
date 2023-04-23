@@ -21,7 +21,7 @@
     </div>
     <% } %>
 
-      <%- include("../components/navbar", {notlogin}); %>
+      <%- include("../components/navbar", {notlogin: true}); %>
 
         <header>
           <main>
@@ -459,18 +459,19 @@
               <div class="right-side">
                 <div class="topic-text">Send us a message</div>
                 <p>Out team would be very happy to hear from you.</p>
-                <form action="#">
+                <form action="/others/contact" method="post">
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your name" />
+                    <input type="text" placeholder="Enter your name" name="name"/>
                   </div>
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your email" />
+                    <input type="text" placeholder="Enter your email" name="email"/>
                   </div>
                   <div class="input-box message-box">
-                    <textarea placeholder="Enter your message"></textarea>
+                    <textarea placeholder="Enter your message" name="message"></textarea>
                   </div>
                   <div class="button">
-                    <input type="button" value="Send Now&rarr;" />
+                    <button class="services__button" type="submit">
+                      Send<span>&rarr;</span>
                   </div>
                 </form>
               </div>

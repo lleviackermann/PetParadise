@@ -5,7 +5,7 @@ const nameSchema = new mongoose.Schema({
 })
 
 const employeeSchema = new mongoose.Schema({
-    name: nameSchema, employeeId: String, password: String
+    name: nameSchema, employeeId: { type: String, trim: true }, password: String
 })
 
 module.exports = mongoose.model("employee", employeeSchema)

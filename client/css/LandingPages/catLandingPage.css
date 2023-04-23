@@ -441,6 +441,108 @@ header .navbar a:hover {
   --color3: #abc4ff;
   --color1: #ccff33;
 }
+.Shop-Cat .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.Shop-Cat .searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.Shop-Cat .searchTerm:focus{
+  color: #00B4CC;
+}
+
+.Shop-Cat .searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.Shop-Cat .searchButton.active {
+  
+}
+
+.Shop-Cat .search-bar{
+  width: 30%;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.Shop-Cat .search-option {
+  background: var(--login-form-color);
+  padding: 0.25em 0.5em;
+  min-width: 75px;
+  cursor: pointer;
+  margin:0 0.2rem;
+}
+
+.Shop-Cat .search-option::after {
+  content: '  X';
+  color: red;
+}
+
+
+
+
+.Shop-Cat .filter-btn{
+  background: darkgoldenrod;
+  padding: 1em 2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 0;
+  outline: 0;
+  text-align: left;
+  min-width: 150px;
+  display: inline-flex;
+  justify-content: space-between;
+  color: #f5f5f5;
+  cursor: pointer;
+  display: block;
+}
+
+.Shop-Cat .filter-options{
+  display: none;
+}
+
+.Shop-Cat .filter-options.active{
+  display: block;
+}
+
+ .filter-option{
+  background: var(--login-form-color);
+  padding: 0.5em 1em;
+  min-width: 150px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+
+.Shop-Cat .filter-option.active{
+  background-color: var(--green-color);
+}
+.Shop-Cat .filter-option.active::after{
+  content: " v";
+}
 
 .Shop-Cat .filter-btn{
   background: darkgoldenrod;
@@ -1099,5 +1201,3 @@ header .navbar a:hover {
     font-size: 98%;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

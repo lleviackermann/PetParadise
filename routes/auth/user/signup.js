@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path')
 const sqlite = require('sqlite3')
 const bcrypt = require('bcryptjs')
-const Users = require("../../../client/Schemas/userSchema");
+const Users = require("../../../models/userSchema");
 const router = express.Router();
 
 router.get("/", (req, res) => {
