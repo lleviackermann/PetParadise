@@ -44,6 +44,4 @@ router.post("/", async function (req, res) {
         res.render("./HTML/Authentication/login", { error: true, message: "Invalid Mail!Please try again" })
     }
 })
-
-
 module.exports = router;

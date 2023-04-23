@@ -3,86 +3,26 @@ let slideIndex = 2;
 let tabletWidth = window.matchMedia("(min-width:450px) and  (max-width: 600px)");
 let mobileWidth = window.matchMedia("(max-width: 450px)")
 
-
-let Productprice = []
-let productName
-let imgSrc
-let i = []
-console.log("hello");
-
-
-
-// async function fetchCall() {
-//     let data = await fetch("/dogs/data",
-//         {
-//             method: "POST",
-//             headers: {
-//                 'Accept': 'application/json, text/plain, */*',
-//                 'Content-Type': 'application/json'
-//             },
-//         })
-//         .then(async function (res) {
-//             return await res.json()
-//         }).then(async function (result) {
-//             alert(result)
-//             return await result
-//         })
-//     return await data
-// }
-// let data = fetchCall()
-// alert(JSON.stringify(data))
-// alert("hello")
-const xhr = new XMLHttpRequest()
-let result
-(async function () {
-    xhr.onreadystatechange = async () => {
-        if (xhr.readyState === 4) {
-            alert(xhr.response);
-            result = await xhr.response
-        }
-    }
-    xhr.open("POST", '/dogs/data', true)
-    xhr.setRequestHeader('Content-type', 'application/json')
-    xhr.send(null)
-})
-alert("result is:" + result);
-
-
-
-
-
-//         .then(async function (res) {
-//             return await res.json()
-//         })
-//         .then(async function (data) {
-//             alert(await JSON.stringify(data.Names))
-//             result = data
-//         })
-// }
-// alert(result)
-// let Productprice = document.querySelector(".prices-data").innerText.split(",")
-// let productName = document.querySelector(".names-data").innerText.split(",")
-// let imgSrc = document.querySelector(".src-data").innerText.split(",")
+let Productprice = document.querySelector(".prices-data").innerText.split(",")
+let productName = document.querySelector(".names-data").innerText.split(",")
+let imgSrc = document.querySelector(".src-data").innerText.split(",")
+// setTimeout(() => {
 let originalProductprice = [].concat(Productprice)
 let originalproductName = [].concat(productName)
 let originalimgSrc = [].concat(imgSrc)
 document.querySelector(".prices-data").remove()
 document.querySelector(".names-data").remove()
 document.querySelector(".src-data").remove()
+// alert("ad is:" + result);
+let a = []
+Productprice.forEach(p =>
+    a.push(parseInt(p)))
 
-// let a = []
-// Productprice.forEach(p =>
-//     a.push(parseInt(p)))
-
-// Productprice = a
+Productprice = a
 
 console.log(Productprice);
 console.log(productName);
 console.log(imgSrc);
-
-// let imgSrc = ["../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png", "../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png", "../../img/dogLandingPage/Dog_Breeds/beagle.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png", "../../img/dogLandingPage/Dog_Breeds/german_shepard.png",]
-
-
 sortList = []
 function sortArrays(arrays, comparator = (a, b) => (a < b) ? -1 : (a > b) ? 1 : 0) {
     let arrayKeys = Object.keys(arrays);
@@ -109,6 +49,31 @@ let products = document.querySelector(".products")
 console.log("function called here");
 slides(fullScreenSlider * 4)
 
+
+function searchItems() {
+    let searchitem = document.querySelector('.search-item')
+    if (!searchItems.classList.contains('active')) {
+        fullScreenSlider = 0;
+        let tempProductName = []
+        let tempProductPrice = []
+        let tempImgSrc = []
+        let str = document.querySelector(".searchTerm").value
+        console.log("hello" + str);
+        for (i = 0; i < productName.length; i++) {
+            if (productName[i].toLowerCase().includes(str.toLowerCase())) {
+                tempProductName.push(productName[i])
+                tempProductPrice.push(Productprice[i])
+                tempImgSrc.push(imgSrc[i])
+            }
+        }
+        productName = tempProductName
+        Productprice = tempProductPrice
+        imgSrc = tempImgSrc
+        console.log();
+        slides(fullScreenSlider)
+    }
+}
+
 function expandFilter() {
     console.log("expand filter is called");
     let filterOptions = document.getElementById("filter-options")
@@ -122,7 +87,6 @@ function expandFilter() {
 let SelectedFilters = document.querySelector(".search-bar .search")
 
 function removeFromSearch(element) {
-    // document.querySelector(`.filter-option.${element.classList[0]}`).classList.remove('active')
     filter(element.classList[0])
     element.remove()
     console.log(sortList);
@@ -145,6 +109,7 @@ function sortListUpdate() {
             Productprice = sorted[1]
             productName = sorted[0]
             imgSrc = sorted[2]
+            console.log(sorted[0]);
         }
         else if (ele == "price") {
             let sorted = sortArrays([Productprice, productName, imgSrc])
@@ -160,7 +125,6 @@ function sortListUpdate() {
 }
 function filter(type) {
     console.log("filter of type," + type + " is called");
-    // Productprice.sort((a, b) => productName.indexOf(a) - productName.indexOf(b));
     let filterOpt = document.querySelector(`.filter-option.${type}`)
     console.log(filterOpt);
     fullScreenSlider = 0
@@ -186,21 +150,21 @@ function filter(type) {
 
 function Append(name, imgSrc, price) {
     products.innerHTML += `
-    <div class="product">
-        <h3>${name}</h3>
-        <div class="card">
-        <div class="front">
-            <img src="${imgSrc}" alt = "" />
-        </div >
-            <div class="back">
-                <p class="info">Male|Female</p>
-                <p class="info">8 Weeks Old</p>
-                <p class="info cost">Rs.${price} <span>Rs. 30000.00</span></p>
-                <a href="" class="pet"><span>Shop Now</span></a>
-            </div>
-        </div >
-    </div>
-    `
+        <div class="product">
+            <h3>${name}</h3>
+            <div class="card">
+            <div class="front">
+                <img src="${imgSrc}" alt = "" />
+            </div >
+                <div class="back">
+                    <p class="info">Male|Female</p>
+                    <p class="info">8 Weeks Old</p>
+                    <p class="info cost">Rs.${price} <span>Rs.${price * 1.25}</span></p>
+                    <a href="" class="pet"><span>Shop Now</span></a>
+                </div>
+            </div >
+        </div>
+        `
     console.log("Successfully Appended");
     console.log(products);
 }
@@ -228,12 +192,14 @@ function slides(n) {
     // if (slideNumber == 0) {
     //     slideNumber++;
     // }
+    if (productName[0] === "") {
+        products.innerHTML += "<h1 style='color:red'>No products are currently Available Please try again after some time</h1>"
+    }
+    else {
+        // products.innerHTML = ""
+    }
     for (i = 0; i < 4; i++) {
-        // if (slideIndex == i) {
-        //     slideIndex++;
-        // }
-
-        if (productName.length <= slideNumber + i) {
+        if (productName.length <= slideNumber + i || productName[0] === "") {
             break;
         }
         console.log("slideIndex" + slideNumber, "i:" + i);

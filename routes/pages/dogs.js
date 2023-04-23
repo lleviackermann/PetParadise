@@ -1,8 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const connection = require("../../mongodbConnection")
-const fs = require("fs")
-const path = require("path")
 const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
 
 const petSchema = require("../../client/Schemas/petSchema");
