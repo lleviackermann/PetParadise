@@ -60,6 +60,25 @@ body {
     background-color: rgb(125, 170, 169);
 }
 
-.userName {
-    /* text-transform:uppercase; */
+/* update profile start */
+.updatebox{
+    background-color: rgb(125, 170, 169);
+    width :auto;
+    max-width: 600px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    padding: 25px;  
 }
+.updatebox i{
+    position: absolute;
+    font-size: 2rem;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+.updatebox input{
+    border-radius: 30px;
+}
+
+/* update profile end */
