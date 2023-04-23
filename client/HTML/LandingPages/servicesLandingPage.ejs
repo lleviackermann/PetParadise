@@ -8,6 +8,7 @@
   <title>Spa & Salon</title>
   <!-- services.css -->
   <link rel="stylesheet" href="../../css/LandingPages/servicesLandingPage.css">
+  <!-- <link rel="stylesheet" href="../../css/components/navbar2.css"> -->
   <!-- font awesome cdn -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
   integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
@@ -20,6 +21,29 @@
 <body>
   <%- include("../components/navbar", {notlogin: true}); %>
 
+  <!-- <header class="header" id="header">
+    <div class="navbar">
+      <div class="logo">
+        <h1><img src="../../img/foodservicesLandingPage/paw-solid.svg" style="width: 30px;"> PETS PARADISE</h1>
+      </div>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link active">Home</a></li>
+          <li><a href="/products" class="nav-link">Products</a></li>
+          <li><a href="#services" class="nav-link">services</a></li>
+          <li><a href="#package" class="nav-link">package</a></li>
+          <li><a href="#gallery" class="nav-link">gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact us</a></li>
+        </ul>
+      </nav>
+      <div class="button">  
+        <a href="/auth/user/login" class="btn2">Login</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header> -->
 
   <!-- start home section -->
   <section class="home">
@@ -257,6 +281,40 @@
     </section>
     <!-- end package section  -->
 
+    <!-- start appointment -->
+    <section class="appointment" id="appointment">
+      <div class="appointment-content">
+        <div class="section-title">
+          <h1>Appointment</h1>
+          <span>book by your convenience</span>
+        </div>
+        <div class="form-content">
+          <form action="/appointment" method="post">
+            <label for="sel-pack">Select the package you want : </label>
+            <select name="sel-pack" id="sel-pack">
+              <option value="">Select package</option>
+              <option value="299">BRONZE</option>
+             <option value="499">SILVER</option>
+             <option value="999">GOLD</option>
+             <option value="1299">DIAMOND</option>
+            </select>
+            <br>
+            <label for="sel-num">Select the number of pets : </label>
+              <input type="number" name="sel-mun" id="sel-num" min="1" value="1">
+            <br>
+            <label for="sel-date">Select the date of your appointment : </label>
+              <input type="date" name="sel-date" id="sel-date">
+            <br>
+            <label for="sel-time">Select the time of your appointment :</label>  
+              <input type="time" name="sel-time" id="sel-time">
+            <br>  
+            <a href="../../../user/payment" class="a-app">Confirm appointment</a>  
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- end appointment -->
+
   <!-- start gallery section -->
   <section class="gallery" id="gallery">
     <div class="gallery-content">
@@ -400,5 +458,6 @@
 
     <!-- js file -->
     <script src="../../JavaScript/LandingPages/servicesLandingPage.js"></script>
+    <!-- <script src="../../JavaScript/components/navbar.js"></script> -->
   </body>
 </html>

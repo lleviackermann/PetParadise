@@ -1,0 +1,70 @@
+<div class="message__records">
+  <h2>Messages Records</h2>
+  <form action="/profile/admin/messages" method="GET" class="records__container">
+    <div class="records__header">
+      <div class="sort__section">
+        <h3>Sort By:</h3>
+
+        <div id="modeForm">
+            <% for(let i = 0; i < sortList.length; i++) { %> 
+            <button>
+              <input type="radio" name="sortSelector" value="<%= sortList[i].value %>" id="<%= i %>" <%= select === i ? "checked" : null   %> />
+              <label name="sortSelector" value="<%= sortList[i].value %>" for="<%= i %>"><%= sortList[i].name %></label>
+            </button>
+            <% } %>
+        </div>
+      </div>
+
+      
+      <div class="search__section">
+          <div
+          id="searchForm"
+          >
+          <input type="text" class="search" name="search" value="<%= searchText %>" placeholder="Search by name or email"/>
+          <button type="submit" class="search__button" >search</button>
+          </div>
+      </div>
+    </div>
+
+    <div class="records__header-2">
+        <div class="filters__applied">
+            <h3>Filters applied: </h3>
+        </div>
+
+        <% if (filters.length > 0) { %>
+        <div class="filters__modal" onclick="modalOpenOrClose()">
+          <span class="material-icons-sharp"> tune </span>
+          <div href="" id="filterButton"> filters</div>
+        </div>
+        <% } else { %>
+          <div class="filters__modal-disable">
+            <span class="material-icons-sharp"> tune </span>
+            <div href="" id="filterButton"> filters</div>
+          </div>
+        <% } %>
+    </div>
+    
+    <% if (filters.length > 0) { %>
+      <%- include('../Modals/filterModal.ejs', { filters: filters }); %>
+    <% } %>
+
+  </form>
+  
+  <form action="/profile/admin/messages/delete" method="get" class="message__records-container">
+    <div class="message__records-header">
+      <div class="select-all">
+        <input type="checkbox" name="selectAll" value="selectAll" id="selectAll">
+        <label for="selectAll">Select All</label>
+      </div>
+      
+      <div class="delete-selected">
+        <button type="submit">Delete Selected Items</button>
+      </div>
+    </div>
+    
+    <%- include("../components/adminMessagesRecords", { messages: messages}) %>
+
+  </form>
+
+</div>
+
