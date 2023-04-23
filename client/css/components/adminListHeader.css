@@ -178,3 +178,40 @@
 input[type='checkbox'] {
     accent-color: var(--color-danger);
 }
+
+.pagination-container {
+    border-top: 2px solid var(--color-light);
+    background-color: #fff;
+    padding: 4rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-family: var(--roboto-text);
+}
+
+.pagination-container input {
+    display: none;
+}
+
+.pagination-container button {
+    padding: .5rem;
+    font-size: 1.6rem;
+    border: 3px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.pagination-container button.previous,
+.pagination-container button.ending {
+    pointer-events:none;
+}
+
+.pagination-container button:hover,
+.pagination-container button:has(input[checked]) {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.pagination-container button label {
+    cursor: pointer;
+}

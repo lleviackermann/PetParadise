@@ -6,4 +6,6 @@ router.get('/', messageControllers.messageSortAndSearch);
 
 router.get('/delete', messageControllers.deleteMessages);
 
+router.get('/pagination', messageControllers.pageChange);
+
 module.exports = router;

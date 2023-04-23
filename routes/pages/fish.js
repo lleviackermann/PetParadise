@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path")
-
 const petSchema = require("../../models/petSchema");
 
 const router = express.Router();

@@ -130,3 +130,18 @@ exports.deleteMessages = async (req, res) => {
   }
   res.redirect("/profile/admin/messages");
 };
+
+
+exports.pageChange = (req, res) => {
+  console.log(req.query);
+  res.render("./HTML/Admin/adminMessages.ejs", {
+    login: req.query.login,
+    messages: req.query.messages,
+    select: req.query.select,
+    searchText: searchText,
+    endingPage: endingPage,
+    currentPage: 1,
+    limit: pageLimitSize
+  });
+  // res.redirect('/page/admin/messages');
+}
