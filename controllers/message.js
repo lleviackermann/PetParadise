@@ -1,10 +1,34 @@
 const messageModel = require("../models/message");
+const countsSchema = require("../models/counts");
 const pageLimitSize = 10;
 
-exports.contactUs = (req, res) => {
+exports.contactUs = async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const messageDetails = req.body.message;
+
+  const messageCount = await countsSchema.findOne({ countId: "message" });
+  console.log(messageCount);
+  if (messageCount) {
+    const newCount = messageCount.countMessage + 1;
+    await countsSchema.findOneAndUpdate(
+      { countId: "message" },
+      { countMessage: newCount }
+    );
+  } else {
+    const newMessageCount = new countsSchema({
+      countMessage: 0,
+      countViews: 0,
+      countEmployees: 0,
+      countOrders: 0,
+      countProducts: 0,
+      countCustomers: 0,
+      countSales: 0,
+      countId: "message",
+    });
+
+    newMessageCount.save();
+  }
 
   const message = new messageModel({
     name: name,
@@ -25,6 +49,8 @@ exports.contactUs = (req, res) => {
 exports.messageSortAndSearch = async (req, res) => {
   try {
     let allMessages;
+    const messageCount = await countsSchema.findOne({ countId: "message" });
+
     const sortingOrder = req.query.sortSelector == 1 ? 1 : -1;
     const searchText = req.query.search;
     if (searchText && searchText != "" && searchText.length > 0) {
@@ -44,13 +70,14 @@ exports.messageSortAndSearch = async (req, res) => {
     const select = sortingOrder == -1 ? 0 : 1;
     const endingPage = Math.ceil(messages.length / pageLimitSize);
     res.render("./HTML/Admin/adminMessages.ejs", {
+      messageCount: messageCount.countMessage,
       login: true,
       messages: messages,
       select: select,
       searchText: searchText,
       endingPage: endingPage,
       currentPage: 1,
-      limit: pageLimitSize
+      limit: pageLimitSize,
     });
   } catch (err) {
     console.log(err);
@@ -129,10 +156,10 @@ exports.deleteMessages = async (req, res) => {
   res.redirect("/profile/admin/messages");
 };
 
-
 exports.pageChange = async (req, res) => {
   try {
     let allMessages;
+    const messageCount = await countsSchema.findOne({ countId: "message" });
     const sortingOrder = req.query.select == 1 ? 1 : -1;
     const searchText = req.query.searchText;
     if (searchText && searchText != "" && searchText.length > 0) {
@@ -153,16 +180,17 @@ exports.pageChange = async (req, res) => {
     const select = sortingOrder == -1 ? 0 : 1;
     const endingPage = Math.ceil(messages.length / pageLimitSize);
     res.render("./HTML/Admin/adminMessages.ejs", {
+      messageCount: messageCount.countMessage,
       login: true,
       messages: messages,
       select: select,
       searchText: searchText,
       endingPage: endingPage,
       currentPage: req.query.pagination,
-      limit: pageLimitSize
+      limit: pageLimitSize,
     });
   } catch (err) {
     console.log(err);
     res.sendStatus(404);
   }
-}
+};

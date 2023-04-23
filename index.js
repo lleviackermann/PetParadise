@@ -18,8 +18,8 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const profilesRoutes = require("./routes/profiles/profilesRoutes");
-const messgaeContact = require('./routes/others/message');
-
+const messageContact = require('./routes/others/message');
+const counts = require("./models/counts")
 app.use(session({
     secret: "some secret",
     cookie: {
@@ -43,8 +43,11 @@ app.use(express.static("client"));
 //authRouter is called everytime the /auth is used in the server
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     let notlogin = true
+    const count = await counts.findOne({countId: "message"});
+    const countView = count.countViews + 1;
+    await counts.findOneAndUpdate({countId: "message"}, {countViews: countView});
     console.log(req.session.userName);
     if (req.session.userName) {
         notlogin = false
@@ -64,7 +67,7 @@ app.use("/petsfoods", petfoodPage)
 app.use("/user/profile", userProfile)
 app.use("/user/payment", userPayment)
 
-app.use('/others', messgaeContact);
+app.use('/others', messageContact);
 
 mongoose
   .connect(
