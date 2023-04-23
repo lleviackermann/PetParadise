@@ -7,13 +7,13 @@
   <h3 class="message-heading">Message</h3>
   <h3></h3>
 
-  <% if(messages.length > 0) { %> <% for(let i = 0; i < messages.length; i++) {
+  <% if(messages.length > 0) { %> <% for(let i = (currentPage-1)*limit; i < currentPage*limit && i < messages.length; i++) {
   %>
   <input
     type="checkbox"
     class="message-checkbox"
     name="deleteMessage"
-    value="<%= messages[i].id %>"
+    value="<%= messages[i]._id %>"
   />
   <% let date = new Date(messages[i].createdAt); %> <% let dateString = new
   Date(date.getTime() - (date.getTimezoneOffset() * 60000

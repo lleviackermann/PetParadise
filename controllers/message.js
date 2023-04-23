@@ -1,4 +1,5 @@
 const messageModel = require("../models/message");
+const pageLimitSize = 2;
 
 exports.contactUs = (req, res) => {
   const name = req.body.name;
@@ -41,11 +42,15 @@ exports.messageSortAndSearch = async (req, res) => {
     }
     const messages = allMessages;
     const select = sortingOrder == -1 ? 0 : 1;
+    const endingPage = Math.ceil(messages.length / pageLimitSize);
     res.render("./HTML/Admin/adminMessages.ejs", {
       login: true,
       messages: messages,
       select: select,
       searchText: searchText,
+      endingPage: endingPage,
+      currentPage: 1,
+      limit: pageLimitSize
     });
   } catch (err) {
     console.log(err);
