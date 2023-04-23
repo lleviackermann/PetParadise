@@ -1,6 +1,6 @@
 const express = require("express");
 
-const appointmentSchema = require("../../client/Schemas/appointment");
+const appointmentSchema = require("../../models/appointment");
 
 const router = express.Router();
 

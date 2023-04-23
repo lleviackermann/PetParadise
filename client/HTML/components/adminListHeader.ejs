@@ -1,6 +1,6 @@
 <div class="message__records">
   <h2>Messages Records</h2>
-  <form action="/profile/admin/messages" method="GET" class="records__container">
+  <form action="<%= path %>" method="GET" class="records__container">
     <div class="records__header">
       <div class="sort__section">
         <h3>Sort By:</h3>
@@ -8,7 +8,7 @@
         <div id="modeForm">
             <% for(let i = 0; i < sortList.length; i++) { %> 
             <button>
-              <input type="radio" name="sortSelector" value="<%= sortList[i].value %>" id="<%= i %>" <%= select === i ? "checked" : null   %> />
+              <input type="radio" name="sortSelector" value="<%= sortList[i].value %>" id="<%= i %>" <%= select == i ? "checked" : null   %> />
               <label name="sortSelector" value="<%= sortList[i].value %>" for="<%= i %>"><%= sortList[i].name %></label>
             </button>
             <% } %>
@@ -50,7 +50,7 @@
 
   </form>
   
-  <form action="/profile/admin/messages/delete" method="get" class="message__records-container">
+  <form action="<%= path %>/delete" method="get" class="message__records-container">
     <div class="message__records-header">
       <div class="select-all">
         <input type="checkbox" name="selectAll" value="selectAll" id="selectAll">
@@ -62,10 +62,14 @@
       </div>
     </div>
     
+    <% if(path == "/profile/admin/messages") { %>
     <%- include("../components/adminMessagesRecords", { messages: messages}) %>
+    <% } else if(path == "/profile/admin/products") { %> 
+    <%- include("../components/adminProductsRecords", { messages: messages}) %>
+    <% } %>
   </form>
 
-  <form action="/profile/admin/messages/pagination" method="get" class="pagination-container">
+  <form action="<%= path == '/profile/admin/messages' ? path + '/pagination' : path %>" method="get" class="pagination-container">
     <button class="previous<%= currentPage != 1 ? '-active' : '';%>">
       <input type="radio" name="pagination" value="<%= Number(currentPage) - 1 %>" id="<%= Number(currentPage) * 1000 %>" />
       <label for="<%= Number(currentPage) * 1000 %>">Previous Page</label>
@@ -82,6 +86,8 @@
     </button>
 
     <input type="hidden" name="select" value="<%= select %>">
+    <input type="hidden" name="sortSelector" value="<%= select %>">
+
     <input type="hidden" name="searchText" value="<%= searchText %>">
     
 
