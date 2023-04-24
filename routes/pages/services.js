@@ -1,6 +1,6 @@
 const express = require("express");
 
-const appointmentSchema = require("../../client/Schemas/appointment");
+const appointmentSchema = require("../../models/appointment");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-
+rs
 })
 
 router.post("/appointment", async (req,res) => {
