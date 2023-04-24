@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", (req, res) => {
-
+rs
 })
 
 router.post("/appointment", async (req,res) => {

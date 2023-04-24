@@ -33,7 +33,7 @@
                             class=" rounded-circle" width="150">
                             <div class="mt-3">
                                 <h3 class="userName"><%= userName %></h3>
-                                <a href="">Update Profile</a>
+                                <button class="updatebutton">Update Profile</button>
                                 <!-- <a href="">Work</a>
                                 <a href="">Support</a>
                                 <a href="">Setting</a>
@@ -53,6 +53,7 @@
                                 <div class="col-md-9 text-secondary userName">
                                     <%= userName %>
                                 </div>
+
                             </div>
                             <hr>
                             <div class="row">
@@ -100,9 +101,9 @@
                     </div>
                 </div>
             </div>
-            <div class="updatebox">
-                <i class="fa-solid fa-xmark"></i>
-                <form action="user/profile/updateProfile" method="post">
+            <div class="updatebox inactive">
+                <i class="fa-solid fa-xmark iclose"></i>
+                <form action="/user/profile/updateProfile" method="post">
                     <h6 style="font-weight: 1000;">NOTE : Enter details only if you want to change; if you dont want to change existing details leave the field as a blank.</h2>
                     <label for="newFname">Enter new First name : </label>
                     <input type="text" name="newFname" id="newFname">
@@ -112,11 +113,13 @@
                     <br><br>
                     <label for="newpass">Click the button to set new password : </label>
                     <a href="/auth/user/forgot">Change password</a>
+                    <br><br>
+                    <button type="submit" class="submit">Confirm changes</button>
                 </form>
             </div>
         </div>
     </div>
     
 </body>
-
+<script src="../../JavaScript/ProfilePages/userProfilePage.js"></script>
 </html>

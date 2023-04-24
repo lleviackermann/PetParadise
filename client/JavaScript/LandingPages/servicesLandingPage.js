@@ -58,9 +58,9 @@ selapp.addEventListener("click",(event)=>{
         }
     
     else{
-        let c = window.confirm("Confirm appointment:\nPackage cost : "+ selpack.value+"\nNumber of pets : "+selnum.value+ "\nDate : "+seldate.value+"\nTime : "+seltime.value+"\nTotal cost : "+(selpack.value*selnum.value) );
+        let conf= window.confirm("Confirm appointment:\nPackage cost : "+ selpack.value+"\nNumber of pets : "+selnum.value+ "\nDate : "+seldate.value+"\nTime : "+seltime.value+"\nTotal cost : "+(selpack.value*selnum.value) );
 
-        if(!c) {
+        if(!conf) {
             event.preventDefault();
         }
     }

@@ -1,6 +1,18 @@
 const express = require("express");
+<<<<<<< HEAD
+const mongoose = require("mongoose")
+// const connection = require("../../mongodbConnection")
+const fs = require("fs")
+const path = require("path")
+const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
+
 const productSchema = require("../../models/productSchema");
 const reviewSchema = require("../../models/review");
+const { nextTick } = require("process");
+=======
+const productSchema = require("../../models/productSchema");
+const reviewSchema = require("../../models/review");
+>>>>>>> 2a21599a7ab118b1b22d8ea04f0c0c245236b7e4
 
 const router = express.Router();
 
