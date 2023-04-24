@@ -15,7 +15,6 @@ let submit = document.querySelector('.submit');
 let inpFname = document.querySelector('#newFname');
 let inpLname = document.querySelector('#newLname');
 const regex = /^[a-zA-Z\s]*$/;
-// console.log(submit);
 submit.addEventListener('click',(event)=>{
     if(inpFname.value === "" && inpLname.value === ""){
         window.alert("You have to change atleast one field");
