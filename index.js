@@ -23,12 +23,12 @@ const counts = require("./models/counts")
 const Orders = require('./models/orders')
 const employeeSchema = require('./models/employee')
 app.use(session({
-    secret: "some secret",
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24,
-    },
-    resave: true,
-    saveUninitialized: false,
+  secret: "some secret",
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+  },
+  resave: true,
+  saveUninitialized: false,
 }))
 
 app.use(cookieParser())

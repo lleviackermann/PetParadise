@@ -43,16 +43,31 @@
             </a>
             <% }else{ %>
                 <div class="components-navbar-enter__item components-navbar-profile">
-                    <span class="material-icons-sharp components-navbar-cart" style="font-size: 3.5rem;"> shopping_cart
-                    </span>
+                    <!-- <a href="#"><i class="fa-solid fa-cart-shopping" id="cart-btn" style="font-size: 3rem;"></i></a>
                     <a href="/user/profile"><span class="material-icons-sharp components-navbar-profile-picture"
-                            style="font-size: 3.5rem;">
+                            style="font-size: 3rem;">
                             account_circle
                         </span>
-                    </a>
+                    </a> -->
+                    <!-- <div class="fas fa-search" id="search-btn"></div>
+                    <div class="fas fa-shopping-cart" id="cart-btn"></div>
+                    <div class="fas fa-user" id="login-btn"></div> -->
+                    <a href="/user/profile"><i class="fas fa-user" id="login-btn"></i></a>
+                    <!-- <div class="fas fa-search" id="search-btn"></div>
+                    <div class="fas fa-shopping-cart" id="cart-btn"></div>
+                    <div class="fas fa-user" id="login-btn"></div> -->
+                    <a href="#"><i class="fa-solid fa-cart-shopping" id="cart-btn"></i></a>
                 </div>
+
+                
+        <form action="/user/payment" method="post" class="shopping-cart">
+            <div class="total">total : 0</div>
+            <!-- <a href="/user/payment" class="btn">Purchase</a> -->
+            <!-- <input type="text" name="text" id=""> -->
+            <button type="submit" class="btn">Purchase</button>
+        </form>
                 <% } %>
     </div>
 </header>
 
-<script src="../../JavaScript/components/navbar.js"></script>
+<script src="../../JavaScript/components/navbar.js" defer></script>
