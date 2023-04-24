@@ -17,7 +17,9 @@ router.post("/appointment", async (req,res) => {
     let num = req.body.selnum;
     let date = req.body.seldate;
     let time = req.body.seltime;
-    await appointmentSchema.create({userName:req.session.userName,package:pack,number:num,date:date,time:time})
+    let apptype = "salon";
+    let status = "pending";
+    await appointmentSchema.create({userName:req.session.userName,package:pack,number:num,date:date,time:time,appointmentType:apptype,status:status})
         res.render("./HTML/PaymentPage/paymentPage.ejs")
 })
 
