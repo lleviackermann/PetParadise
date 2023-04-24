@@ -27,13 +27,13 @@ if (clo) {
 addToCartFromDb()
 let shoppingCart = document.querySelector('.shopping-cart');
 let temp = 0
-document.querySelector('#cart-btn').onclick = () => {
-    shoppingCart.classList.toggle('active');
-    if (shoppingCart.classList.contains('active') && temp == 0) {
-        temp = 1
-    }
-    navbar.classList.remove('active');
-}
+// document.querySelector('#cart-btn').onclick=()=> {
+//     shoppingCart.classList.toggle('active');
+//     if (shoppingCart.classList.contains('active') && temp == 0) {
+//         temp = 1
+//     }
+//     navbar.classList.remove('active');
+// }
 
 let qunatityInputs = document.getElementsByClassName('qty');
 for (let i = 0; i < qunatityInputs.length; i++) {
@@ -191,9 +191,6 @@ let data = {
 let card = document.getElementsByClassName('pro-container');
 let xyz = card[0];
 
-console.log(xyz)
-// console.log(data.products[0][2].petType);
-
 for(let i=0 ; i<20; i++){
     xyz.innerHTML += `<div class="pro ${data.products[0][i].petType}">
                 <img class="imgsrc" src="${data.products[0][i].productDetails.src}" alt="">
@@ -213,37 +210,12 @@ for(let i=0 ; i<20; i++){
             </div>`; 
 }
 
-// let card1 = document.getElementsByClassName('pro-container1');
-// let xyz1 = card1[0];
-
-// for(let i=10 ; i<20; i++){
-//     xyz1.innerHTML += `<div class="pro ${data.products[0][i].petType}">
-//                 <img class="imgsrc" src="${data.products[0][i].productDetails.src}" alt="">
-//                 <div class="des">
-//                     <span>adidas</span>
-//                     <h5 class="title">${data.products[0][i].productDetails.Name}</h5>
-//                     <div class="star">
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                     </div>
-//                     <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>${data.products[0][i].productDetails.price}</h4>
-//                 </div>
-//                 <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-//             </div>`; 
-// }
-
 let dog = document.getElementsByClassName('dogs');
 let cat = document.getElementsByClassName('cats');
 let bird = document.getElementsByClassName('birds');
 let fish = document.getElementsByClassName('fishes');
-// console.log(cat[0].);
-function refresh(){
 
-    // filterProduct('all');
-    
+function refresh(){
     let elements = document.querySelectorAll(".pro");
     elements.forEach((ele) =>{
         ele.classList.remove('inactive');
@@ -341,13 +313,10 @@ function refresh(){
     return value;
     }
     
-    // search
     document.getElementById("search").addEventListener("click", () => {
     let searchInput = document.getElementById("search-input").value;
-    // console.log(searchInput);
     let elements = document.querySelectorAll(".title");
     let cards = document.querySelectorAll(".pro");
-    // console.log(elements);
     elements.forEach((element, index) => {
       if (element.innerHTML.includes(searchInput) ){
         cards[index].classList.remove("inactive");
