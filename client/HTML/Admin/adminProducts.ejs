@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/css/Admin/adminMessages.css" />
     <link rel="stylesheet" href="/css/components/adminListHeader.css" />
     <link rel="stylesheet" href="/css/Modals/filterModal.css" />
+    <link rel="stylesheet" href="/css/Modals/productModal.css">
     <link rel="stylesheet" href="/css/components/adminProductsRecords.css">
   </head>
   <body>
@@ -28,7 +29,7 @@
       <%- include('../components/adminListHeader.ejs', { sortList:
       [{value: 0, name: "Price(Ascending)"},
       {value: 1, name: "Price(Descending)"}], filters: [{ category: "pet", list: ["dogs", "birds", "cats", "fishes"]}, 
-      { category: "product", list: ["foods", "accessories"]}], path: "/profile/admin/products" }); %>
+      { category: "product", list: ["foods", "accessories"]}], path: "/profile/admin/products", records: "Products Records" }); %>
     </main>
 
     <div class="overlay no-show"></div>

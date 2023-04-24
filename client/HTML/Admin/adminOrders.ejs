@@ -9,7 +9,7 @@
   </head>
   <body>
     <% if(login) { %> <%- include("../components/adminLayout", { path :
-    "orders", pageHeading: "products" }); %>
+    "orders", pageHeading: "Orders" }); %>
 
     <main class="admin__main">
       <div class="summary__container">
@@ -28,7 +28,7 @@
       <%- include('../components/adminListHeader.ejs', { sortList:
       [{value: 0, name: "NewestFirst"},
       {value: 1, name: "OldestFirst"}], filters: [{ category: "status", list: ["pending", "delivered"]}],
-       path: "/profile/admin/orders" }); %>
+       path: "/profile/admin/orders", records: "Orders Records"}); %>
     </main>
 
     <div class="overlay no-show"></div>
