@@ -2,7 +2,8 @@
   display: none;
 }
 
-.product__modal {
+.product__modal,
+.add-product__modal {
   position: fixed;
   top: 50%;
   left: 50%;

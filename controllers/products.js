@@ -96,3 +96,24 @@ exports.deleteProduct = async (req, res) => {
   res.redirect("/profile/admin/products");
 };
 
+exports.addProduct = async (req, res) => {
+  console.log(req.body);
+  const petType = req.body.petType;
+  const productType = req.body.productType;
+  const productName = req.body.productName;
+  const productPrice = Number(req.body.productPrice);
+  const productImage = req.body.productImage;
+
+  const product = new productModel({
+    petType: petType,
+    productType: productType,
+    productDetails: {
+      Name: productName,
+      price: productPrice,
+      src: productImage
+    }
+  });
+
+  product.save();
+  res.redirect("/profile/admin/products");
+}

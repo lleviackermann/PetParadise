@@ -21,6 +21,7 @@ const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messageContact = require('./routes/others/message');
 const counts = require("./models/counts")
 const Orders = require('./models/orders')
+const employeeSchema = require('./models/employee')
 app.use(session({
   secret: "some secret",
   cookie: {
@@ -44,14 +45,37 @@ app.use(express.static("client"));
 //authRouter is called everytime the /auth is used in the server
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
-app.get("/", (req, res) => {
-  let notlogin = true
-  console.log(req.session.userName);
-  if (req.session.userName) {
-    notlogin = false
-  }
-  console.log(notlogin);
-  res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
+app.get("/", async (req, res) => {
+    // const employee1 = new employeeSchema({
+    //   name: "Angela Pablo",
+    //   userName: "E101",
+    //   password: "Angela@1234",
+    //   role: "products"
+    // });
+    // employee1.save();
+    // const employee2 = new employeeSchema({
+    //   name: "Thor Odinson",
+    //   userName: "E102",
+    //   password: "Thor@1234",
+    //   role: "serviceAppointment"
+    // });
+    // employee2.save();
+    // const employee3 = new employeeSchema({
+    //   name: "Hela pattinson",
+    //   userName: "E103",
+    //   password: "Hela@1234",
+    //   role: "doctorAppointment"
+    // });
+    // employee3.save();
+    let notlogin = true
+    const count = await counts.findOne({countId: "message"});
+    const countView = count.countViews + 1;
+    await counts.findOneAndUpdate({countId: "message"}, {countViews: countView});
+    console.log(req.session.userName);
+    if (req.session.userName) {
+        notlogin = false
+    }
+    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
 app.use("/profile", profilesRoutes);

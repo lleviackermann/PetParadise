@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="../../css/Admin/adminDashboard.css" />
   </head>
   <body>
-    <% if(login) { %> 
-      <%- include("../components/adminLayout", { path: "dashboard", pageHeading: 
-    "dashboard"}); %>
+    <% if(login) { %> <%- include("../components/adminLayout", { path:
+    "dashboard", pageHeading: "dashboard"}); %>
 
     <main class="admin__main">
       <section class="left">
@@ -46,7 +45,6 @@
               <h3>Total Products</h3>
               <h2><%= count.countProducts %></h2>
               <small class="admin__text-muted">Overall</small>
-    
             </div>
             <span class="material-icons-sharp"> inventory_2 </span>
           </div>
@@ -56,7 +54,6 @@
               <h3>Total Employees</h3>
               <h2><%= count.countEmployees %></h2>
               <small class="admin__text-muted">Overall</small>
-              
             </div>
             <span class="material-icons-sharp"> people </span>
           </div>
@@ -66,7 +63,6 @@
               <h3>Total Sales</h3>
               <h2>₹<%= count.countSales %></h2>
               <small class="admin__text-muted">Overall</small>
-              
             </div>
             <span class="material-icons-sharp"> trending_up </span>
           </div>
@@ -77,46 +73,27 @@
           <table>
             <thead>
               <tr>
+                <th>Date</th>
                 <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Payments</th>
+                <th>User Name</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
+              <% for(let i = 0; i < order.length; i++) {%> <% let date = new
+              Date(order[i].createdAt); %> <% let dateString = new
+              Date(date.getTime() - (date.getTimezoneOffset() * 60000
+              )).toISOString().split("T")[0]; %>
               <tr>
-                <td>Dog toys</td>
-                <td>d12345</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
+                <td><%= dateString %></td>
+                <td><%= order[i].prodId.productDetails.Name %></td>
+                <td><%= order[i].userId.name.firstName %></td>
+                <td><%= order[i].status %></td>
               </tr>
-              <tr>
-                <td>Dog toys</td>
-                <td>d12345</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-              </tr>
-              <tr>
-                <td>Dog toys</td>
-                <td>d12345</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-              </tr>
-              <tr>
-                <td>Dog toys</td>
-                <td>d12345</td>
-                <td>Due</td>
-                <td class="admin__primary">Delivered</td>
-              </tr>
-              <tr>
-                <td>Dog toys</td>
-                <td>d12345</td>
-                <td>Due</td>
-                <td class="admin__primary">Delivered</td>
-              </tr>
+              <% } %>
             </tbody>
           </table>
-          <a href="#">Show All</a>
+          <a href="/profile/admin/orders">Show All</a>
         </div>
       </section>
 
@@ -150,9 +127,8 @@
           </div>
         </div>
 
-        <div class="sales-reports">
+        <!-- <div class="sales-reports">
           <h2>Sales Analytics</h2>
-          <!-- <div class="sales-box__container"> -->
           <div class="sales__box">
             <span class="material-icons-sharp primary"> shopping_cart </span>
             <div class="details">
@@ -182,8 +158,7 @@
             <p class="percentage admin__primary">+39%</p>
             <p class="number">3889</p>
           </div>
-          <!-- </div> -->
-        </div>
+        </div> -->
       </section>
     </main>
     <% } else { %>
