@@ -78,63 +78,7 @@ exports.messageSortAndSearch = async (req, res) => {
       endingPage: endingPage,
       currentPage: 1,
       limit: pageLimitSize,
-    });
-  } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
-  }
-};
-
-exports.messageSortSearchAndFilters = async (req, res) => {
-  try {
-    console.log(req.query);
-    let allMessages, nameInitial, emailInitial;
-    if (!req.query.hasOwnProperty("names")) {
-      nameInitial = "All";
-      emailInitial = "All";
-    } else {
-      nameInitial = req.query.names;
-      emailInitial = req.query.email;
-    }
-    const sortingOrder = req.query.sortSelector == 1 ? 1 : -1;
-    const searchText = req.query.search;
-    const name = nameInitial;
-    const email = emailInitial;
-
-    if (searchText && searchText != "" && searchText.length > 0) {
-      if (searchText.includes("@")) {
-        allMessages = await messageModel
-          .find({ email: searchText })
-          .sort({ createdAt: sortingOrder });
-      } else {
-        allMessages = await messageModel
-          .find({ name: searchText })
-          .sort({ createdAt: sortingOrder });
-      }
-    } else {
-      allMessages = await messageModel.find().sort({ createdAt: sortingOrder });
-    }
-
-    if (name != "All") {
-      allMessages = allMessages.filter((message) => {
-        return message.name == name;
-      });
-    }
-    if (email != "All") {
-      allMessages = allMessages.filter((message) => {
-        return message.email == email;
-      });
-    }
-
-    const filtersApplied = [name, email];
-    const messages = allMessages;
-    const select = sortingOrder == -1 ? 0 : 1;
-    res.render("./HTML/Admin/adminMessages.ejs", {
-      login: true,
-      messages: messages,
-      select: select,
-      searchText: searchText,
-      filtersApplied: filtersApplied,
+      filtersApplied: []
     });
   } catch (err) {
     console.log(err);
@@ -188,6 +132,7 @@ exports.pageChange = async (req, res) => {
       endingPage: endingPage,
       currentPage: req.query.pagination,
       limit: pageLimitSize,
+      filtersApplied: []
     });
   } catch (err) {
     console.log(err);

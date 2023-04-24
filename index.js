@@ -20,6 +20,7 @@ const mongoose = require('mongoose');
 const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messageContact = require('./routes/others/message');
 const counts = require("./models/counts")
+const Orders = require('./models/orders')
 app.use(session({
     secret: "some secret",
     cookie: {
@@ -44,6 +45,14 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", async (req, res) => {
+    // const order = new Orders({
+    //   prodId: "6445f24e08199a0e9e3d3252",
+    //   userId: "64460752425846a1698ff7f9",
+    //   status: "pending"
+    // });
+    // order.save();
+    // const order = await Orders.find().populate('userId').populate('prodId');
+    // console.log(order);
     let notlogin = true
     const count = await counts.findOne({countId: "message"});
     const countView = count.countViews + 1;

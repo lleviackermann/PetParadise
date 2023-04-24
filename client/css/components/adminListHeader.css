@@ -215,3 +215,21 @@ input[type='checkbox'] {
 .pagination-container button label {
     cursor: pointer;
 }
+
+.filters__applied {
+    display: flex;
+    width: 60%;
+    gap: 2rem;
+}
+
+.filters__applied-container {
+    display: flex;
+    width: 60%;
+}
+
+.filters__applied-card {
+    padding: .4rem 1rem;
+    background-color: var(--color-light);
+    border-radius: 40px;
+    font-size: 1rem;
+}

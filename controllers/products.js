@@ -1,4 +1,3 @@
-const messageModel = require("../models/message");
 const countsSchema = require("../models/counts");
 const productModel = require("../models/productSchema");
 const pageLimitSize = 10;

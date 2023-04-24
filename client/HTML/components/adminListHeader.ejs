@@ -9,7 +9,7 @@
             <% for(let i = 0; i < sortList.length; i++) { %> 
             <button>
               <input type="radio" name="sortSelector" value="<%= sortList[i].value %>" id="<%= i %>" <%= select == i ? "checked" : null   %> />
-              <label name="sortSelector" value="<%= sortList[i].value %>" for="<%= i %>"><%= sortList[i].name %></label>
+              <label for="<%= i %>"><%= sortList[i].name %></label>
             </button>
             <% } %>
         </div>
@@ -20,7 +20,9 @@
           <div
           id="searchForm"
           >
-          <input type="text" class="search" name="search" value="<%= searchText %>" placeholder="Search by name or email"/>
+          <input type="text" class="search" name="search" value="<%= searchText %>" placeholder="<%= path == '/profile/admin/messages'
+           ? 'Search by name or email' : path == '/profile/admin/products'  ? 'Search by Product name' : 
+            path == '/profile/admin/orders' ? 'Search by username or productName' : ''%>" />
           <button type="submit" class="search__button" >search</button>
           </div>
       </div>
@@ -29,6 +31,13 @@
     <div class="records__header-2">
         <div class="filters__applied">
             <h3>Filters applied: </h3>
+            <div class="filters__applied-container">
+              <% for(let i = 0; i < filtersApplied.length; i++) { %>
+                <% if(filtersApplied[i] != 'All') { %>
+                <p class="filters__applied-card"><%= filtersApplied[i] %></p>
+                <% } %>
+              <% } %>
+            </div>
         </div>
 
         <% if (filters.length > 0) { %>
@@ -62,11 +71,14 @@
       </div>
     </div>
     
-    <% if(path == "/profile/admin/messages") { %>
+    <% if(path === "/profile/admin/messages") { %>
     <%- include("../components/adminMessagesRecords", { messages: messages}) %>
-    <% } else if(path == "/profile/admin/products") { %> 
+    <% } else if(path === "/profile/admin/products") { %> 
     <%- include("../components/adminProductsRecords", { messages: messages}) %>
+    <% } else if(path === "/profile/admin/orders") { %> 
+    <%- include("../components/adminOrdersRecords", { messages: messages}) %>
     <% } %>
+    
   </form>
 
   <form action="<%= path == '/profile/admin/messages' ? path + '/pagination' : path %>" method="get" class="pagination-container">
