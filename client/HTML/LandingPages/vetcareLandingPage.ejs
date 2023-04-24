@@ -15,7 +15,7 @@
 
 <body>
 
-    <%- include("../components/navbar", {notlogin}); %>
+    <%- include("../components/navbar", {notlogin: true}); %>
 
         <div class="background-image">
             <div class="background-content">
@@ -193,37 +193,79 @@
             <div class="main-doctor">
                 <div class="inner-doctor">
                     <img src="../../img/vetcareLandingPage/gal3.jpg" alt="">
-                    <div class="doc-icons">
-                        <div class="fab fa-facebook"></div>
-                        <div class="fab fa-twitter"></div>
-                        <div class="fab fa-instagram"></div>
-                        <div class="fab fa-linkedin"></div>
+                    <div class="content">
+                        Dr. K . Hemanth<br>
+                        B.V.Sc & A.H, M.V.Sc Veterinary Surgery & Radiology, PhD. Scholar
+                        6+ years of professional experience
                     </div>
                 </div>
 
                 <div class="inner-doctor">
                     <img src="../../img/vetcareLandingPage/gal2.jpg" alt="">
-                    <div class="doc-icons">
-                        <div class="fab fa-facebook"></div>
-                        <div class="fab fa-twitter"></div>
-                        <div class="fab fa-instagram"></div>
-                        <div class="fab fa-linkedin"></div>
+                    <div class="content">
+                        Dr. k .Ritika<br>
+                        B.V.Sc & A.H<br>
+                        11+ years of professional experience
                     </div>
                 </div>
 
                 <div class="inner-doctor">
                     <img src="../../img/vetcareLandingPage/gal5.jpg" alt="">
-                    <div class="doc-icons">
-                        <div class="fab fa-facebook"></div>
-                        <div class="fab fa-twitter"></div>
-                        <div class="fab fa-instagram"></div>
-                        <div class="fab fa-linkedin"></div>
+                    <div class="content">
+                        Dr. N. Ramchander Rao<br>
+                        B.V.Sc & A.H<br>
+                        2+ years of professional experience
+                    </div>
+                </div>
+
+                <div class="inner-doctor">
+                    <img src="../../img/vetcareLandingPage/gal6.jpg" alt="">
+                    <div class="content">
+                        Dr. Abhishek<br>
+                        B.V.Sc & A.H<br>
+                        2+ years of professional experience
                     </div>
                 </div>
 
 
             </div>
         </div>
+ 
+        <!-- start appointment -->
+    <section class="appointment" id="appointment">
+        <div class="appointment-content">
+          <div class="section-title">
+            <center>
+            <h1 class="app">MAKE An Appointment Here</h1>
+            <span>BOOK AN Appointment Of Your Choise</span>
+          </div>
+          <div class="form-content">
+            <form action="/vet-care/appointment" method="post">
+              <label for="selpack" class="app-headgings"> Choose veterinarian<span class="star">*</span>   :</label><br>
+              <select name="selpack" id="sel-pack">
+                <!-- <option value="">Select package</option> -->
+                <option value=Hemanth">Dr k.Hemanth</option>
+               <option value="Ritika">Dr k.Ritika</option>
+               <option value="Ramchander">Dr N.Ramchander Rao</option>
+               <option value="Abhishek">Dr .Abhishek</option>
+              </select>
+              <br>
+              <label for="selnum" class="app-headgings">Select the number of pets  <span class="star">*</span>         : </label><br>
+                <input type="number" name="selmun" id="sel-num" min="1" value="1">
+              <br>
+              <label for="seldate" class="app-headgings">Select a date for your appointment <span class="star">*</span> : </label><br>
+                <input type="date" name="seldate" id="sel-date">
+              <br>
+              <label for="seltime" class="app-headgings">Select the time of your appointment <span class="star">*</span>:</label><br>  
+                <input type="time" name="seltime" id="sel-time">
+              <br>  
+              <button type="submit" class="a-app">BOOK Your  appointment</button></center>  
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- end appointment -->
+
 
         <%- include("../components/footer"); %>
 

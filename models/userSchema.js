@@ -5,7 +5,10 @@ const nameSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-    name: nameSchema, mailId: { type: String, trim: true }, password: String, userCart: [{
+    name: nameSchema, 
+    mailId: { type: String, trim: true },
+    password: String, 
+    userCart: [{
         productType: String,
         productDetails: {
             title: String,
@@ -13,7 +16,16 @@ const userSchema = new mongoose.Schema({
             quantity: String,
             src: String
         }
-    }]
+    }],
+    appointment:  [{
+        userName: String,
+        package: String,
+        number: String,
+        date: String,
+        time: String,
+        appointmentType : String,
+        status: String,
+    }],
 })
 
 module.exports = mongoose.model("userSchema", userSchema)
