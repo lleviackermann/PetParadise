@@ -1,9 +1,7 @@
 const express = require('express');
-
+const productController = require('../../../controllers/products')
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('./HTML/Admin/adminProducts.ejs', { login: true });
-})
-
+router.get('/', productController.productsSortSearchAndFilters);
+router.get('/delete', productController.deleteProduct);
 module.exports = router;

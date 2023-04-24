@@ -1,4 +1,5 @@
 const express = require("express");
+<<<<<<< HEAD
 const mongoose = require("mongoose")
 // const connection = require("../../mongodbConnection")
 const fs = require("fs")
@@ -8,6 +9,10 @@ const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo
 const productSchema = require("../../models/productSchema");
 const reviewSchema = require("../../models/review");
 const { nextTick } = require("process");
+=======
+const productSchema = require("../../models/productSchema");
+const reviewSchema = require("../../models/review");
+>>>>>>> 2a21599a7ab118b1b22d8ea04f0c0c245236b7e4
 
 const router = express.Router();
 
@@ -53,7 +58,6 @@ router.post("/", (req, res) => {
 
 const regex = /^[a-zA-Z\s]*$/;
 
-
 router.get("/", async (req, res) => {
     let notlogin = true;
     if (req.session.userName) {
@@ -72,9 +76,9 @@ router.post("/reviewform",async (req,res) => {
     let rev = req.body.revtext;
     // console.log(req.body);
     try{
-    if(regex.test(name)){
-        await reviewSchema.create({Name:name,review:rev});
-    }
+        if(regex.test(name)){
+            await reviewSchema.create({Name:name,review:rev});
+        }
     }
     catch(e){
         console.log(e.message);

@@ -17,8 +17,7 @@
         <%= filtersApplied[i] == "All" ? "checked" : null %>
       />
       <label
-        name="<%= filters[i].category %>"
-        value="All"
+        
         for="<%= filters[i].category %>-all"
         >All</label
       >
@@ -33,8 +32,6 @@
         <%= filtersApplied[i] == filters[i].list[j] ? "checked" : null %>
       />
       <label
-        name="<%= filters[i].category %>"
-        value="<%= filters[i].list[j] %>"
         for="<%= filters[i].list[j] %>"
         ><%= filters[i].list[j] %></label
       >
