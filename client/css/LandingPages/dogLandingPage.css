@@ -415,6 +415,7 @@ header .navbar a:hover {
   z-index: 0;
   border-radius: 10px;
   font-size: 1.7rem;
+  cursor: pointer;
 }
 
 .pet span {
@@ -643,7 +644,7 @@ header .navbar a:hover {
   color: #161F6D;
 }
 
-.Shop-Dog .products .product:not(:nth-last-child(3)):hover {
+.Shop-Dog .products .product:not(:nth-last-child(-1)):hover {
   background-color: transparent;
 }
 

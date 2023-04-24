@@ -1,30 +1,31 @@
 const express = require("express");
 const mongoose = require("mongoose")
-const connection = require("../../mongodbConnection")
 const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
 
-const petSchema = require("../../client/Schemas/petSchema");
+const petSchema = require("../../models/productSchema");
+const users = require("../../models/userSchema")
+
 
 const router = express.Router();
 
-const petDetails = [
-    { pet: "cat", Details: { petName: "Persian Cat", petPrice: "20000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/persian.png" } },
-    { pet: "cat", Details: { petName: "Ragdoll", petPrice: "25000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/Ragdoll.png" } },
-    { pet: "cat", Details: { petName: "British Shorthair", petPrice: "40000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/british shorthair.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold", petPrice: "15000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 1", petPrice: "30000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Premium Scottish Fold", petPrice: "250000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 3", petPrice: "20000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 4", petPrice: "30000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 5", petPrice: "50000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 6", petPrice: "20000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 7", petPrice: "30000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 8", petPrice: "25000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 9", petPrice: "20000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
-    { pet: "cat", Details: { petName: "Scottish Fold 10", petPrice: "30000", petImgSrc: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+const petproductDetails = [
+    { productType: "pet-cat", productDetails: { Name: "Persian Cat", price: "20000", src: "../../img/catLandingPage/Cat_Breeds/persian.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Ragdoll", price: "25000", src: "../../img/catLandingPage/Cat_Breeds/Ragdoll.png" } },
+    { productType: "pet-cat", productDetails: { Name: "British Shorthair", price: "40000", src: "../../img/catLandingPage/Cat_Breeds/british shorthair.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold", price: "15000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 1", price: "30000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Premium Scottish Fold", price: "250000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 3", price: "20000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 4", price: "30000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 5", price: "50000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 6", price: "20000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 7", price: "30000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 8", price: "25000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 9", price: "20000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
+    { productType: "pet-cat", productDetails: { Name: "Scottish Fold 10", price: "30000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
 ]
 
-// petSchema.insertMany(petDetails)
+// petSchema.insertMany(petproductDetails)
 
 
 router.get("/", async (req, res) => {
@@ -32,17 +33,31 @@ router.get("/", async (req, res) => {
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "pet": "cat" })
+    const pets = await petSchema.find({ "productType": "pet-cat" })
     console.log("in cats page");
+    const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []
     let imgsrcData = []
     let productNamesData = []
+    let cartNames = []
+    let cartSrc = []
+    let cartPrices = []
     pets.forEach(element => {
-        pricesData.push(element.Details.petPrice);
-        imgsrcData.push(element.Details.petImgSrc)
-        productNamesData.push(element.Details.petName)
+        pricesData.push(element.productDetails.price);
+        imgsrcData.push(element.productDetails.src)
+        productNamesData.push(element.productDetails.Name)
     });
-    res.render("./HTML/LandingPages/catLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData })
+    if (!notlogin) {
+        cartItems.userCart.forEach(element => {
+            if (element.productType === 'pets') {
+                console.log(element.productDetails);
+                cartNames.push(element.productDetails.title)
+                cartPrices.push(element.productDetails.price)
+                cartSrc.push(element.productDetails.src)
+            }
+        })
+    }
+    res.render("./HTML/LandingPages/catLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData, cartNames, cartPrices, cartSrc })
 })
 
 router.post("/", (req, res) => {

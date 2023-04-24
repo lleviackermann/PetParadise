@@ -8,6 +8,10 @@ const router = express.Router();
 // router.use(express.urlencoded({ extended: true }))
 
 router.get("/", async (req, res) => {
+    let notlogin = true;
+    if (req.session.userName) {
+        notlogin = false
+    }
     const products = await productSchema.find({ productType: "Accessory" })
     let Names = []
     let prices = []
@@ -17,7 +21,7 @@ router.get("/", async (req, res) => {
         prices.push(element.productDetails.price)
         src.push(element.productDetails.src)
     });
-    res.render("./HTML/LandingPages/productLandingPage.ejs", { Names, prices, src })
+    res.render("./HTML/LandingPages/productLandingPage.ejs", { notlogin, Names, prices, src })
 })
 
 router.post("/product", async (req, res) => {

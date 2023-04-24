@@ -5,7 +5,15 @@ const nameSchema = new mongoose.Schema({
 })
 
 const userSchema = new mongoose.Schema({
-    name: nameSchema, mailId: { type: String, trim: true }, password: String
+    name: nameSchema, mailId: { type: String, trim: true }, password: String, userCart: [{
+        productType: String,
+        productDetails: {
+            title: String,
+            price: Number,
+            quantity: String,
+            src: String
+        }
+    }]
 })
 
 module.exports = mongoose.model("userSchema", userSchema)

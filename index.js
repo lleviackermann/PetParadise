@@ -21,12 +21,12 @@ const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messgaeContact = require('./routes/others/message');
 
 app.use(session({
-    secret: "some secret",
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24,
-    },
-    resave: true,
-    saveUninitialized: false,
+  secret: "some secret",
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+  },
+  resave: true,
+  saveUninitialized: false,
 }))
 
 app.use(cookieParser())
@@ -44,12 +44,13 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", (req, res) => {
-    let notlogin = true
-    console.log(req.session.userName);
-    if (req.session.userName) {
-        notlogin = false
-    }
-    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
+  let notlogin = true
+  console.log(req.session.userName);
+  if (req.session.userName) {
+    notlogin = false
+  }
+  console.log(notlogin);
+  res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
 app.use("/profile", profilesRoutes);

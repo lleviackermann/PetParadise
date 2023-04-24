@@ -3,6 +3,24 @@ let slideIndex = 2;
 let tabletWidth = window.matchMedia("(min-width:450px) and  (max-width: 600px)");
 let mobileWidth = window.matchMedia("(max-width: 450px)")
 
+// document.querySelector('#cart-btn').onclick = () => {
+//     document.querySelector('.shopping-cart').classList.toggle('active');
+//     if (document.querySelector('.shopping-cart').classList.contains('active') && temp == 0) {
+//         temp = 1
+//     }
+// }
+
+let cartNames
+let cartPrices
+let cartsrc
+if (document.querySelector('#cart-btn') != null) {
+    cartNames = document.querySelector('.cart-Names').innerText.split(',')
+    cartPrices = document.querySelector('.cart-Prices').innerText.split(',')
+    cartsrc = document.querySelector('.cart-src').innerText.split(',')
+
+    addToCartFromDb()
+}
+
 let Productprice = document.querySelector(".prices-data").innerText.split(",")
 let productName = document.querySelector(".names-data").innerText.split(",")
 let imgSrc = document.querySelector(".src-data").innerText.split(",")
@@ -52,7 +70,8 @@ slides(fullScreenSlider * 4)
 
 function searchItems() {
     let searchitem = document.querySelector('.search-item')
-    if (!searchItems.classList.contains('active')) {
+    if (!searchitem.classList.contains('active')) {
+        searchitem.classList.add('active')
         fullScreenSlider = 0;
         let tempProductName = []
         let tempProductPrice = []
@@ -70,6 +89,13 @@ function searchItems() {
         Productprice = tempProductPrice
         imgSrc = tempImgSrc
         console.log();
+        slides(fullScreenSlider)
+    }
+    else {
+        searchitem.classList.remove('active')
+        productName = originalproductName
+        Productprice = originalProductprice
+        imgSrc = originalimgSrc
         slides(fullScreenSlider)
     }
 }
@@ -160,7 +186,7 @@ function Append(name, imgSrc, price) {
                     <p class="info">Male|Female</p>
                     <p class="info">8 Weeks Old</p>
                     <p class="info cost">Rs.${price} <span>Rs.${price * 1.25}</span></p>
-                    <a href="" class="pet"><span>Shop Now</span></a>
+                    <button class="pet"><span>Shop Now</span></button>
                 </div>
             </div >
         </div>
@@ -208,8 +234,54 @@ function slides(n) {
         Append(productName[slideNumber + i], imgSrc[slideNumber + i], Productprice[slideNumber + i])
         // slides[slideNumber + i - 1].style.display = "block";
     }
+    let addToCartButtons = document.getElementsByClassName('pet')
+    let cartItemNames = document.getElementsByClassName('pet-name')
+    for (let i = 0; i < addToCartButtons.length; i++) {
+        let button = addToCartButtons[i]
+        button.addEventListener('click', function (event) {
+            let x = button.parentElement
+            let y = x.getElementsByClassName('cost')[0]
+            let price = parseFloat(y.innerHTML.match(/^\d+|\d+\b|\d+(?=\w)/g)[0]);
+            let title = (x.parentElement.parentElement.querySelector("h3").innerHTML)
+            let imagSource = x.parentElement.parentElement.querySelector('.front').querySelector("img").src
+            let productDetails = {
+                type: "add",
+                title: title,
+                price: parseFloat(price),
+                imagSource: imagSource
+            }
+            let key = 0
+            // alert(cartItemNames.length)
+            for (let i = 0; i < cartItemNames.length; i++) {
+                // console.log(cartItemNames[i].innerText + " " + title);
+                if (cartItemNames[i].innerText.toUpperCase().trim() === title.toUpperCase().trim()) {
+                    alert('This item is already added to cart')
+                    key = 1
+                    break
+                }
+            }
+            if (key == 0) {
+                alert("making database request")
+                fetch("/dogs/product",
+                    {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(productDetails)
+                    })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (result) {
+                        alert(result);
+                    })
+                addToCartItems(title, price, imagSource)
+            }
+        })
+    }
 }
-
 
 function showSlides(n) {
     let i;
@@ -272,3 +344,118 @@ function showSlides(n) {
         }
     };
 })();
+
+
+
+function addToCartFromDb() {
+    console.log("Adding data from db");
+    let i = 0;
+    cartNames.forEach(element => {
+        if (element !== " ") {
+            addToCartItems(element, cartPrices[i], cartsrc[i])
+            i++
+        }
+    });
+}
+
+
+
+
+// let addToCartButtons = document.getElementsByClassName('pet')
+// let cartItemNames = document.getElementsByClassName('pet-name')
+// for (let i = 0; i < addToCartButtons.length; i++) {
+//     let button = addToCartButtons[i]
+//     button.addEventListener('click', function (event) {
+//         alert("button clicked");
+//         let x = button.parentElement
+//         let y = x.getElementsByClassName('cost')[0]
+//         let price = parseFloat(y.innerHTML.match(/^\d+|\d+\b|\d+(?=\w)/g)[0]);
+//         let title = (x.parentElement.parentElement.querySelector("h3").innerHTML)
+//         let imagSource = x.parentElement.parentElement.querySelector('.front').querySelector("img").src
+//         let productDetails = {
+//             type: "add",
+//             title: title,
+//             price: parseFloat(price),
+//             imagSource: imagSource
+//         }
+//         let key = 0
+//         for (let i = 0; i < cartItemNames.length; i++) {
+//             if (cartItemNames[i].innerText === title) {
+//                 alert('This item is already added to cart')
+//                 key = 1
+//             }
+//         }
+//         if (key == 0) {
+//             //         fetch("/products/product",
+//             //             {
+//             //                 method: "POST",
+//             //                 headers: {
+//             //                     'Accept': 'application/json, text/plain, */*',
+//             //                     'Content-Type': 'application/json'
+//             //                 },
+//             //                 body: JSON.stringify(productDetails)
+//             //             })
+//             //             .then(function (response) {
+//             //                 return response.json();
+//             //             })
+//             //             .then(function (result) {
+//             //                 alert(result);
+//             //             })
+//             addToCartItems(title, price, imagSource)
+//         }
+
+
+
+//     })
+// }
+
+function addToCartItems(title, price, imagSource) {
+    let cartRow = document.createElement('div')
+    cartRow.classList.add('box')
+    let cartItems = document.getElementsByClassName('shopping-cart')[0]
+    let cartRowContents = `
+      <img src="${imagSource}" style="width: 200px;">
+        <div class="content">
+            <h3 class="pet-name">${title}</h3>
+            <span class="price">Rs.${price}</span>
+            <input type="hidden" id="custId" name="custId" value="${price} ${title} ${imagSource}">
+            <span class="remove" price="${price}" title="${title}" imagSource = "${imagSource}"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    let x = cartRow.getElementsByClassName('remove')
+    for (let i = 0; i < x.length; i++) {
+        let y = x[i]
+        y.addEventListener('click', function (event) {
+            let buttonClicked = event.target
+            console.log(y);
+            let productDetails = {
+                type: "remove",
+                title: y.getAttribute('title').trim(),
+                price: parseFloat(y.getAttribute('price')),
+                imagSource: y.getAttribute('imagSource')
+            }
+            buttonClicked.parentElement.parentElement.parentElement.remove()
+            console.log("price is:" + productDetails.price);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    alert(xhr.response);
+                }
+            }
+
+            xhr.open("POST", '/products/product', true)
+            xhr.setRequestHeader('Content-type', 'application/json')
+            xhr.send(JSON.stringify(productDetails))
+            // updateCartTotal()
+        })
+    }
+    let y = cartItems.getElementsByClassName('qty')
+    for (let i = 0; i < y.length; i++) {
+        let input = y[i]
+        input.addEventListener('change', function (event) {
+            // updateCartTotal()
+        })
+    }
+    // updateCartTotal()
+}

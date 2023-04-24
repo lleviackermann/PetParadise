@@ -3,7 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("./HTML/LandingPages/servicesLandingPage.ejs")
+    let notlogin = true;
+    if (req.session.userName) {
+        notlogin = false
+    }
+    res.render("./HTML/LandingPages/servicesLandingPage.ejs", { notlogin })
 })
 
 router.post("/", (req, res) => {

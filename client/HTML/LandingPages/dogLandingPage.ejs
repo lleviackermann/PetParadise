@@ -8,6 +8,7 @@
   <title>Dog website</title>
   
   <link rel="stylesheet" href="../../css/LandingPages/dogLandingPage.css" />
+  <link rel="stylesheet" href="../../css/LandingPages/productLandingPage.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -20,6 +21,9 @@
 <body>
   
   <%- include("../components/navbar", {notlogin}); %>
+
+
+  <!--Header ends here-->
   <section class="home" id="home">
     <div class="content">
       <h3>Find your <span> Perfect Dog</span> on our website</h3>
@@ -31,6 +35,11 @@
   <p class="prices-data" style="display: none;"> <%= pricesData.join(","); %></p>
   <p class="names-data" style="display: none;"><%= productNamesData.join(",") %></p>
   <p class="src-data" style="display: none;"><%= imgsrcData.join(",") %></p>
+
+  <p class="cart-Names" style="display: none;"> <%= cartNames.join(","); %></p>
+  <p class="cart-Prices" style="display: none;"> <%= cartPrices.join(","); %></p>
+  <p class="cart-src" style="display: none;"> <%= cartSrc.join(","); %></p>
+
   <section id="Shop-Dog" class="Shop-Dog">
     <h3 class="detail">
       <span class="word1">Our</span> <span class="word2"> Popular</span>
