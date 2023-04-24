@@ -21,6 +21,7 @@ const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messageContact = require('./routes/others/message');
 const counts = require("./models/counts")
 const Orders = require('./models/orders')
+const employeeSchema = require('./models/employee')
 app.use(session({
     secret: "some secret",
     cookie: {
@@ -45,14 +46,27 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", async (req, res) => {
-    // const order = new Orders({
-    //   prodId: "6445f24e08199a0e9e3d3252",
-    //   userId: "64460752425846a1698ff7f9",
-    //   status: "pending"
+    // const employee1 = new employeeSchema({
+    //   name: "Angela Pablo",
+    //   userName: "E101",
+    //   password: "Angela@1234",
+    //   role: "products"
     // });
-    // order.save();
-    // const order = await Orders.find().populate('userId').populate('prodId');
-    // console.log(order);
+    // employee1.save();
+    // const employee2 = new employeeSchema({
+    //   name: "Thor Odinson",
+    //   userName: "E102",
+    //   password: "Thor@1234",
+    //   role: "serviceAppointment"
+    // });
+    // employee2.save();
+    // const employee3 = new employeeSchema({
+    //   name: "Hela pattinson",
+    //   userName: "E103",
+    //   password: "Hela@1234",
+    //   role: "doctorAppointment"
+    // });
+    // employee3.save();
     let notlogin = true
     const count = await counts.findOne({countId: "message"});
     const countView = count.countViews + 1;

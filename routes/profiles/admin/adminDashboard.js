@@ -1,11 +1,8 @@
 const express = require('express');
 const counts = require('../../../models/counts');
+const dashboardController = require('../../../controllers/adminDashboard')
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-    const count = await counts.findOne({countId: "message"});
-    console.log(count);
-    res.render('./HTML/Admin/adminDashboard.ejs', { login: true, count: count });
-})
+router.get('/', dashboardController.dashboard)
 
 module.exports = router;
