@@ -2,10 +2,14 @@ const express = require("express");
 const userSchema = require('../../models/userSchema');
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
     let userName = req.session.userName
     let userMail = req.session.userMail
-    res.render("./HTML/ProfilePages/userProfile.ejs", { userName, userMail })
+    console.log(userMail);
+    let app = await userSchema.findOne({ mailId : userMail })
+    // app = JSON.stringify(app)
+    console.log(app);
+    res.render("./HTML/ProfilePages/userProfile.ejs", { userName, userMail, app})
 })
 
 router.post("/", (req, res) => {
