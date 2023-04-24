@@ -35,7 +35,10 @@ form.addEventListener('click', async (event) => {
     let validMailFormat = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
     let employeeFormat = /^e[0-9]+$/
     console.log(typeof (userMail.value))
-    if (!userMail.value.match(employeeFormat) || userMail.value.includes('@')) {
+    if (userMail.value === "admin123" && userPassword.value === "Admin@123") {
+
+    }
+    else if (!userMail.value.match(employeeFormat) || userMail.value.includes('@')) {
         if (userMail.value == "" || userMail.value == null) {
             mailErrorMessages.push("User Mail cannot be empty")
             console.log("User mail cannot be empty");
@@ -93,23 +96,6 @@ form.addEventListener('click', async (event) => {
             passWord: userPassword.value
         }
         document.querySelector('.contact-form').action = "/auth/employee/login"
-
-        // await fetch("/auth/employee/login",
-        //     {
-        //         mode: 'no-cors',
-        //         method: "POST",
-        //         headers: {
-        //             'Accept': 'application/json, text/plain, */*',
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(employeeDetails)
-        //     })
-        //     .then(function (response) {
-        //         return response.json();
-        //     })
-        //     .then(function (result) {
-        //         alert(result);
-        //     })
     }
 })
 

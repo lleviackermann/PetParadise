@@ -46,36 +46,16 @@ app.use(express.static("client"));
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
 app.get("/", async (req, res) => {
-    // const employee1 = new employeeSchema({
-    //   name: "Angela Pablo",
-    //   userName: "E101",
-    //   password: "Angela@1234",
-    //   role: "products"
-    // });
-    // employee1.save();
-    // const employee2 = new employeeSchema({
-    //   name: "Thor Odinson",
-    //   userName: "E102",
-    //   password: "Thor@1234",
-    //   role: "serviceAppointment"
-    // });
-    // employee2.save();
-    // const employee3 = new employeeSchema({
-    //   name: "Hela pattinson",
-    //   userName: "E103",
-    //   password: "Hela@1234",
-    //   role: "doctorAppointment"
-    // });
-    // employee3.save();
-    let notlogin = true
-    const count = await counts.findOne({countId: "message"});
-    const countView = count.countViews + 1;
-    await counts.findOneAndUpdate({countId: "message"}, {countViews: countView});
-    console.log(req.session.userName);
-    if (req.session.userName) {
-        notlogin = false
-    }
-    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
+  let notlogin = true
+  const count = await counts.findOne({ countId: "message" });
+  const views = count.countViews + 1;
+  await counts.findOneAndUpdate({ countId: "message" }, { countViews: views });
+  console.log(req.session.userName);
+  if (req.session.userName) {
+    notlogin = false
+  }
+  console.log(notlogin);
+  res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
 app.use("/profile", profilesRoutes);

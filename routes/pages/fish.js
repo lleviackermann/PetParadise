@@ -5,20 +5,20 @@ const users = require("../../models/userSchema")
 const router = express.Router();
 
 const petproductDetails = [
-    { productType: "pet-fish", productDetails: { Name: "Gold Fish", price: "100", src: "../../img/fishLandingPage/Fish_Images/gold_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Koi Fish", price: "300", src: "../../img/fishLandingPage/Fish_Images/koi_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Tiger barb", price: "150", src: "../../img/fishLandingPage/Fish_Images/tiger_barb.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 1", price: "300", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 2", price: "400", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 3", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 4", price: "150", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 5", price: "120", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 6", price: "100", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 7", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 8", price: "150", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Molly fish 9", price: "250", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
-    { productType: "pet-fish", productDetails: { Name: "Premium Gold Fish", price: "30000", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Gold Fish", price: "100", src: "../../img/fishLandingPage/Fish_Images/gold_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Koi Fish", price: "300", src: "../../img/fishLandingPage/Fish_Images/koi_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Tiger barb", price: "150", src: "../../img/fishLandingPage/Fish_Images/tiger_barb.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 1", price: "300", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 2", price: "400", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 3", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 4", price: "150", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 5", price: "120", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 6", price: "100", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 7", price: "200", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 8", price: "150", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Molly fish 9", price: "250", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
+    { productType: "pet", petType: "fishes", productDetails: { Name: "Premium Gold Fish", price: "30000", src: "../../img/fishLandingPage/Fish_Images/molly_fish.png" } },
 ]
 
 // petSchema.insertMany(petproductDetails)
@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "productType": "pet-fish" })
+    const pets = await petSchema.find({ "productType": "pet","petType" : "fishes" })
     const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []
     let imgsrcData = []

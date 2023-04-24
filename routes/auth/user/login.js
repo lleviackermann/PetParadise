@@ -26,6 +26,13 @@ router.post("/", async function (req, res) {
     let mail = req.body.Email
     let password = req.body.Password
     let matched;
+    req.session.admin = false
+    if (mail === "admin123" && password === "Admin@123") {
+        req.session.admin = true
+        admin = req.session.admin
+        let notlogin = false
+        res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin, admin })
+    }
     const users = await User.find({ mailId: mail })
     if (users.length != 0) {
         matched = checkPassword(password, users[0].password)
@@ -35,7 +42,8 @@ router.post("/", async function (req, res) {
             req.session.userName = name
             let notlogin = false
             console.log(notlogin);
-            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin })
+            admin = req.session.admin
+            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin, admin })
         }
         else {
             res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })
