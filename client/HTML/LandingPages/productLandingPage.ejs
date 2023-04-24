@@ -20,12 +20,9 @@
 
     <!--Header ending-->
 
-        <p class="cart-Names" style="display: none;"> <%= Names.join(","); %></p>
-        <p class="cart-Prices" style="display: none;"> <%= prices.join(","); %></p>
-        <p class="cart-src" style="display: none;"> <%= src.join(","); %></p>
-
-
-
+        <p class="Names-data" style="display: none;"> <%= Names.join(","); %></p>
+        <p class="prices-data" style="display: none;"> <%= prices.join(","); %></p>
+        <p class="src-data" style="display: none;"> <%= src.join(","); %></p>
 
     <section id="hero">
         <h4>Trade-in-offer</h4>
@@ -40,272 +37,29 @@
             <h2>Featured Products</h2>
             <p>Summer Collection New Mordern Desgins</p>
         </div>
+        <div class="wrapper">
+            <div id="search-container">
+             <input type="search" id="search-input" placeholder="Search for items">
+             <button id="search">Search</button>
+            </div>
+            <div id="buttons">
+                <a href="#products" class="button-value" onclick="refresh()" value="all">All</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="dog">Dog</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="cat">Cat</a>    
+                <a href="#products"  class="button-value" onclick="refresh()" value="bird">Bird</a>
+                <a href="#products"  class="button-value" onclick="refresh()" value="fish">Fish</a>
+                <a href="#products"  class="button-value" onclick="filterProduct('all')" value="price">Price</a>
+            </div>
+            <div id="view-products"></div>
+        </div>
+
         <div class="pro-container">
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac1.avif" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Bow Tie</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1999.00</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac2.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Pawstop Dog Belt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1499.00</h4>
-                </div>
-                <a class="cart" href="/products/product"><i class="fa-solid fa-cart-shopping" id="shop"></i></a>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac3.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Buraq Cat Harness Full Body with Leash Set - for Walking</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>199.00</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac4.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Jingle Bell for Cat Collar</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1999.00</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac5.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Bath Box Bird Cage Accessory</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>250.67</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac6.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Bird Parrot Feeder Cage Fruit Vegetable Holder</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>150.45</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac7.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Aquarium</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1050.23</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac8.avif" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Aquarium Toys</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>250.34</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" class="shop"></i></div>
-            </div>
         </div>
     </section>
 
     <section id="product1" class="section-p1">
-        <div class="headings">
-            <h2>Products With Offers</h2>
-            <p>Summer Collection New Mordern Desgins</p>
-        </div>
-        <div class="pro-container">
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac9.jpg" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5 class="title">Glitter Gold Bone Dog Name ID Tag</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1999.00</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac10.jpg" alt="">
-                <div class="des">
-                    <span>Dog Belt</span>
-                    <h5 class="title">Look Pet Shirt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>2315.27</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac11.jpg" alt="">
-                <div class="des">
-                    <span>Cat Belt</span>
-                    <h5 class="title">Soft Plush Donut Cuddler Cushion</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>2149.59</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac12.avif" alt="">
-                <div class="des">
-                    <span>Cat mask</span>
-                    <h5 class="title">Cute and Funny Pet Sunglasses</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1499</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac13.jpg" alt="">
-                <div class="des">
-                    <span>Bird Cage</span>
-                    <h5 class="title">Bird Perch Bird Stand Platform Toy</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>2623</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac14.jpg" alt="">
-                <div class="des">
-                    <span>Bird Bag</span>
-                    <h5 class="title">Hanging Ring Plastic Swing Toy (Pack of 3)</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fa-solid fa-star-sharp-half"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>169.57</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac15.jpg" alt="">
-                <div class="des">
-                    <span>Aquarium</span>
-                    <h5 class="title">Colourful - High Glass Submersible Automatic On/Off</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>1299.34</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
-            <div class="pro">
-                <img class="imgsrc" src="../../img/productLandingPage/ac16.jpg" alt="" class="">
-                <div class="des">
-                    <span>Aquarium toys</span>
-                    <h5 class="title">Decorative Ornaments for Fish Tank Decoration</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>659.26</h4>
-                </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>
+
+        <div class="pro-container1">
         </div>
     </section>
 

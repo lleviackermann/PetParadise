@@ -5,20 +5,20 @@ const users = require("../../models/userSchema")
 const router = express.Router();
 
 const petDetails = [
-    { productType: "pet-dog", productDetails: { Name: "Labrador Retriever", price: "15000", src: "../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png" } },
-    { productType: "pet-dog", productDetails: { Name: "Golden Retriever", price: "25000", src: "../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png" } },
-    { productType: "pet-dog", productDetails: { Name: "Beagle", price: "18000", src: "../../img/dogLandingPage/Dog_Breeds/beagle.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 1", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 2", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 3", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 4", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 5", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 6", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 7", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 8", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 9", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { productType: "pet-dog", productDetails: { Name: "German shepherd 10", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "Labrador Retriever", price: "15000", src: "../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "Golden Retriever", price: "25000", src: "../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "Beagle", price: "18000", src: "../../img/dogLandingPage/Dog_Breeds/beagle.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 1", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 2", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 3", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 4", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 5", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 6", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 7", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 8", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 9", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet", petType: "dogs", productDetails: { Name: "German shepherd 10", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
 ]
 
 // petSchema.insertMany(petDetails)
@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "productType": "pet-dog" })
+    const pets = await petSchema.find({ "productType": "pet","petType" : "dogs" })
     console.log("in dogs page");
     const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []

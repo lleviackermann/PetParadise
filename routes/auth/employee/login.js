@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require('bcryptjs')
 const router = express.Router();
-const Employee = require('../../../models/employeeSchema')
+const Employee = require('../../../models/employee')
 
 router.get("/", (req, res) => {
     res.render("./HTML/Authentication/employeeLogin.ejs");

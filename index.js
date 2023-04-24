@@ -21,6 +21,7 @@ const profilesRoutes = require("./routes/profiles/profilesRoutes");
 const messageContact = require('./routes/others/message');
 const counts = require("./models/counts")
 const Orders = require('./models/orders')
+const employeeSchema = require('./models/employee')
 app.use(session({
   secret: "some secret",
   cookie: {
