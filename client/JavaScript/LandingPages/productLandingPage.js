@@ -210,28 +210,6 @@ for (let i = 0; i < 20; i++) {
             </div>`;
 }
 
-// let card1 = document.getElementsByClassName('pro-container1');
-// let xyz1 = card1[0];
-
-// for(let i=10 ; i<20; i++){
-//     xyz1.innerHTML += `<div class="pro ${data.products[0][i].petType}">
-//                 <img class="imgsrc" src="${data.products[0][i].productDetails.src}" alt="">
-//                 <div class="des">
-//                     <span>adidas</span>
-//                     <h5 class="title">${data.products[0][i].productDetails.Name}</h5>
-//                     <div class="star">
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                         <i class="fas fa-star"></i>
-//                     </div>
-//                     <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>${data.products[0][i].productDetails.price}</h4>
-//                 </div>
-//                 <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-//             </div>`; 
-// }
-
 let dog = document.getElementsByClassName('dogs');
 let cat = document.getElementsByClassName('cats');
 let bird = document.getElementsByClassName('birds');
@@ -341,10 +319,8 @@ function convertFirstToUpper(value) {
 // search
 document.getElementById("search").addEventListener("click", () => {
     let searchInput = document.getElementById("search-input").value;
-    // console.log(searchInput);
     let elements = document.querySelectorAll(".title");
     let cards = document.querySelectorAll(".pro");
-    // console.log(elements);
     elements.forEach((element, index) => {
         if (element.innerHTML.includes(searchInput)) {
             cards[index].classList.remove("inactive");
