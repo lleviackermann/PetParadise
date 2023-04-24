@@ -15,62 +15,14 @@
 </head>
 
 <body>
-    <%- include("../components/navbar", {notlogin: true}); %>
+    <%- include("../components/navbar", {notlogin}); %>
     <!--Header starting-->
-    <!-- <section id="header">
-        <a href="#"><img src="../../img/foodservicesLandingPage/paw-solid.svg" class="logo" alt=""></a>
-        <p class="heading">PETS PARADISE</p>
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="/">Home</a></li>
-                <li><a href="/services">services</a></li>
-                <li><a href="/vet-care">Vet-Care</a></li>
-                <li><a href="/petsfoods">Food</a></li> -->
-
-                <!-- <li><a href="#"><i class="fas fa-search" id="search-btn"></i></a></li> -->
-                <!-- <li><a href="/auth/user/login"><i class="fas fa-user" id="login-btn"></i></a></li> -->
-                <!-- <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                <div class="fas fa-user" id="login-btn"></div> -->
-                <!-- <li id="lg-bag"><a href="#"><i class="fa-solid fa-cart-shopping" id="cart-btn"></i></a></li> -->
-                <!-- <i id="close" class="fa-solid fa-xmark"></i> -->
-            <!-- </ul>
-        </div>
-        <div id="mobile">
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#"><i id="bar" class="fas fa-bars"></i></a>
-        </div> -->
-        <!-- <div class="nav-toggle" id="nav-toggle">
-            <i class="fas fa-bars"></i>
-          </div> -->
-
-        <!-- <form action="" class="search-form">
-            <input type="search" id="search-box" placeholder="search here">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <form action="/user/payment" method="post" class="shopping-cart">
-            <div class="total">total : 0</div> -->
-            <!-- <a href="/user/payment" class="btn">Purchase</a> -->
-            <!-- <input type="text" name="text" id=""> -->
-            <!-- <button type="submit" class="btn">Purchase</button>
-        </form>
-        <form  class="login-form">
-            <h3>login now</h3>
-            <input type="email" placeholder="Enter your email" class="box">
-            <input type="password" placeholder="Enter your password" class="box">
-            <p>Forget your password <a href="#">click here</a></p>
-            <p>Dont have an account <a href="#">create now</a></p>
-            <input type="submit" value="login now" class="btn">
-        </form>
-
-    </section> -->
 
     <!--Header ending-->
 
-        <p class="Names-data" style="display: none;"> <%= Names.join(","); %></p>
-        <p class="prices-data" style="display: none;"> <%= prices.join(","); %></p>
-        <p class="src-data" style="display: none;"> <%= src.join(","); %></p>
+        <p class="cart-Names" style="display: none;"> <%= Names.join(","); %></p>
+        <p class="cart-Prices" style="display: none;"> <%= prices.join(","); %></p>
+        <p class="cart-src" style="display: none;"> <%= src.join(","); %></p>
 
 
 

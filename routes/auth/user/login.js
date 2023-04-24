@@ -33,8 +33,9 @@ router.post("/", async function (req, res) {
             req.session.userMail = mail
             let name = users[0].name.firstName.concat(" ", users[0].name.lastName)
             req.session.userName = name
-            console.log(req.session);
-            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin: false })
+            let notlogin = false
+            console.log(notlogin);
+            res.render("./HTML/LandingPages/mainLandingPage", { error: true, message: "Login Successfull!", notlogin })
         }
         else {
             res.render("./HTML/Authentication/login", { error: true, message: "Incorrect Password!Please try again" })

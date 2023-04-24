@@ -1,5 +1,10 @@
 <div class="message__records">
-  <h2>Messages Records</h2>
+  <h2><%= records %></h2>
+  <% if(path=='/profile/admin/products') { %>
+    <div id="product__button" onclick="addProductModalOpenOrClose()">
+      + Add Product
+    </div>
+    <% } %>
   <form action="<%= path %>" method="GET" class="records__container">
     <div class="records__header">
       <div class="sort__section">
@@ -56,8 +61,12 @@
     <% if (filters.length > 0) { %>
       <%- include('../Modals/filterModal.ejs', { filters: filters }); %>
     <% } %>
-
   </form>
+  <% if(path=='/profile/admin/products') { %>
+    <%- include('../Modals/productModal.ejs', { petType: "", prodctType: "", productName: "",prodctPrice: "",
+    productImage: "" }); %>
+  
+    <% } %>
   
   <form action="<%= path %>/delete" method="get" class="message__records-container">
     <div class="message__records-header">

@@ -1,9 +1,8 @@
-const filterButton = document.getElementsByClassName("filters__modal")[0];
 const overlayArray = document.getElementsByClassName("overlay")
 const filterModalArray = document.getElementsByClassName("filter__modal");
 const selectAll = document.getElementById("selectAll");
 const allCheckBox = document.getElementsByClassName("message-checkbox");
-
+const productModal = document.getElementsByClassName('product__modal')[0];
 
 const overlay = overlayArray[0]
 const filterModal = filterModalArray[0]
@@ -24,3 +23,8 @@ selectAll.addEventListener('click', () => {
         }
     }
 })
+
+const addProductModalOpenOrClose = () => {
+    overlay.classList.toggle('no-show');
+    productModal.classList.toggle('no-show');
+}

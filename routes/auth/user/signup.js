@@ -15,7 +15,7 @@ router.post("/", async function (req, res) {
         res.render("./HTML/Authentication/signup", { error: true, message: "User already exists" });
     } else if (req.body.Password === req.body.ConfirmPassword) {
         let hash = bcrypt.hashSync(req.body.Password, 10)
-        const user = await Users.create({ name: { firstName: req.body.FirstName, lastName: req.body.LastName }, mailId: req.body.Email, password: hash })
+        const user = await Users.create({ name: { firstName: req.body.FirstName, lastName: req.body.LastName }, mailId: req.body.Email, password: hash, userCart: [] })
         await user.save()
         res.render("./HTML/Authentication/login", { error: true, message: "Congratulations, Your account has been successfully created! Please login to continue." });
     }

@@ -22,12 +22,12 @@ const messageContact = require('./routes/others/message');
 const counts = require("./models/counts")
 const Orders = require('./models/orders')
 app.use(session({
-    secret: "some secret",
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24,
-    },
-    resave: true,
-    saveUninitialized: false,
+  secret: "some secret",
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+  },
+  resave: true,
+  saveUninitialized: false,
 }))
 
 app.use(cookieParser())
@@ -44,24 +44,14 @@ app.use(express.static("client"));
 //authRouter is called everytime the /auth is used in the server
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
-app.get("/", async (req, res) => {
-    // const order = new Orders({
-    //   prodId: "6445f24e08199a0e9e3d3252",
-    //   userId: "64460752425846a1698ff7f9",
-    //   status: "pending"
-    // });
-    // order.save();
-    // const order = await Orders.find().populate('userId').populate('prodId');
-    // console.log(order);
-    let notlogin = true
-    const count = await counts.findOne({countId: "message"});
-    const countView = count.countViews + 1;
-    await counts.findOneAndUpdate({countId: "message"}, {countViews: countView});
-    console.log(req.session.userName);
-    if (req.session.userName) {
-        notlogin = false
-    }
-    res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
+app.get("/", (req, res) => {
+  let notlogin = true
+  console.log(req.session.userName);
+  if (req.session.userName) {
+    notlogin = false
+  }
+  console.log(notlogin);
+  res.render("./HTML/LandingPages/mainLandingPage.ejs", { error: false, notlogin });
 });
 
 app.use("/profile", profilesRoutes);

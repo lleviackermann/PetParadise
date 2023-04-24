@@ -1,26 +1,24 @@
 const express = require("express");
-const mongoose = require("mongoose")
-const connectionString = "mongodb+srv://petparadise:Petparadise@cluster0.zuw8xzo.mongodb.net/test"
-
-const petSchema = require("../../models/petSchema");
+const petSchema = require("../../models/productSchema");
+const users = require("../../models/userSchema")
 
 const router = express.Router();
 
 const petDetails = [
-    { pet: "dog", Details: { petName: "Labrador Retriever", petPrice: "15000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png" } },
-    { pet: "dog", Details: { petName: "Golden Retriever", petPrice: "25000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png" } },
-    { pet: "dog", Details: { petName: "Beagle", petPrice: "18000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/beagle.png" } },
-    { pet: "dog", Details: { petName: "German shepherd", petPrice: "20000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 1", petPrice: "30000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 2", petPrice: "250000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 3", petPrice: "20000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 4", petPrice: "30000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 5", petPrice: "250000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 6", petPrice: "20000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 7", petPrice: "30000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 8", petPrice: "250000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 9", petPrice: "20000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
-    { pet: "dog", Details: { petName: "German shepherd 10", petPrice: "30000", petImgSrc: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "Labrador Retriever", price: "15000", src: "../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png" } },
+    { productType: "pet-dog", productDetails: { Name: "Golden Retriever", price: "25000", src: "../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png" } },
+    { productType: "pet-dog", productDetails: { Name: "Beagle", price: "18000", src: "../../img/dogLandingPage/Dog_Breeds/beagle.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 1", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 2", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 3", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 4", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 5", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 6", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 7", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 8", price: "250000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 9", price: "20000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
+    { productType: "pet-dog", productDetails: { Name: "German shepherd 10", price: "30000", src: "../../img/dogLandingPage/Dog_Breeds/german_shepard.png" } },
 ]
 
 // petSchema.insertMany(petDetails)
@@ -29,36 +27,47 @@ router.get("/", async (req, res) => {
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "pet": "dog" })
+    const pets = await petSchema.find({ "productType": "pet-dog" })
     console.log("in dogs page");
+    const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []
     let imgsrcData = []
     let productNamesData = []
+    let cartNames = []
+    let cartSrc = []
+    let cartPrices = []
     pets.forEach(element => {
-        pricesData.push(element.Details.petPrice);
-        imgsrcData.push(element.Details.petImgSrc)
-        productNamesData.push(element.Details.petName)
+        pricesData.push(element.productDetails.price);
+        imgsrcData.push(element.productDetails.src)
+        productNamesData.push(element.productDetails.Name)
     });
-    res.render("./HTML/LandingPages/dogLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData })
+    // console.log(typeof (cartItems));
+    if (!notlogin) {
+        cartItems.userCart.forEach(element => {
+            if (element.productType === 'pets') {
+                console.log(element.productDetails);
+                cartNames.push(element.productDetails.title)
+                cartPrices.push(element.productDetails.price)
+                cartSrc.push(element.productDetails.src)
+            }
+        })
+    }
+    res.render("./HTML/LandingPages/dogLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData, cartNames, cartPrices, cartSrc })
 })
 
-// router.post("/data", async (req, res) => {
-//     console.log("req received");
-//     const pets = await petSchema.find({ "pet": "dog" })
-//     let pricesData = []
-//     let imgsrcData = []
-//     let productNamesData = []
-//     pets.forEach(element => {
-//         pricesData.push(element.Details.petPrice);
-//         imgsrcData.push(element.Details.petImgSrc)
-//         productNamesData.push(element.Details.petName)
-//     });
-//     data = {
-//         prices: pricesData,
-//         Names: productNamesData,
-//         src: imgsrcData
-//     }
-//     res.send(data)
-// })
+router.post("/product", async (req, res) => {
+    console.log("request made");
+    console.log(req.body);
+    console.log("request session is:" + req.session.userMail);
+    if (req.body.type === "add") {
+        // const doc = await petSchema.findOne({ mailId: req.session.userMail })
+        // console.log(doc);
+        await users.updateOne({ mailId: req.session.userMail }, { $push: { userCart: { productType: "pets", productDetails: { title: req.body.title, price: req.body.price, src: req.body.imagSource, quantity: 0 } } } },)
+    }
+    else if (req.body.type === "remove") {
+        console.log(req.body);
+        await users.updateOne({ mailId: req.session.userMail }, { $pop: { userCart: { productType: "pets", productDetails: { title: req.body.title, price: req.body.price, src: req.body.imagSource, quantity: 0 } } } },)
+    }
+})
 
 module.exports = router;
