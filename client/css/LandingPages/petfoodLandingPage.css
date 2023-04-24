@@ -20,7 +20,7 @@
     outline: none;
     border: none;
     box-sizing: border-box;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     transition: all 0.2s linear;
 }
 
@@ -397,6 +397,7 @@ section{
     outline: var(--outline);
     box-shadow: var(--box-shadow);
     transition: 0.2s linear;
+    max-height: 450px;
 }
  
 .products .product-content .items.inactive{
@@ -508,9 +509,9 @@ section{
 /* reviews start */
 .review .review-slider{
     padding: 1rem;
-}
-.review .review-slider:first-child{
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 20px;
 }
 .review .review-slider .box{
     background: #fff;   
@@ -521,6 +522,7 @@ section{
     outline: var(--outline);
     box-shadow: var(--box-shadow);
     transition: 0.2s linear;
+    margin-bottom: 15px;
 }
 .review .review-slider .box:hover{
     outline-offset: 0rem;
@@ -545,6 +547,40 @@ section{
 .review .review-slider .box .stars i{
     color: var(--orange);
     font-size: 1.7rem;
+}
+.review form{
+    font: 1.8rem sans-serif;
+    border: 2px solid var(--orange);
+}
+.review .rev-from {
+    padding: 30px;
+}
+.review form h2{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.review form input{
+    width: 600px;
+    height: 40px;
+    display: block;
+    margin: auto;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+.review form textarea{
+    display: block;
+    margin: auto;
+    border-radius: 30px;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+.review form button{
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 30px;
 }
 /* reviews end */
 

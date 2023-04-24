@@ -21,10 +21,11 @@
     <!-- header start -->
     <%- include("../components/navbar", {notlogin}); %>
 
-
+    <p class="data" style="display: none"><%= pets %></p>
+    <p class="revdata" style="display: none"><%= rev %></p>
     <!-- header end -->
 
-    <!-- home start -->
+    <!-- home start -->`
     <section class="home" id="home">
         <div class="content">
             <h3>healthy and <span>nutritious</span> food for your pets</h3>
@@ -61,6 +62,38 @@
         </div>
     </section>
     <!-- features end -->
+
+    <!-- categories start -->
+    <section class="categories" id="categories">
+        <h1 class="heading">Product <span>categories</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/dogFood6.jpg" style="width:200px;">
+                <h3>Dog food</h3>
+                <p>for all breeds</p>
+                <a href="#products" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/catFood6.jpg" style="width:200px;">
+                <h3>Cat food</h3>
+                <p>for all breeds</p>
+                <a href="#products" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/birdFood5.jpg" style="width:200px;">
+                <h3>Bird food</h3>
+                <p>for specific breeds</p>
+                <a href="#products" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="../../img/foodservicesLandingPage/fishFood5.jpg" style="width:200px;">
+                <h3>Fish food</h3>
+                <p>for all breeds</p>
+                <a href="#products" class="btn">shop now</a>
+            </div>
+        </div>
+    </section>
+    <!-- categories end -->
 
     <!-- products start -->
     <section class="products" id="products">
@@ -383,143 +416,51 @@
     </section>
     <!-- products end -->
 
-    <!-- categories start -->
-    <section class="categories" id="categories">
-        <h1 class="heading">Product <span>categories</span></h1>
-        <div class="box-container">
-            <div class="box">
-                <img src="../../img/foodservicesLandingPage/dogFood6.jpg" style="width:200px;">
-                <h3>Dog food</h3>
-                <p>for all breeds</p>
-                <a href="#products" class="btn">shop now</a>
-            </div>
-            <div class="box">
-                <img src="../../img/foodservicesLandingPage/catFood6.jpg" style="width:200px;">
-                <h3>Cat food</h3>
-                <p>for all breeds</p>
-                <a href="#products" class="btn">shop now</a>
-            </div>
-            <div class="box">
-                <img src="../../img/foodservicesLandingPage/birdFood5.jpg" style="width:200px;">
-                <h3>Bird food</h3>
-                <p>for specific breeds</p>
-                <a href="#products" class="btn">shop now</a>
-            </div>
-            <div class="box">
-                <img src="../../img/foodservicesLandingPage/fishFood5.jpg" style="width:200px;">
-                <h3>Fish food</h3>
-                <p>for all breeds</p>
-                <a href="#products" class="btn">shop now</a>
-            </div>
-        </div>
-    </section>
-    <!-- categories end -->
+
 
     <!-- reviews start -->
     <section class="review" id="review">
-        <h1 class="heading">customer's <span>review</span></h1>
-        <div class="swiper review-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r1.jpg">
+        <h1 class="heading">Customer's <span>review</span></h1>
+        <div class="review-slider">
+                <!-- <div class="box">
+                    <h3>Trisha</h3>
                     <p>I was a little worried to try this website since they have started very recently. But it turned out to be good and cost effective.. My dog, 55kg Rottweiler, ate less when I introduced this food to him, but eventually got used to it.
                     I will recommend this product.</p>
-                    <h3>Trisha</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
                 </div>
                 
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r2.jpg">
-                    <p>My doggo just loves it. She has always been a pedigree lover. This chicken n vegetable flavor has made her even skip the home food.It does have fillers but lesser than the other brands. She prefers having pedigree.
-                    I will recommend this product.</p>
+                <div class=" box">
                     <h3>Harry</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
+                    <p>My doggo just loves it. She has always been a pedigree lover. This chicken n vegetable flavor has made her even skip the home food.It does have fillers but lesser than the other brands. She prefers having pedigree.I will recommend this product.</p>
                 </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r3.jpg">
-                    <p>I've fed my Labrador puppy on this from the age of 3 months up to now 10 months and he loves it and is now almost fully grown. Despite what it says on the packet I've been advised by my vet that I should now consider changing to an adult version. </p>
+                <div class=" box">
                     <h3>Karthik</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
+                    <p>I've fed my Labrador puppy on this from the age of 3 months up to now 10 months and he loves it and is now almost fully grown. Despite what it says on the packet I've been advised by my vet that I should now consider changing to an adult version. </p>
                 </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r4.jpg" >
-                    <p>My cat is quiet selective when it comes to food. Sheeba premium wet foods are exception and turns out that this is his favourite among the wet meals that we have tried so far.This wet cat food is very good for my cat's complete and balanced diet.</p>
+                <div class=" box">
                     <h3>Xian-wu</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
+                    <p>My cat is quiet selective when it comes to food. Sheeba premium wet foods are exception and turns out that this is his favourite among the wet meals that we have tried so far.This wet cat food is very good for my cat's complete and balanced diet.</p>
                 </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r5.jpg" >
-                    <p>The pellet size is mini and floats on water and ideal for small fish. My platy and swordtail love it and eat with gusto, no leftovers ever. It doesn't cloud the water. After using it for 2 months, I think this is a good brand of fish food.</p>
+                <div class="box">
                     <h3>Zendaya</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
+                    <p>The pellet size is mini and floats on water and ideal for small fish. My platy and swordtail love it and eat with gusto, no leftovers ever. It doesn't cloud the water. After using it for 2 months, I think this is a good brand of fish food.</p>
                 </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r6.jpg" >
-                    <p>The Whisker's chicken loaf meal also contains essential vitamins and minerals, so this premium palate for your cat delivers a mouth-watering feast, without compromising on the goodness. It gives my cat the satisfying taste of premium cat food.</p>
+                <div class=" box">
                     <h3>Maguire</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r7.jpg" >
-                    <p>I have deeply observed that the wild birds are not eating it when pouring on top roofs of house.the company must take a note on it. And include a basic diet for sparrows and other birds so that they enjoy eating it.I would recommend it.</p>
-                    <h3>Hanna</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <div class="swiper-slide box">
-                    <img src="../../img/foodservicesLandingPage/r8.jpg" >
-                    <p>The product is good and the dried worms are crisp with very little smell. But it leaves some colour in the water. Have to change the water more frequently due to this. This was not there with another brand product which I have used earlier.</p>
-                    <h3>Pete</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
+                    <p>The Whisker's chicken loaf meal also contains essential vitamins and minerals, so this premium palate for your cat delivers a mouth-watering feast, without compromising on the goodness. It gives my cat the satisfying taste of premium cat food.</p>
+                </div>-->
+            
+        </div>
+        <div class="rev-form">
+            <form action="petsfoods/reviewform" method="post">
+                <h2>Please enter your Review</h2>
+                <!-- <label for="revname"></label>
+                <input type="text" name="revname" id="revname" placeholder="Enter your name">
+                <br><br> -->
+                <label for="revtext"></label>
+                <textarea name="revtext" id="revtext" cols="90" rows="5" placeholder="Enter your thougths about our website"></textarea>
+                <br><br>
+                <button class="btn rev-sub">Submit</button>
+            </form>
         </div>
     </section>
     <!-- reviews end -->

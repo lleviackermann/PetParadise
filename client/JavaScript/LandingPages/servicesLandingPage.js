@@ -43,25 +43,30 @@
 
 // window.addEventListener('scroll',scrollHeader);
 
-let selpack = document.querySelector('#sel-pack');
-let seldate = document.getElementById("sel-date");
-let seltime = document.querySelector('#sel-time');
-let selnum = document.querySelector('#sel-num');
+let selpack = document.querySelector('#selpack');
+let seldate = document.getElementById("seldate");
+let seltime = document.querySelector('#seltime');
+let selnum = document.querySelector('#selnum');
 let selapp = document.querySelector('.a-app');
 
-selapp.addEventListener("click",(event)=>{
-    if(selpack.value === "" || seldate.value ==="" || seltime.value ===""){
-        window.alert("please select all fields");
-        event.preventDefault()
-    }
-    else{
-        let c = window.confirm("Confirm appointment:\nPackage cost : "+ selpack.value+"\nNumber of pets : "+selnum.value+ "\nDate : "+seldate.value+"\nTime : "+seltime.value+"\nTotal cost : "+(selpack.value*selnum.value) );
+const regex = /^[a-zA-Z\s]*$/;
 
-        if(!c) {
-            event.preventDefault()
+selapp.addEventListener("click",(event)=>{
+    if( selpack.value === "" || seldate.value ==="" || seltime.value ==="" ){
+            window.alert("please enter all fields");
+            event.preventDefault();
+        }
+    
+    else{
+        let conf= window.confirm("Confirm appointment:\nPackage cost : "+ selpack.value+"\nNumber of pets : "+selnum.value+ "\nDate : "+seldate.value+"\nTime : "+seltime.value+"\nTotal cost : "+(selpack.value*selnum.value) );
+
+        if(!conf) {
+            event.preventDefault();
         }
     }
 });
+
+// console.log();
 
 seldate.addEventListener("click",(event)=>{
     date= new Date()

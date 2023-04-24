@@ -18,8 +18,9 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose');
 const profilesRoutes = require("./routes/profiles/profilesRoutes");
-const messgaeContact = require('./routes/others/message');
-
+const messageContact = require('./routes/others/message');
+const counts = require("./models/counts")
+const Orders = require('./models/orders')
 app.use(session({
   secret: "some secret",
   cookie: {
@@ -65,7 +66,7 @@ app.use("/petsfoods", petfoodPage)
 app.use("/user/profile", userProfile)
 app.use("/user/payment", userPayment)
 
-app.use('/others', messgaeContact);
+app.use('/others', messageContact);
 
 mongoose
   .connect(

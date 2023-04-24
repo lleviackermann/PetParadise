@@ -178,3 +178,71 @@
 input[type='checkbox'] {
     accent-color: var(--color-danger);
 }
+
+.pagination-container {
+    border-top: 2px solid var(--color-light);
+    background-color: #fff;
+    padding: 4rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    font-family: var(--roboto-text);
+}
+
+.pagination-container input {
+    display: none;
+}
+
+.pagination-container button {
+    padding: .5rem;
+    font-size: 1.6rem;
+    border: 3px solid var(--color-primary);
+    cursor: pointer;
+}
+
+.pagination-container button.previous,
+.pagination-container button.next {
+    pointer-events:none;
+}
+
+.pagination-container button:hover,
+.pagination-container button:has(input[checked]) {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.pagination-container button label {
+    cursor: pointer;
+}
+
+.filters__applied {
+    display: flex;
+    width: 60%;
+    gap: 2rem;
+}
+
+.filters__applied-container {
+    display: flex;
+    width: 60%;
+}
+
+.filters__applied-card {
+    padding: .4rem 1rem;
+    background-color: var(--color-light);
+    border-radius: 40px;
+    font-size: 1rem;
+}
+
+#product__button {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    border: 3px dashed var(--color-primary);
+    border-radius: 10px;
+    width: fit-content;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
