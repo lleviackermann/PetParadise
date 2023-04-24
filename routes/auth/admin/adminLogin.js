@@ -6,6 +6,17 @@ router.get("/", (req, res) => {
     res.render("./HTML/Admin/adminLogin.ejs", { error: false })
 })
 
+router.get("/admin-logout", async (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log("Some error in destroying the session");
+        }
+        else {
+            res.redirect('/')
+        }
+    })
+})
+
 router.post("/", async (req, res) => {
     let mail = req.body.Email
     let pass = req.body.Password

@@ -44,8 +44,11 @@ app.use(express.static("client"));
 //authRouter is called everytime the /auth is used in the server
 //Runs on every url but works only when specified path is matched in the url 
 app.use("/auth", authRouter);
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   let notlogin = true
+  const count = await counts.findOne({ countId: "message" });
+  const views = count.countViews + 1;
+  await counts.findOneAndUpdate({ countId: "message" }, { countViews: views });
   console.log(req.session.userName);
   if (req.session.userName) {
     notlogin = false
