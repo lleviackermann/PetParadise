@@ -70,16 +70,16 @@
                     </div>
                     <div class="card mb-3 content">
                         <h1 class="m-3">History</h1>
-                        <div class="card-body">
+                        <div class="card-body app">
                             <div class="row">
-                                <div class="col ">
+                                <div class="col">
                                     <h5>Recent Appointment </h5>
                                     <% if(app.appointment.length > 0) { %>
                                         <% for(let i = 0; i < app.appointment.length; i++) { %>
                                             <div class="appointmentbox">
                                                 <h3>Your appointment</h3>
                                                 <p>Appointment type : <%= app.appointment[i].appointmentType %></p>
-                                                <p>Price :  <%= app.appointment[i].package %></p>
+                                                <p>Total cost :  <%= app.appointment[i].package*app.appointment[i].number %></p>
                                                 <p>status :  <%= app.appointment[i].status %></p>
                                             </div>
                                         <% } %>

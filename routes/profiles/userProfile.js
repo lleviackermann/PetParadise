@@ -52,6 +52,7 @@ router.post("/updateProfile",async (req,res)=>{
 
 
     res.render("./HTML/ProfilePages/userProfile.ejs",{userName: req.session.userName,userMail: mail})
+    res.redirect("/user/profile")
 })
 
 module.exports = router;

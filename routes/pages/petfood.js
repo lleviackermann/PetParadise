@@ -68,7 +68,6 @@ router.get("/", async (req, res) => {
 router.post("/reviewform", async (req, res) => {
     let name = req.session.userName;
     let rev = req.body.revtext;
-    // console.log(req.body);
     try {
         if (regex.test(name)) {
             await reviewSchema.create({ Name: name, review: rev });
