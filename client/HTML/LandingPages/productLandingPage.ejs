@@ -16,14 +16,10 @@
 
 <body>
     <%- include("../components/navbar", {notlogin,admin}); %>
-    <!--Header starting-->
-
-    <!--Header ending-->
-
-        <p class="Names-data" style="display: none;"> <%= Names.join(","); %></p>
-        <p class="prices-data" style="display: none;"> <%= prices.join(","); %></p>
-        <p class="src-data" style="display: none;"> <%= src.join(","); %></p>
-
+        <p class="Names-data" style="display: none;"> <%= cartNames.join(","); %></p>
+        <p class="prices-data" style="display: none;"> <%= cartPrices.join(","); %></p>
+        <p class="src-data" style="display: none;"> <%= cartSrc.join(","); %></p>
+        <p class="data" style="display: none;"><%= accessories %></p>
     <section id="hero">
         <h4>Trade-in-offer</h4>
         <h2>Super value deals</h2>

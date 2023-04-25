@@ -6,6 +6,10 @@ let Names = document.querySelector('.Names-data').innerText.split(',')
 let prices = document.querySelector('.prices-data').innerText.split(',')
 let src = document.querySelector('.src-data').innerText.split(',')
 
+alert(Names)
+alert(prices)
+alert(src)
+
 let a = []
 prices.forEach(p =>
     a.push(parseFloat(p)))
@@ -27,13 +31,12 @@ if (clo) {
 addToCartFromDb()
 let shoppingCart = document.querySelector('.shopping-cart');
 let temp = 0
-// document.querySelector('#cart-btn').onclick=()=> {
-//     shoppingCart.classList.toggle('active');
-//     if (shoppingCart.classList.contains('active') && temp == 0) {
-//         temp = 1
-//     }
-//     navbar.classList.remove('active');
-// }
+document.querySelector('#cart-btn').onclick = () => {
+    shoppingCart.classList.toggle('active');
+    if (shoppingCart.classList.contains('active') && temp == 0) {
+        temp = 1
+    }
+}
 
 let qunatityInputs = document.getElementsByClassName('qty');
 for (let i = 0; i < qunatityInputs.length; i++) {
@@ -103,10 +106,6 @@ for (let i = 0; i < addToCartButtons.length; i++) {
                 .then(function (result) {
                     alert(result);
                 })
-
-            // xhr.open("POST", '/products/product', true)
-            // xhr.setRequestHeader('Content-type', 'application/json')
-            // xhr.send(JSON.stringify(productDetails))
             addToCartItems(title, price, imagSource)
         }
     })
@@ -122,8 +121,6 @@ function addToCartFromDb() {
         }
     });
 }
-
-//   <input type="hidden" id="custId" name="custId" value="${price} ${title} ${imagSource}">
 
 function addToCartItems(title, price, imagSource) {
     let cartRow = document.createElement('div')
@@ -191,7 +188,10 @@ let data = {
 let card = document.getElementsByClassName('pro-container');
 let xyz = card[0];
 
-for(let i=0 ; i<20; i++){
+console.log(xyz)
+// console.log(data.products[0][2].petType);
+
+for (let i = 0; i < 20; i++) {
     xyz.innerHTML += `<div class="pro ${data.products[0][i].petType}">
                 <img class="imgsrc" src="${data.products[0][i].productDetails.src}" alt="">
                 <div class="des">
@@ -207,48 +207,51 @@ for(let i=0 ; i<20; i++){
                     <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>${data.products[0][i].productDetails.price}</h4>
                 </div>
                 <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
-            </div>`; 
+            </div>`;
 }
 
 let dog = document.getElementsByClassName('dogs');
 let cat = document.getElementsByClassName('cats');
 let bird = document.getElementsByClassName('birds');
 let fish = document.getElementsByClassName('fishes');
+// console.log(cat[0].);
+function refresh() {
 
-function refresh(){
+    // filterProduct('all');
+
     let elements = document.querySelectorAll(".pro");
-    elements.forEach((ele) =>{
+    elements.forEach((ele) => {
         ele.classList.remove('inactive');
     })
-    
-    
-    
-    
+
+
+
+
     const ex = document.getElementsByClassName('button-value');
-    
-    
-    for(let i=0;i<ex.length;i++){
+
+
+    for (let i = 0; i < ex.length; i++) {
         let check = ex[i];
-        check.addEventListener('click',()=>{
-            switch(check.innerHTML) {
-                case "All" :
-                    for(let i=0;i<5;i++){
+        check.addEventListener('click', () => {
+            switch (check.innerHTML) {
+                case "All":
+                    for (let i = 0; i < 5; i++) {
                         let c1 = cat[i];
                         let c2 = bird[i];
                         let c3 = fish[i];
                         let c4 = dog[i];
-                        
+
 
                         c1.classList.remove('inactive');
                         c2.classList.remove('inactive');
                         c3.classList.remove('inactive');
                         c4.classList.remove('inactive')
-    
-                    } 
+
+                    }
                     check.classList.add("active");
                     break;
-                case "Dog" :
-                    for(let i=0;i<5;i++){
+                case "Dog":
+                    for (let i = 0; i < 5; i++) {
                         let c1 = cat[i];
                         let c2 = bird[i];
                         let c3 = fish[i];
@@ -256,73 +259,74 @@ function refresh(){
                         c1.classList.add('inactive');
                         c2.classList.add('inactive');
                         c3.classList.add('inactive');
-    
-                    } 
+
+                    }
                     check.classList.add("active");
                     break;
-                case "Cat" :
-                    for(let i=0;i<5;i++){
+                case "Cat":
+                    for (let i = 0; i < 5; i++) {
                         let c1 = dog[i];
                         let c2 = bird[i];
                         let c3 = fish[i];
-        
+
                         c1.classList.add('inactive');
                         c2.classList.add('inactive');
                         c3.classList.add('inactive');
-        
-                    } 
+
+                    }
                     check.classList.add("active");
                     break;
-                case "Bird" :
-                    for(let i=0;i<5;i++){
+                case "Bird":
+                    for (let i = 0; i < 5; i++) {
                         let c1 = dog[i];
                         let c2 = cat[i];
                         let c3 = fish[i];
-            
+
                         c1.classList.add('inactive');
                         c2.classList.add('inactive');
                         c3.classList.add('inactive');
-            
-                    } 
+
+                    }
                     check.classList.add("active");
                     break;
-                case "Fish" :
-                    for(let i=0;i<5;i++){
+                case "Fish":
+                    for (let i = 0; i < 5; i++) {
                         let c1 = dog[i];
                         let c2 = bird[i];
                         let c3 = cat[i];
-        
+
                         c1.classList.add('inactive');
                         c2.classList.add('inactive');
                         c3.classList.add('inactive');
-        
-                    } 
+
+                    }
                     check.classList.add("active");
                     break;
             }
         })
         check.classList.remove('active');
-    
+
     }
-    }
-    
-    function convertFirstToUpper(value){
+}
+
+function convertFirstToUpper(value) {
     let v = value[0].toUpperCase();
     value = v + value.substr(1);
     console.log(value);
     return value;
-    }
-    
-    document.getElementById("search").addEventListener("click", () => {
+}
+
+// search
+document.getElementById("search").addEventListener("click", () => {
     let searchInput = document.getElementById("search-input").value;
     let elements = document.querySelectorAll(".title");
     let cards = document.querySelectorAll(".pro");
     elements.forEach((element, index) => {
-      if (element.innerHTML.includes(searchInput) ){
-        cards[index].classList.remove("inactive");
-      } else {
-        cards[index].classList.add("inactive");
-      }
+        if (element.innerHTML.includes(searchInput)) {
+            cards[index].classList.remove("inactive");
+        } else {
+            cards[index].classList.add("inactive");
+        }
     });
-    });
+});
 
