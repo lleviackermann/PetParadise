@@ -64,7 +64,7 @@
                 <a href="#contact-us"><button class="normal-btn">Contact Us</button></a>
               </div>
 
-              <div class="review__section">
+              <!-- <div class="review__section">
                 <h3>Our happy pet owners</h3>
                 <h4><span>&starf;</span> 4.7 (1.5k Reviews)</h4>
                 <div class="review__images">
@@ -74,7 +74,7 @@
                   <img src="/img/mainLandingPage/review4.jpg" alt="" class="img__item goleft" />
                   <div class="text__item goleft">+3k</div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <div class="right">
@@ -461,13 +461,13 @@
                 <p>Out team would be very happy to hear from you.</p>
                 <form action="/others/contact" method="post">
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your name" name="name"/>
+                    <input type="text" placeholder="Enter your name" name="name"/ pattern="[A-Za-z ]+" title="Please enter a valid name. Names can only contain letters and spaces." required>
                   </div>
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your email" name="email"/>
+                    <input type="email" placeholder="Enter your email" name="email"/ title="Please enter a valid Email." required>
                   </div>
                   <div class="input-box message-box">
-                    <textarea placeholder="Enter your message" name="message"></textarea>
+                    <textarea placeholder="Enter your message" name="message" required></textarea>
                   </div>
                   <div class="button">
                     <button class="services__button" type="submit">

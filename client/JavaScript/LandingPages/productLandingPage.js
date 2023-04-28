@@ -1,14 +1,14 @@
 const bar = document.getElementById('bar');
 const nav = document.getElementById('navbar');
 const clo = document.getElementById('close');
-const xhr = new XMLHttpRequest()
+// const xhr = new XMLHttpRequest()
 let Names = document.querySelector('.Names-data').innerText.split(',')
 let prices = document.querySelector('.prices-data').innerText.split(',')
 let src = document.querySelector('.src-data').innerText.split(',')
 
-alert(Names)
-alert(prices)
-alert(src)
+// alert(Names)
+// alert(prices)
+// alert(src)
 
 let a = []
 prices.forEach(p =>
@@ -28,16 +28,7 @@ if (clo) {
     })
 }
 
-addToCartFromDb()
-let shoppingCart = document.querySelector('.shopping-cart');
-let temp = 0
-document.querySelector('#cart-btn').onclick = () => {
-    shoppingCart.classList.toggle('active');
-    if (shoppingCart.classList.contains('active') && temp == 0) {
-        temp = 1
-    }
-}
-
+// addToCartFromDb()
 let qunatityInputs = document.getElementsByClassName('qty');
 for (let i = 0; i < qunatityInputs.length; i++) {
     let input = qunatityInputs[i]
@@ -48,17 +39,13 @@ for (let i = 0; i < qunatityInputs.length; i++) {
 
 function updateCartTotal() {
     let cartItemContainer = document.getElementsByClassName('shopping-cart')[0]
-    // console.log(cartItemContainer)
     let x = cartItemContainer.getElementsByClassName('box')
-    // console.log(x[0])
     let total = 0;
     for (let i = 0; i < x.length; i++) {
         let cartRows = x[i].getElementsByClassName('content');
         let priceElement = cartRows[0].getElementsByClassName('price')
-        // console.log(priceElement[0])
         let quantityElement = cartRows[0].getElementsByClassName('qty')
         let price = parseFloat(priceElement[0].innerText.replace('Rs.', ''))
-        // console.log(price);
         let quantity = quantityElement[0].value
         total = total + price * quantity
     }
@@ -66,119 +53,7 @@ function updateCartTotal() {
     let z = y[0].innerText = 'Total :' + total
 }
 
-let addToCartButtons = document.getElementsByClassName('cart')
-let cartItemNames = document.getElementsByClassName('name')
-for (let i = 0; i < addToCartButtons.length; i++) {
-    let button = addToCartButtons[i]
-    button.addEventListener('click', function (event) {
-        let x = button.parentElement
-        let y = x.getElementsByClassName('des')[0]
-        let imagSource = x.getElementsByClassName('imgsrc')[0].src
-        let title = y.getElementsByClassName('title')[0].innerText
-        let price = parseFloat(y.getElementsByClassName('rate')[0].innerText)
-        let productDetails = {
-            type: "add",
-            title: title,
-            price: parseFloat(price),
-            imagSource: imagSource
-        }
-        let key = 0
-        for (let i = 0; i < cartItemNames.length; i++) {
-            if (cartItemNames[i].innerText === title) {
-                alert('This item is already added to cart')
-                key = 1
-            }
-            console.log(cartItemNames[i] + " " + title);
-        }
-        if (key == 0) {
-            fetch("/products/product",
-                {
-                    method: "POST",
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(productDetails)
-                })
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (result) {
-                    alert(result);
-                })
-            addToCartItems(title, price, imagSource)
-        }
-    })
-}
-
-function addToCartFromDb() {
-    console.log("Adding data from db");
-    let i = 0;
-    Names.forEach(element => {
-        if (element !== " ") {
-            addToCartItems(element, prices[i], src[i])
-            i++
-        }
-    });
-}
-
-function addToCartItems(title, price, imagSource) {
-    let cartRow = document.createElement('div')
-    cartRow.classList.add('box')
-    let cartItems = document.getElementsByClassName('shopping-cart')[0]
-    let cartItemNames = document.getElementsByClassName('name')
-    let cartRowContents = `
-      <img src="${imagSource}" style="width: 200px;">
-        <div class="content">
-            <h3 class="name">${title}</h3>
-            <span class="price">Rs.${price}</span>
-            <span class="quantity">qty : <input type="number" min="1" class="qty" name="qty" value="1"></span>
-            <input type="hidden" id="custId" name="custId" value="${price} ${title} ${imagSource}">
-            <span class="remove" price="${price}" title="${title}" imagSource = "${imagSource}"><i class="fa-solid fa-xmark"></i></span>
-        </div>
-`
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-    let x = cartRow.getElementsByClassName('remove')
-    for (let i = 0; i < x.length; i++) {
-        let y = x[i]
-        y.addEventListener('click', function (event) {
-            let buttonClicked = event.target
-            console.log("button clicked");
-            console.log(y);
-            let productDetails = {
-                type: "remove",
-                title: y.getAttribute('title').trim(),
-                price: parseFloat(y.getAttribute('price')),
-                imagSource: y.getAttribute('imagSource')
-            }
-            buttonClicked.parentElement.parentElement.parentElement.remove()
-            console.log("price is:" + productDetails.price);
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === 4) {
-                    alert(xhr.response);
-                }
-            }
-
-            xhr.open("POST", '/products/product', true)
-            xhr.setRequestHeader('Content-type', 'application/json')
-            xhr.send(JSON.stringify(productDetails))
-            updateCartTotal()
-        })
-    }
-    let y = cartItems.getElementsByClassName('qty')
-    for (let i = 0; i < y.length; i++) {
-        let input = y[i]
-        input.addEventListener('change', function (event) {
-            updateCartTotal()
-        })
-    }
-    updateCartTotal()
-}
-
 let acc = document.querySelector('.data')
-// console.log(acc)
-
 let data = {
     products: [
         JSON.parse(document.querySelector('.data').innerHTML)
@@ -187,11 +62,7 @@ let data = {
 
 let card = document.getElementsByClassName('pro-container');
 let xyz = card[0];
-
-console.log(xyz)
-// console.log(data.products[0][2].petType);
-
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < data.products[0].length; i++) {
     xyz.innerHTML += `<div class="pro ${data.products[0][i].petType}">
                 <img class="imgsrc" src="${data.products[0][i].productDetails.src}" alt="">
                 <div class="des">
@@ -206,7 +77,11 @@ for (let i = 0; i < 20; i++) {
                     </div>
                     <h4 class="rate"><i class="fa-solid fa-indian-rupee-sign"></i>${data.products[0][i].productDetails.price}</h4>
                 </div>
-                <div class="cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></div>
+                <p class="name" style="display: none;">${data.products[0][i].productDetails.Name}</p>
+                <p class="price" style="display: none;">${data.products[0][i].productDetails.price}</p>
+                <p class="src" style="display: none;">${data.products[0][i].productDetails.src}</p>
+                <p class="type" style="display: none;">Accessory</p>
+                <button class="product-cart"><i class="fa-solid fa-cart-shopping" id="shop"></i></button>
             </div>`;
 }
 
@@ -214,19 +89,11 @@ let dog = document.getElementsByClassName('dogs');
 let cat = document.getElementsByClassName('cats');
 let bird = document.getElementsByClassName('birds');
 let fish = document.getElementsByClassName('fishes');
-// console.log(cat[0].);
 function refresh() {
-
-    // filterProduct('all');
-
     let elements = document.querySelectorAll(".pro");
     elements.forEach((ele) => {
         ele.classList.remove('inactive');
     })
-
-
-
-
     const ex = document.getElementsByClassName('button-value');
 
 

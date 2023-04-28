@@ -594,10 +594,11 @@ header .navbar a:hover {
 
 .Shop-Dog .filter-options.active{
   display: block;
+  color: white;
 }
 
  .filter-option{
-  background: var(--login-form-color);
+  /* background: var(--login-form-color); */
   padding: 0.5em 1em;
   min-width: 150px;
   cursor: pointer;
@@ -610,7 +611,6 @@ header .navbar a:hover {
   background-color: var(--green-color);
 }
 .Shop-Dog .filter-option.active::after{
-  content: " v";
 }
 
 .Shop-Dog .products {

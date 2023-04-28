@@ -607,7 +607,6 @@ header .navbar a:hover {
   background-color: var(--green-color);
 }
 .Shop-Fish .filter-option.active::after{
-  content: " v";
 }
 
 

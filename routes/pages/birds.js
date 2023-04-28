@@ -1,4 +1,5 @@
 const express = require("express");
+const users = require("../../models/userSchema")
 
 const petSchema = require("../../models/productSchema");
 
@@ -21,24 +22,34 @@ const petproductDetails = [
     { productType: "pet", petType: "birds", productDetails: { Name: "Finch 10", price: "3000", src: "../../img/birdLandingPage/Bird_breeds/Finch.png" } },
 ]
 
-// petSchema.insertMany(petproductDetails)
 router.get("/", async (req, res) => {
     let notlogin = true;
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "productType": "pet",petType: "birds" })
+    const pets = await petSchema.find({ "productType": "pet", petType: "birds" })
     console.log("in birds page");
+    const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []
     let imgsrcData = []
     let productNamesData = []
+    let cartNames = []
+    let cartSrc = []
+    let cartPrices = []
     pets.forEach(element => {
         pricesData.push(element.productDetails.price);
         imgsrcData.push(element.productDetails.src)
         productNamesData.push(element.productDetails.Name)
     });
-
-    res.render("./HTML/LandingPages/birdLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData })
+    if (!notlogin) {
+        cartItems.userCart.forEach(element => {
+            console.log(element.productDetails);
+            cartNames.push(element.productDetails.title)
+            cartPrices.push(element.productDetails.price)
+            cartSrc.push(element.productDetails.src)
+        })
+    }
+    res.render("./HTML/LandingPages/birdLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData, cartNames, cartPrices, cartSrc })
 })
 
 router.post("/", (req, res) => {

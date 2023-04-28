@@ -24,15 +24,13 @@ const petproductDetails = [
     { productType: "pet", petType: "cats", productDetails: { Name: "Scottish Fold 10", price: "30000", src: "../../img/catLandingPage/Cat_Breeds/scottish-fold.png" } },
 ]
 
-// petSchema.insertMany(petproductDetails)
-
 
 router.get("/", async (req, res) => {
     let notlogin = true;
     if (req.session.userName) {
         notlogin = false
     }
-    const pets = await petSchema.find({ "productType": "pet",petType: "cats" })
+    const pets = await petSchema.find({ "productType": "pet", petType: "cats" })
     console.log("in cats page");
     const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let pricesData = []
@@ -48,12 +46,10 @@ router.get("/", async (req, res) => {
     });
     if (!notlogin) {
         cartItems.userCart.forEach(element => {
-            if (element.productType === 'pets') {
-                console.log(element.productDetails);
-                cartNames.push(element.productDetails.title)
-                cartPrices.push(element.productDetails.price)
-                cartSrc.push(element.productDetails.src)
-            }
+            console.log(element.productDetails);
+            cartNames.push(element.productDetails.title)
+            cartPrices.push(element.productDetails.price)
+            cartSrc.push(element.productDetails.src)
         })
     }
     res.render("./HTML/LandingPages/catLandingPage.ejs", { notlogin, pricesData, productNamesData, imgsrcData, cartNames, cartPrices, cartSrc })

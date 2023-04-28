@@ -80,6 +80,7 @@
               </tr>
             </thead>
             <tbody>
+              <% if (order.length > 0 ) { %>
               <% for(let i = 0; i < order.length; i++) {%> <% let date = new
               Date(order[i].createdAt); %> <% let dateString = new
               Date(date.getTime() - (date.getTimezoneOffset() * 60000
@@ -91,6 +92,7 @@
                 <td><%= order[i].status %></td>
               </tr>
               <% } %>
+              <% } %>
             </tbody>
           </table>
           <a href="/profile/admin/orders">Show All</a>
@@ -98,7 +100,15 @@
       </section>
 
       <section class="right">
-        <div class="recent-updates">
+        <div class="announcement">
+          <h2>Announcement
+          </h2>
+          <form action="/others/announcement" method="post">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Write your message"></textarea>
+            <input type="submit" value="Send Annnouncement">
+          </form>
+        </div>
+        <!-- <div class="recent-updates">
           <h2>Recent Updates</h2>
           <div class="updates__container">
             <div class="update__box">
@@ -125,7 +135,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="sales-reports">
           <h2>Sales Analytics</h2>

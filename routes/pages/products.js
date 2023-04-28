@@ -3,10 +3,6 @@ const productSchema = require("../../models/productSchema")
 const users = require("../../models/userSchema")
 const router = express.Router();
 
-
-// // router.use(bdparser.json());
-// router.use(bdparser.urlencoded({ extended: true }));
-// router.use(express.urlencoded({ extended: true }))
 router.get("/", async (req, res) => {
     let notlogin = true;
     if (req.session.userName) {
@@ -16,29 +12,28 @@ router.get("/", async (req, res) => {
     if (req.session.admin) {
         admin = true
     }
-    // add to cart start
 
     const cartItems = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
     let cartNames = []
     let cartSrc = []
     let cartPrices = []
+    let cartType = []
 
     if (!notlogin) {
         cartItems.userCart.forEach(element => {
-            if (element.productType === 'pets') {
-                console.log(element.productDetails);
-                cartNames.push(element.productDetails.title)
-                cartPrices.push(element.productDetails.price)
-                cartSrc.push(element.productDetails.src)
-            }
+            console.log(element.productDetails);
+            cartNames.push(element.productDetails.title)
+            cartPrices.push(element.productDetails.price)
+            cartSrc.push(element.productDetails.src)
+            cartType.push(element.productType)
         })
     }
-    // cart end
-    // accessories
+
     let accessories = await productSchema.find({ "productType": "accessories" }, { productType: 0, "productDetails._id": 0, _id: 0, __v: 0 })
-    // console.log(accessories)
+
+    console.log(cartNames);
     accessories = JSON.stringify(accessories)
-    res.render("./HTML/LandingPages/productLandingPage.ejs", { notlogin, admin, cartNames, cartPrices, cartSrc, accessories })
+    res.render("./HTML/LandingPages/productLandingPage.ejs", { notlogin, admin, cartNames, cartPrices, cartSrc, cartType, accessories })
 })
 
 const productDetails = [
@@ -64,21 +59,35 @@ const productDetails = [
     { productType: "accessories", petType: "fishes", productDetails: { Name: "Decorative Ornaments for Fish Tank Decoration", price: "659", src: "../../img/productLandingPage/ac16.jpg" } },
 ]
 
-productSchema.insertMany(productDetails)
-// productSchema.deleteMany({productType: "accessories"})
+// productSchema.insertMany(productDetails)
 
 router.post("/product", async (req, res) => {
+    // let notlogin = true;
+    // if (req.session.userName) {
+    //     notlogin = false
+    // }
+
+    // if(notlogin ) {
+    //     res.render("./HTML/Authentication/login.ejs", { error: true, message: "Please login first!"});
+    // }
+    // else{
     console.log("request made");
     console.log(req.body);
-    if (req.body.type === "add") {
-        const product = await productSchema.create({ productType: "Accessory", productDetails: { Name: req.body.title, price: req.body.price, src: req.body.imagSource } })
-        product.save()
+    if (req.session.userName) {
+        if (req.body.type === "add") {
+            console.log(req.body);
+            await users.updateOne({ mailId: req.session.userMail }, { $push: { userCart: { productDetails: { title: req.body.title, price: req.body.price, src: req.body.imagSource, quantity: 0 } } } })
+        }
+        else if (req.body.type === "remove") {
+            console.log("remove request");
+            console.log(req.body);
+            let title = req.body.title
+
+            const user = await users.findOne({ mailId: req.session.userMail }, { userCart: 1 })
+            await user.updateOne({ $pull: { userCart: { "productDetails.title": title } } });
+        }
     }
-    else if (req.body.type === "remove") {
-        console.log(req.body);
-        await productSchema.findOneAndDelete({ productType: "Accessory", "productDetails.Name": req.body.title, "productDetails.price": req.body.price, "productDetails.src": req.body.imagSource.trim() })
-    }
-    res.send([1, 2, 3])
+    // res.send([1, 2, 3])
 })
 
 module.exports = router;
