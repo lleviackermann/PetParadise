@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../../css/PaymentPage/paymentPage.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form action="/mainLandingpage" method="post">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <h3 class="title">billing address</h3>
+
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input type="text" placeholder="john deo" pattern="[A-Za-z ]+" title="Please enter a valid name. Names can only contain letters and spaces." required>
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" placeholder="example@example.com" pattern="/\A[A-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\.[A-Z0-9_!#$%&'*+/=?`{|}~^-]+↵
+                        )*@[A-Z0-9-]+(?:\.[A-Z0-9-]+)*\Z/" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>address :</span>
+                        <input type="text" placeholder="room street locality" pattern="/\A(\d+[a-zA-Z]{0,1}\s{0,1}[-]{1}\s{0,1}\d*[a-zA-Z]{0,1}|\d+[a-zA-Z-]{0,1}\d*[a-zA-Z]{0,1})\s*+(.*)/" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>city :</span>
+                        <input type="text" placeholder="mumbai" pattern="[A-Za-z ]+" title="Please enter a city. city can only contain letters and spaces." required>
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>state :</span>
+                            <input type="text" placeholder="india" pattern="[A-Za-z ]+" title="Please enter a valid country. country can only contain letters and spaces." required>
+                        </div>
+                        <div class="inputBox">
+                            <span>zip code :</span>
+                            <input type="text" placeholder="12345-6789" pattern="/^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$/" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <h3 class="title">payment</h3>
+
+                    <div class="inputBox">
+                        <span>cards accepted :</span>
+                        <img src="https://e7.pngegg.com/pngimages/805/227/png-clipart-paypal-the-next-level-service-payment-gateway-industry-paypal-text-payment.png"
+                            alt="" height="100px" width="200px">
+                    </div>
+                    <div class="inputBox">
+                        <span>name on card :</span>
+                        <input type="text" placeholder="john deo" pattern="/^((?!-)[A-Za-z0-9-]{1, 63}(?<!-)\\.)+[A-Za-z]{2, 6}$/" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input type="number" placeholder="1111222233334444" pattern="/^4[0-9]{12}(?:[0-9]{3})?$/" min="0" max="9999999999999999" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input type="number" placeholder="1" min="1" max="12" required>
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>exp year :</span>
+                            <input type="number" placeholder="2022" min="2023" pattern="/^\d{0,4}$/" required>
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" placeholder="1234" required>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="proceed to checkout" class="submit-btn">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

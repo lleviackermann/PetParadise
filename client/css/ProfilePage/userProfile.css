@@ -1,0 +1,150 @@
+body {
+    margin-top: 20px;
+    background-color: lightgrey;
+}
+
+.main {
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+    background-color: teal;
+    overflow: hidden;
+}
+
+.topbar a {
+    float: right;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 26px;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.sidebar {
+    background-color: #333;
+    color: white;
+    height: 100%;
+}
+
+.sidebar a {
+    margin-left: 10px;
+    display: block;
+    color: white;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.content {
+    background-color: whitesmoke;
+}
+
+.mt-3 h3 {
+    color: black;
+}
+
+.mt-3 a {
+    color: black;
+}
+
+.sidebar .card-body {
+    background-color: rgb(125, 170, 169);
+}
+
+/* update profile start */
+.updatebox{
+    background-color: rgb(125, 170, 169);
+    width :auto;
+    max-width: 600px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    padding: 25px;  
+
+}
+.updatebox.inactive{
+    display: none;
+}
+.updatebox i{
+    position: absolute;
+    font-size: 2rem;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+.updatebox input{
+    border-radius: 30px;
+}
+
+/* update profile end */
+
+.appointmentbox{
+    background-color: rgb(125, 170, 169); 
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    /* width: 350px; */
+    margin-bottom: 10px;
+}
+
+.remove button{
+    display: block;
+    margin: 2px 0px 20px 168px;
+}
+
+.remove button:hover{
+    background-color: red;
+    color: white;
+}
+
+.appointmentbox.inactive{
+    display: none;
+}
+
+.announcementBox{
+    background-color: rgb(125, 170, 169); 
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.employee {
+    width: 100%;
+}
+
+.employee .buttons {
+    display: flex;
+    gap: 4rem;
+    margin-top: 1rem;
+}
+
+.employee .buttons button {
+    padding: .5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.employee .buttons button[value="confirmed"],
+.employee .buttons button[value="Delivered"] {
+    background-color: #00a36c;
+}
+
+.employee .buttons button[value="canceled"],
+.employee .buttons button[value="Canceled"] {
+    background-color: #FA5F55;
+}
