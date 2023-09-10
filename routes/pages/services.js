@@ -71,7 +71,13 @@ router.post("/appointment", async (req, res) => {
         }
       );
     });
-  res.render("./HTML/PaymentPage/paymentPage.ejs", { notlogin });
+  res.redirect("/services");
+  // res.render("./HTML/LandingPages/vetcareLandingPage.ejs", {
+  //   notlogin,
+  //   cartNames,
+  //   cartPrices,
+  //   cartSrc,
+  // });
 });
 
 module.exports = router;

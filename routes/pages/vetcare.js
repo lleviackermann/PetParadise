@@ -61,15 +61,28 @@ router.post("/appointment", async (req, res) => {
   let cartPrices = [];
   let cartType = [];
 
-  await vcApp.create({
-    userName: req.session.userName,
-    package: pack,
-    number: num,
-    date: date,
-    time: time,
-    appointmentType: apptype,
-    status: status,
-  });
+  await vcApp
+    .create({
+      userName: req.session.userName,
+      package: pack,
+      number: num,
+      date: date,
+      time: time,
+      appointmentType: apptype,
+      status: status,
+    })
+    .then(async (result) => {
+      await userSchema.updateOne(
+        { mailId: req.session.userMail },
+        {
+          $push: {
+            appointment: {
+              _id: result._id,
+            },
+          },
+        }
+      );
+    });
   const cartItems = await userSchema.findOne(
     { mailId: req.session.userMail },
     { userCart: 1 }
@@ -81,22 +94,6 @@ router.post("/appointment", async (req, res) => {
       cartPrices.push(element.productDetails.price);
       cartSrc.push(element.productDetails.src);
     });
-    await userSchema.updateOne(
-      { mailId: req.session.userMail },
-      {
-        $push: {
-          appointment: {
-            userName: req.session.userName,
-            package: pack,
-            number: num,
-            date: date,
-            time: time,
-            appointmentType: apptype,
-            status: status,
-          },
-        },
-      }
-    );
   }
 
   res.render("./HTML/LandingPages/vetcareLandingPage.ejs", {

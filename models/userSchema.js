@@ -22,13 +22,20 @@ const userSchema = new mongoose.Schema({
   ],
   appointment: [
     {
-      appointmentId: {
-        type: Schema.Types.ObjectId,
-        required: true,
-        ref: "appointmentSchema",
-      },
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "appointmentSchema",
     },
   ],
+  // appointment: [
+  //   {
+  //     appointmentId: {
+  //       type: Schema.Types.ObjectId,
+  //       required: true,
+  //       ref: "appointmentSchema",
+  //     },
+  //   },
+  // ],
   // appointment: [
   //   {
   //     userName: String,

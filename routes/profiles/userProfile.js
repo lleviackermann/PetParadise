@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   if (userName) {
     notlogin = false;
   }
-  let orders;
+  let orders, app;
   if (!notlogin) {
     const user = await userSchema.findOne({ mailId: userMail });
     orders = await Orders.find({ userId: user._id })
@@ -21,25 +21,52 @@ router.get("/", async (req, res) => {
       .populate("userId")
       .lean()
       .exec();
-  }
-  let app = await userSchema.findOne({ mailId: userMail });
-  await app.populate("appointment");
-  let appointments = [];
-  app.appointment.forEach(async (element) => {
-    console.log(element);
-    await appointment.findById(element).then((p) => {
-      console.log("p", p);
-      appointments.push(p);
+    //   app = await userSchema
+    //     .find({ mailId: user.mailId })
+    //     .populate("appointment")
+    //     .lean()
+    //     .exec();
+    // }
+    let appointments = [];
+    app = await userSchema
+      .find({ mailId: userMail })
+      .populate("appointment.appointmentId")
+      .lean()
+      .exec();
+
+    console.log("one");
+
+    for (i = 0; i < user.appointment.length; i++) {
+      await appointment.findById(user.appointment[i]).then((p) => {
+        appointments.push(p);
+      });
+    }
+    console.log("two");
+
+    console.log("app", appointments);
+    console.log("three");
+
+    // let app = await userSchema
+    //   .find({ mailId: userMail }, { appointment: 1 })
+    //   .populate("appointment");
+    // console.log(app[0].appointment[0]);
+    // let appointments = app.appointment;
+    // app.appointment.forEach(async (element) => {
+    //   console.log(element);
+    //   await appointment.findById(element).then((p) => {
+    //     appointments.push(p);
+    //   });
+    // });
+    console.log("appointments", app);
+    let announcements = await announcement.find({}, { id: 0, _v: 0 });
+    res.render("./HTML/ProfilePages/userProfile.ejs", {
+      userName,
+      userMail,
+      appointments,
+      announcements,
+      orders,
     });
-  });
-  let announcements = await announcement.find({}, { id: 0, _v: 0 });
-  res.render("./HTML/ProfilePages/userProfile.ejs", {
-    userName,
-    userMail,
-    appointments,
-    announcements,
-    orders,
-  });
+  }
 });
 
 router.post("/", (req, res) => {});
