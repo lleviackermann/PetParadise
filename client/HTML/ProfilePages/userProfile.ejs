@@ -81,26 +81,26 @@
                                 <div class="row">
                                 <div class="col">
                                     <h2>Appointments </h2>
-                                    <% if(app.appointment.length > 0) { %>
-                                        <% for(let i = 0; i < app.appointment.length; i++) { %>
+                                    <% if(appointments.length > 0) { %>
+                                        <% for(let i = 0; i < appointments.length; i++) { %>
                                             <div class="appointmentbox">
                                                 <h3>Your appointment</h3>
                                                 <!-- <div class="remove">
                                                     <button id="cancel" >Cancel appointment</button>
                                                 </div> -->
                                                 
-                                                <p>Appointment type : <%= app.appointment[i].appointmentType %></p>
-                                                <% if(app.appointment[i].appointmentType === "salon"){ %>
-                                                <p>Total cost :  <%= Number(app.appointment[i].package)*app.appointment[i].number %></p>
-                                                <p>Date : <%= app.appointment[i].date %></p>
-                                                <p>Time : <%= app.appointment[i].time %></p
+                                                <p>Appointment type : <%= appointments[i].appointmentType %></p>
+                                                <% if(appointments[i].appointmentType === "salon"){ %>
+                                                <p>Total cost :  <%= Number(appointments[i].package)*appointments[i].number %></p>
+                                                <p>Date : <%= appointments[i].date %></p>
+                                                <p>Time : <%= appointments[i].time %></p
                                                 <% }else{ %>
                                                 <p>Total cost :  1000 </p> 
-                                                <p>Doctor name : <%= app.appointment[i].package %></p>
-                                                <p>Date : <%= app.appointment[i].date %></p>
-                                                <p>Time : <%= app.appointment[i].time %></p>
+                                                <p>Doctor name : <%= appointments[i].package %></p>
+                                                <p>Date : <%= appointments[i].date %></p>
+                                                <p>Time : <%= appointments[i].time %></p>
                                                 <% } %>
-                                                <p>status :  <%= app.appointment[i].status %></p>
+                                                <p>status :  <%= appointments[i].status %></p>
                                             </div>
                                         <% } %>
                                     <% } %>

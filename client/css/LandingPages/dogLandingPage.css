@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -13,6 +13,7 @@
 }
 
 :root {
+    --carrot-color: #e67e22;
   --green-color: #11A722;
   --light-color: #666;
   --black: #000;
@@ -21,6 +22,7 @@
   --login-form-color: #ffc8dd;
   --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1) --main-hue: 208;
   --thumb-color: #881;
+  --light-bg: #eee;
   --social-color: var(--black);
 }
 
@@ -464,7 +466,7 @@ header .navbar a:hover {
 }
 
 .home .content h3 span {
-  color: var(--green-color);
+  color: var(--white);
 }
 
 .home img {
@@ -1332,4 +1334,45 @@ header .navbar a:hover {
   footer .credit {
     font-size: 98%;
   }
+}
+
+
+.services .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-auto-rows: minmax(30rem,1fr);
+  grid-auto-flow: minmax(30rem,1fr);
+  gap: 15rem;
+}
+.services .box-container .box {
+  background: var(--light-bg);
+  padding: 3rem;
+  text-align: center;
+  border-radius: 37% 67% 70% 30%/30% 30% 70% 30%;
+}
+.services .box-container .box:nth-child(even) {
+  border-radius: 79% 21% 81% 19%/58% 93% 7% 42%;
+}
+.services .box-container .box:hover {
+  background-color: var(--carrot-color);
+  border-radius: 0.5rem;
+}
+
+.services .box-container .box:hover .btn{
+  color: white;
+}
+.services .box-container .box h3 {
+  font-size: 2.2rem;
+  color: var(--black);
+  padding: 1rem 0;
+}
+.services .box-container .box i {
+  height: 6.5rem;
+  width: 6.5rem;
+  line-height: 6.5rem;
+  font-size: 3rem;
+  color: var(--white);
+  background-color: var(--carrot-color);
+  border-radius: 3.25rem;
+  margin-bottom: 0.5rem;
 }

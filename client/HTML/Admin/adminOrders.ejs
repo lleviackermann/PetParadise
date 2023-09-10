@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/css/Admin/adminMessages.css" />
     <link rel="stylesheet" href="/css/components/adminListHeader.css" />
     <link rel="stylesheet" href="/css/Modals/filterModal.css" />
-    <link rel="stylesheet" href="/css/components/adminOrdersRecords.css">
+    <link rel="stylesheet" href="/css/components/adminOrdersRecords.css" />
   </head>
   <body>
     <% if(login) { %> <%- include("../components/adminLayout", { path :
@@ -25,10 +25,11 @@
         </div>
       </div>
 
-      <%- include('../components/adminListHeader.ejs', { sortList:
-      [{value: 0, name: "NewestFirst"},
-      {value: 1, name: "OldestFirst"}], filters: [{ category: "status", list: ["pending", "delivered"]}],
-       path: "/profile/admin/orders", records: "Orders Records"}); %>
+      <%- include('../components/adminListHeader.ejs', { sortList: [{value: 0,
+      name: "NewestFirst"}, {value: 1, name: "OldestFirst"}], filters: [{
+      category: "status", list: ["pending", "delivered"]}], path:
+      "/profile/admin/orders", records: "Orders Records", messages: messages});
+      %>
     </main>
 
     <div class="overlay no-show"></div>

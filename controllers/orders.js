@@ -4,7 +4,7 @@ const pageLimitSize = 10;
 
 exports.ordersSortSearchAndFilters = async (req, res) => {
   try {
-    console.log(req.query);
+    // console.log(req.query);
     let allOrders, status;
     let searchInitial;
     if (req.query) searchInitial = req.query.search;
@@ -23,19 +23,23 @@ exports.ordersSortSearchAndFilters = async (req, res) => {
     else givenSorting = req.query.sortSelector;
     const sorting = givenSorting == 0 ? -1 : 1;
 
-    console.log(sorting, searchText);
+    // console.log(sorting, searchText);
     if (sorting == 1) {
       allOrders = await orderModel
         .find()
         .sort({ createdAt: 1 })
         .populate("userId")
-        .populate("prodId").lean().exec();
+        .populate("prodId")
+        .lean()
+        .exec();
     } else {
       allOrders = await orderModel
         .find()
         .sort({ createdAt: -1 })
         .populate("userId")
-        .populate("prodId").lean().exec();
+        .populate("prodId")
+        .lean()
+        .exec();
     }
     if (searchText && searchText != "" && searchText.length > 0) {
       allOrders = allOrders.filter((order) => {

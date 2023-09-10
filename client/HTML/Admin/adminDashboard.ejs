@@ -80,19 +80,17 @@
               </tr>
             </thead>
             <tbody>
-              <% if (order.length > 0 ) { %>
-              <% for(let i = 0; i < order.length; i++) {%> <% let date = new
-              Date(order[i].createdAt); %> <% let dateString = new
-              Date(date.getTime() - (date.getTimezoneOffset() * 60000
-              )).toISOString().split("T")[0]; %>
+              <% if (order.length > 0 ) { %> <% for(let i = 0; i < order.length;
+              i++) {%> <% let date = new Date(order[i].createdAt); %> <% let
+              dateString = new Date(date.getTime() - (date.getTimezoneOffset() *
+              60000 )).toISOString().split("T")[0]; %>
               <tr>
                 <td><%= dateString %></td>
                 <td><%= order[i].prodId.productDetails.Name %></td>
                 <td><%= order[i].userId.name.firstName %></td>
                 <td><%= order[i].status %></td>
               </tr>
-              <% } %>
-              <% } %>
+              <% } %> <% } %>
             </tbody>
           </table>
           <a href="/profile/admin/orders">Show All</a>
@@ -101,11 +99,16 @@
 
       <section class="right">
         <div class="announcement">
-          <h2>Announcement
-          </h2>
+          <h2>Announcement</h2>
           <form action="/others/announcement" method="post">
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Write your message"></textarea>
-            <input type="submit" value="Send Annnouncement">
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="Write your message"
+            ></textarea>
+            <input type="submit" value="Send Annnouncement" />
           </form>
         </div>
         <!-- <div class="recent-updates">

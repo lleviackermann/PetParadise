@@ -4,6 +4,7 @@ const announcement = require("../../models/announcement");
 const router = express.Router();
 const Orders = require("../../models/orders");
 const productSchemas = require("../../models/productSchema");
+const appointment = require("../../models/appointment");
 
 router.get("/", async (req, res) => {
   let userName = req.session.userName;
@@ -22,13 +23,22 @@ router.get("/", async (req, res) => {
       .exec();
   }
   let app = await userSchema.findOne({ mailId: userMail });
+  await app.populate("appointment");
+  let appointments = [];
+  app.appointment.forEach(async (element) => {
+    console.log(element);
+    await appointment.findById(element).then((p) => {
+      console.log("p", p);
+      appointments.push(p);
+    });
+  });
   let announcements = await announcement.find({}, { id: 0, _v: 0 });
   res.render("./HTML/ProfilePages/userProfile.ejs", {
     userName,
     userMail,
-    app,
+    appointments,
     announcements,
-    orders
+    orders,
   });
 });
 
@@ -43,7 +53,7 @@ router.post("/updateProfile", async (req, res) => {
   let f = 0;
   let l = 0;
   const oldLname = req.session.userName.split(" ")[1];
-  console.log(fname + " " + lname);
+  // console.log(fname + " " + lname);
   if (fname === "") {
     await userSchema.findOneAndUpdate(
       { mailId: mail },
