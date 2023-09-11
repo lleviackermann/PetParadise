@@ -16,13 +16,34 @@ selapp.addEventListener("click", (event) => {
         selnum.value +
         "\nDate : " +
         seldate.value +
-        "\nTime : " +
-        seltime.value
+        "\nTime : "
     );
+
     if (!c) {
       event.preventDefault();
     }
   }
+  event.preventDefault();
+
+  let obj = {
+    selpack: selpack.value,
+    seldate: seldate.value,
+    seltime: seltime.value,
+    selmun: selnum.value,
+  };
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/vet-care/appointment", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log("no error");
+    } else {
+      console.log("Error in Appointment");
+      console.log("error status: " + xhr.status);
+    }
+  };
+  xhr.send(JSON.stringify(obj));
 });
 
 seldate.addEventListener("click", (event) => {
