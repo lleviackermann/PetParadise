@@ -66,6 +66,10 @@ router.post("/", async function (req, res) {
         cartSrc.push(element.productDetails.src);
       });
       console.log(cartNames.length);
+      res.cookie("mailId", mail, {
+        maxAge: 900000,
+        httpOnly: true,
+      });
       res.render("./HTML/LandingPages/mainLandingPage", {
         error: true,
         message: "Login Successfull!",

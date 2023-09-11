@@ -7,19 +7,26 @@ const close = document.querySelector(
 const navMenu = document.querySelector(".components-navbar-header nav");
 const xhr = new XMLHttpRequest();
 
-const form = document.querySelector(".shopping-cart");
-form.addEventListener("click", async (event) => {
-  event.preventDefault();
-  xhr.open("POST", "/user/payment", true);
-  xhr.setRequestHeader("Content-type", "application/json");
-  const productDetails = {};
-  xhr.send(JSON.stringify(productDetails));
-  document.getElementsByClassName(
-    "shopping-cart"
-  )[0].innerHTML = `      <div class="total">total : 0</div>
+// alert(document.cookie);
+
+// console.log("Hello", document.cookie).split(";");
+// console.log(decodeURIComponent(document.cookie.split(";")[0]));
+
+let form = document.querySelector(".shopping-cart");
+if (form != undefined) {
+  form.addEventListener("click", async (event) => {
+    event.preventDefault();
+    xhr.open("POST", "/user/payment", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    const productDetails = {};
+    xhr.send(JSON.stringify(productDetails));
+    document.getElementsByClassName(
+      "shopping-cart"
+    )[0].innerHTML = `      <div class="total">total : 0</div>
   <button type="submit" class="btn">Purchase</button>
 `;
-});
+  });
+}
 
 hamburger.addEventListener("click", (e) => {
   console.log("Hi");
@@ -137,6 +144,7 @@ function call() {
   for (let i = 0; i < addToCartButtons.length; i++) {
     let button = addToCartButtons[i];
     button.addEventListener("click", function (event) {
+      console.log(document.cookie);
       let x = button.parentElement;
       let title = x.querySelector(".name").innerHTML;
       let imagSource = x.querySelector(".src").innerHTML;
