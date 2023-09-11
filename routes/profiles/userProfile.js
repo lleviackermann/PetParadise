@@ -107,11 +107,11 @@ router.post("/updateProfile", async (req, res) => {
     req.session.userName = oldFname + " " + lname;
   }
 
-  res.render("./HTML/ProfilePages/userProfile.ejs", {
-    userName: req.session.userName,
-    userMail: mail,
-  });
-  res.redirect("/user/profile");
+  // res.render("./HTML/ProfilePages/userProfile.ejs", {
+  //   userName: req.session.userName,
+  //   userMail: mail,
+  // });
+  // res.redirect("/user/profile");
 });
 
 module.exports = router;

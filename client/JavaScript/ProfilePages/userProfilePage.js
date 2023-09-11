@@ -59,7 +59,6 @@ icon.addEventListener("click", () => {
 });
 
 let button = document.querySelector(".updatebutton");
-
 button.addEventListener("click", () => {
   box.classList.remove("inactive");
 });

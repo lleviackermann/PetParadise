@@ -1,5 +1,5 @@
-console.log(document.querySelector(".revdata").innerText);
-console.log(document.querySelector(".data").innerText);
+// console.log(document.querySelector(".revdata").innerText);
+// console.log(document.querySelector(".data").innerText);
 let data = {
   products: [JSON.parse(document.querySelector(".data").innerText)],
   reviews: [JSON.parse(document.querySelector(".revdata").innerText)],
@@ -22,12 +22,52 @@ for (let i = 0; i < data.products[0].length; i++) {
        </div>`;
 }
 
+<<<<<<< HEAD
 let revsub = document.getElementById('rev-sub');
 revsub.addEventListener('click',(event) =>{
+=======
+// AJAX for review form
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.getElementById("reviewForm");
+
+//   form.addEventListener("submit", function (event) {
+//       event.preventDefault(); // Prevent the default form submission
+
+//       const formData = new FormData(form); // Serialize the form data
+
+//       // Create an AJAX request
+//       const xhr = new XMLHttpRequest();
+//       xhr.open("POST", "/petsfoods/reviewform", true);
+//       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+//       // Handle the response
+//       xhr.onreadystatechange = function () {
+//           if (xhr.readyState === 4) {
+//               if (xhr.status === 200) {
+//                   // Successful response
+//                   const response = JSON.parse(xhr.responseText);
+//                   alert("Review submitted successfully!");
+//                   // You can do more with the response if needed
+//               } else {
+//                   // Error response
+//                   alert("An error occurred while submitting the review.");
+//               }
+//           }
+//       };
+
+//       // Send the form data
+//       xhr.send(new URLSearchParams(formData));
+//   });
+// });
+
+let revsub = document.getElementById("rev-sub");
+revsub.addEventListener("click", (event) => {
+>>>>>>> 223049b57ac2662953a0f33fe357f04ebe75facb
   event.preventDefault();
 
   const xhr = new XMLHttpRequest();
 
+<<<<<<< HEAD
   xhr.open('POST','/petsfoods/reviewform',true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -48,6 +88,25 @@ revsub.addEventListener('click',(event) =>{
 
 })
 
+=======
+  xhr.open("POST", "/petsfoods/reviewform", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+
+  xhr.onload = function () {
+    if (this.status === 200) {
+      // console.log(this.responseText)
+    } else {
+      console.log("Some error occured");
+    }
+  };
+
+  // alert(JSON.stringify({ review: document.getElementById("revtext").value }));
+
+  xhr.send(
+    JSON.stringify({ revtext: document.getElementById("revtext").value })
+  );
+});
+>>>>>>> 223049b57ac2662953a0f33fe357f04ebe75facb
 
 // review fetching
 let revcard = document.getElementsByClassName("review-slider");
