@@ -22,6 +22,30 @@ for (let i = 0; i < data.products[0].length; i++) {
        </div>`;
 }
 
+let revsub = document.getElementById("rev-sub");
+revsub.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "/petsfoods/reviewform", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+
+  xhr.onload = function () {
+    if (this.status === 200) {
+      console.log("No error");
+    } else {
+      console.log("Some error occured");
+    }
+  };
+
+  // alert(JSON.stringify({review :document.getElementById("revtext").value}));
+
+  xhr.send(
+    JSON.stringify({ review: document.getElementById("revtext").value })
+  );
+});
+
 // review fetching
 let revcard = document.getElementsByClassName("review-slider");
 let fetchRev = revcard[0];
