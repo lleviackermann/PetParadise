@@ -22,10 +22,10 @@ for (let i = 0; i < data.products[0].length; i++) {
        </div>`;
 }
 
-<<<<<<< HEAD
+
 let revsub = document.getElementById('rev-sub');
 revsub.addEventListener('click',(event) =>{
-=======
+
 // AJAX for review form
 // document.addEventListener("DOMContentLoaded", function () {
 //   const form = document.getElementById("reviewForm");
@@ -62,12 +62,12 @@ revsub.addEventListener('click',(event) =>{
 
 let revsub = document.getElementById("rev-sub");
 revsub.addEventListener("click", (event) => {
->>>>>>> 223049b57ac2662953a0f33fe357f04ebe75facb
+
   event.preventDefault();
 
   const xhr = new XMLHttpRequest();
 
-<<<<<<< HEAD
+
   xhr.open('POST','/petsfoods/reviewform',true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -88,7 +88,7 @@ revsub.addEventListener("click", (event) => {
 
 })
 
-=======
+
   xhr.open("POST", "/petsfoods/reviewform", true);
   xhr.setRequestHeader("Content-type", "application/json");
 
@@ -106,7 +106,7 @@ revsub.addEventListener("click", (event) => {
     JSON.stringify({ revtext: document.getElementById("revtext").value })
   );
 });
->>>>>>> 223049b57ac2662953a0f33fe357f04ebe75facb
+
 
 // review fetching
 let revcard = document.getElementsByClassName("review-slider");
