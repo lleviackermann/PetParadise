@@ -39,7 +39,6 @@
   --white: #fff;
   --black: #000;
   --social-color: var(--black);
-  
 }
 
 *,
@@ -60,15 +59,14 @@ html {
   font-size: 62.5%;
 }
 
-
-.components-navbar-enter .shopping-cart{
+.components-navbar-enter .shopping-cart {
   position: absolute;
-  top: 10%;
-  right:50px; 
-  padding: 1rem;
+  top: 50px;
+  right: 20px;
+  padding: 1px;
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow);
-  width: 75em;
+  width: 500px;
   background: #fff;
   height: 500px;
   overflow: hidden;
@@ -77,40 +75,38 @@ html {
   z-index: 1000;
 }
 
-.components-navbar-enter .shopping-cart .qty{
+.components-navbar-enter .shopping-cart .qty {
   width: 25px;
 }
-.components-navbar-enter .shopping-cart .box .remove{
+.components-navbar-enter .shopping-cart .box .remove {
   padding-left: 5px;
 }
-.components-navbar-enter .shopping-cart .box .remove:hover{
+.components-navbar-enter .shopping-cart .box .remove:hover {
   color: red;
   cursor: pointer;
 }
 
-.components-navbar-enter .shopping-cart .btn{
+.components-navbar-enter .shopping-cart .btn {
   background-color: #088178;
   color: #fff;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   text-decoration: none;
 }
 
-.components-navbar-enter .shopping-cart .btn{
+.components-navbar-enter .shopping-cart .btn {
   cursor: pointer;
 }
 
-.components-navbar-enter .shopping-cart.active{
+.components-navbar-enter .shopping-cart.active {
   /* right: 15rem; */
   transition: 0.3s linear;
   display: block;
 }
 
-
-
-.components-navbar-enter .shopping-cart .box{
+.components-navbar-enter .shopping-cart .box {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -118,13 +114,11 @@ html {
   margin: 1rem 0;
 }
 
-
-.components-navbar-enter .shopping-cart .box img{
+.components-navbar-enter .shopping-cart .box img {
   height: 10rem;
 }
 
-
-.components-navbar-enter .shopping-cart .box .fa-trash{
+.components-navbar-enter .shopping-cart .box .fa-trash {
   font-size: 2rem;
   position: absolute;
   top: 50%;
@@ -134,42 +128,37 @@ html {
   transform: translateY(-50%);
 }
 
-.components-navbar-enter .shopping-cart .box .content{
+.components-navbar-enter .shopping-cart .box .content {
   overflow: auto;
 }
 
-.components-navbar-enterr .shopping-cart .box .fa-trash:hover{
+.components-navbar-enterr .shopping-cart .box .fa-trash:hover {
   color: #088178;
 }
 
-
-.components-navbar-enter .shopping-cart .box .content h3{
+.components-navbar-enter .shopping-cart .box .content h3 {
   color: black;
   font-size: 1.2rem;
   padding-bottom: 1rem;
 }
 
-
-.components-navbar-enter .shopping-cart .box .content span{
+.components-navbar-enter .shopping-cart .box .content span {
   color: var(--light-color);
   font-size: 1.6rem;
 }
 
-
-.components-navbar-enter .shopping-cart .box .content .quantity{
+.components-navbar-enter .shopping-cart .box .content .quantity {
   padding-left: 0rem;
 }
 
-
-.components-navbar-enter .shopping-cart .total{
+.components-navbar-enter .shopping-cart .total {
   font-size: 2.5rem;
   padding: 1rem 0;
   text-align: center;
   color: #088178;
 }
 
-
-.components-navbar-enter .shopping-cart .btn{
+.components-navbar-enter .shopping-cart .btn {
   display: block;
   text-align: center;
   margin: 1rem;
@@ -203,7 +192,7 @@ html {
   color: var(--main-color);
 }
 
-.components-navbar-brand__logo span{
+.components-navbar-brand__logo span {
   font-size: 2rem;
 }
 
@@ -212,7 +201,7 @@ html {
   font-size: 2rem;
 }
 
-.components-navbar-brand__name a{
+.components-navbar-brand__name a {
   font-size: 2rem;
 }
 
@@ -259,8 +248,8 @@ html {
   color: var(--main-color);
 }
 
-.components-navbar-header nav ul li:hover>ul,
-.components-navbar-header nav ul li:focus-within>ul {
+.components-navbar-header nav ul li:hover > ul,
+.components-navbar-header nav ul li:focus-within > ul {
   display: block;
 }
 
@@ -287,7 +276,7 @@ html {
   cursor: pointer;
 }
 
-.components-navbar-enter a{
+.components-navbar-enter a {
   font-size: 2rem;
 }
 
@@ -355,7 +344,9 @@ html {
     cursor: pointer;
   }
 
-  .components-navbar-header .components-navbar-close-open .components-navbar-close {
+  .components-navbar-header
+    .components-navbar-close-open
+    .components-navbar-close {
     display: none;
   }
 

@@ -7,6 +7,20 @@ const close = document.querySelector(
 const navMenu = document.querySelector(".components-navbar-header nav");
 const xhr = new XMLHttpRequest();
 
+const form = document.querySelector(".shopping-cart");
+form.addEventListener("click", async (event) => {
+  event.preventDefault();
+  xhr.open("POST", "/user/payment", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  const productDetails = {};
+  xhr.send(JSON.stringify(productDetails));
+  document.getElementsByClassName(
+    "shopping-cart"
+  )[0].innerHTML = `      <div class="total">total : 0</div>
+  <button type="submit" class="btn">Purchase</button>
+`;
+});
+
 hamburger.addEventListener("click", (e) => {
   console.log("Hi");
   navMenu.style.display = "flex";

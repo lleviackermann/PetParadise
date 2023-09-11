@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="../../css/LandingPages/catLandingPage.css" />
     <link
       rel="stylesheet"
-      href="../../css/LandingPages/productLandingPage.css"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
     />
     <link
@@ -65,16 +61,24 @@
       </h3>
 
       <div class="search-bar">
-        <div class="search" id="filter-search">
-          <input type="text" class="searchTerm" placeholder="What are you
-          looking for?" ">
-          <button class="searchButton">
-            <i class="fa fa-search search-item" onclick="searchItems()"></i>
-          </button>
+        <div class="search">
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Type to search.."
+          />
+          <div class="search-icon searchButton">
+            <i class="fas fa-search search-item" onclick="searchItems()"></i>
+          </div>
+          <div class="cancel-icon">
+            <i class="fas fa-times"></i>
+          </div>
+          <div class="search-data"></div>
         </div>
       </div>
 
       <button class="filter-btn" onclick="expandFilter()">Filter</button>
+      <span class="search-data" style="font-size: 2rem"></span>
       <div
         class="filter-options"
         id="filter-options"
@@ -102,7 +106,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-dog"></i>
           <h3>Accessories</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information0" style="display: none; font-size: 1.75rem">
             Here, You Can Find All Best Deals On Accesories Related To Pet
             Including Toys,Harnesses
@@ -112,7 +118,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-cat"></i>
           <h3>Pet Care</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information1" style="display: none; font-size: 1.75rem">
             Here You Can Find All The Best Medicines To Care Your Pet
           </p>
@@ -121,7 +129,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-drumstick-bite"></i>
           <h3>Food</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information2" style="display: none; font-size: 1.75rem">
             Feed Your Pet With Love , Affection And High Quality Food!
           </p>
@@ -130,7 +140,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-bath"></i>
           <h3>Saloon</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information3" style="display: none; font-size: 1.75rem">
             Every Pet Deserves Celebrity Care
           </p>
@@ -139,7 +151,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-baseball-ball"></i>
           <h3>Training</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information4" style="display: none; font-size: 1.75rem">
             Give You Pet The Best Training For Desired Behaviours
           </p>

@@ -7,10 +7,10 @@
     <title>Dog website</title>
 
     <link rel="stylesheet" href="../../css/LandingPages/dogLandingPage.css" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="../../css/LandingPages/productLandingPage.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
@@ -66,6 +66,22 @@
       </h3>
 
       <div class="search-bar">
+        <div class="search">
+          <input
+            type="text"
+            class="searchTerm"
+            placeholder="Type to search.."
+          />
+          <div class="search-icon searchButton">
+            <i class="fas fa-search search-item" onclick="searchItems()"></i>
+          </div>
+          <div class="cancel-icon">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="search-bar">
         <div class="search" id="filter-search">
           <input type="text" class="searchTerm" placeholder="What are you
           looking for?" ">
@@ -73,9 +89,10 @@
             <i class="fa fa-search search-item" onclick="searchItems()"></i>
           </button>
         </div>
-      </div>
+      </div> -->
 
       <button class="filter-btn" onclick="expandFilter()">Filter</button>
+      <span class="search-data" style="font-size: 2rem"></span>
       <div
         class="filter-options"
         id="filter-options"
@@ -89,231 +106,6 @@
         </button>
       </div>
       <div class="products">
-        <!--<div class="product">
-        <h3>Labrador Retriever</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/labdrador_retriever.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.15000 <span>Rs. 20000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div> -->
-
-        <!-- <div class="product">
-        <h3>Golden Retriever</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/Golden_retriever.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">12 Weeks Old</p>
-            <p class="info cost">Rs.25000 <span>Rs. 40000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>Beagle</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/beagle.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">10 Weeks Old</p>
-            <p class="info cost">Rs.18000 <span>Rs. 25000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>German shepherd</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product">
-        <h3>German shepherd 1</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 2</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 3</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 4</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="product">
-        <h3>German shepherd 5</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 6</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 7</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="product">
-        <h3>German shepherd 8</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-
-
-      <div class="product">
-        <h3>German shepherd 9</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="product">
-        <h3>German shepherd 10</h3>
-        <div class="card">
-          <div class="front">
-            <img src="../../img/dogLandingPage/Dog_Breeds/german_shepard.png" alt="" />
-          </div>
-          <div class="back">
-            <p class="info">Male|Female</p>
-            <p class="info">8 Weeks Old</p>
-            <p class="info cost">Rs.20000 <span>Rs. 30000.00</span></p>
-            <a href="" class="pet"><span>Shop Now</span></a>
-          </div>
-        </div>
-      </div> -->
-
-        <!-- <div class="product exploreMore">
-        <div class="explore"><a href="#" class="expBtn">Find More</a></div>
-      </div> -->
-
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
@@ -329,7 +121,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-dog"></i>
           <h3>Accessories</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information0" style="display: none; font-size: 1.75rem">
             Here, You Can Find All Best Deals On Accesories Related To Pet
             Including Toys,Harnesses
@@ -339,7 +133,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-cat"></i>
           <h3>Pet Care</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information1" style="display: none; font-size: 1.75rem">
             Here You Can Find All The Best Medicines To Care Your Pet
           </p>
@@ -348,7 +144,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-drumstick-bite"></i>
           <h3>Food</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information2" style="display: none; font-size: 1.75rem">
             Feed Your Pet With Love , Affection And High Quality Food!
           </p>
@@ -357,7 +155,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-bath"></i>
           <h3>Saloon</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information3" style="display: none; font-size: 1.75rem">
             Every Pet Deserves Celebrity Care
           </p>
@@ -366,7 +166,9 @@
         <div class="box" onmouseleave="removeboxHover(this)">
           <i class="fas fa-baseball-ball"></i>
           <h3>Training</h3>
-          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <button class="btn Readbtn" onclick="buttonExpand(this)">
+            Read More
+          </button>
           <p class="information4" style="display: none; font-size: 1.75rem">
             Give You Pet The Best Training For Desired Behaviours
           </p>

@@ -272,33 +272,77 @@
 // })();
 
 /* product slider below tablet and mobile screen widths*/
+
+const searchBox = document.querySelector(".search");
+const searchBtn = document.querySelector(".search-icon");
+const cancelBtn = document.querySelector(".cancel-icon");
+const searchInput = document.querySelector("input");
+const searchData = document.querySelector(".search-data");
+searchBtn.onclick = () => {
+  searchBox.classList.add("active");
+  searchBtn.classList.add("active");
+  searchInput.classList.add("active");
+  cancelBtn.classList.add("active");
+  if (
+    document.querySelector(".search-item").classList.contains("fa-search") &&
+    searchInput.value != ""
+  ) {
+    document.querySelector(".search-item").classList.remove("fa-search");
+    document.querySelector(".search-item").classList.add("fa-times");
+  } else {
+    document.querySelector(".search-item").classList.add("fa-search");
+    document.querySelector(".search-item").classList.remove("fa-times");
+  }
+  searchInput.focus();
+  if (searchInput.value != "") {
+    var values = searchInput.value;
+    searchData.classList.remove("active");
+    searchData.innerHTML =
+      "You just typed " +
+      "<span style='font-weight: 500;'>" +
+      values +
+      "</span>";
+  } else {
+    searchData.textContent = "";
+  }
+};
+cancelBtn.onclick = () => {
+  searchBox.classList.remove("active");
+  searchBtn.classList.remove("active");
+  searchInput.classList.remove("active");
+  cancelBtn.classList.remove("active");
+  searchData.classList.toggle("active");
+  searchInput.value = "";
+};
+
 let slideIndex = 2;
 let tabletWidth = window.matchMedia(
   "(min-width:450px) and  (max-width: 600px)"
 );
 let mobileWidth = window.matchMedia("(max-width: 450px)");
-let readMoreClass = document.getElementsByClassName("btn");
+let readMoreClass = document.getElementsByClassName("Readbtn");
 let boxClass = document.getElementsByClassName("box");
 const removeboxHover = (l) => {
-  i = 0;
+  let j = 0;
   console.log(l);
-  while (boxClass[i] != l) {
-    i++;
+  while (boxClass[j] != l) {
+    j++;
   }
+  console.log("i", j);
   // setTimeout(() => {
   //   readMoreClass[i].style.display = "block";
   // }, 3000);
-  readMoreClass[i].style.display = "inline-block";
-  document.querySelector(`.information${i}`).style.display = "none";
+  readMoreClass[j].style.display = "inline-block";
+  document.querySelector(`.information${j}`).style.display = "none";
 };
 
 const buttonExpand = (l) => {
-  i = 0;
-  while (readMoreClass[i] != l) {
-    i++;
+  j = 0;
+  while (readMoreClass[j] != l) {
+    j++;
   }
-  readMoreClass[i].style.display = "none";
-  document.querySelector(`.information${i}`).style.display = "block";
+  readMoreClass[j].style.display = "none";
+  document.querySelector(`.information${j}`).style.display = "block";
 };
 
 let Productprice = document.querySelector(".prices-data").innerText.split(",");
@@ -395,7 +439,7 @@ function removeFromSearch(element) {
 function addFilterToSearchBar(type) {
   let filterOpt = document.querySelector(`.filter-option.${type}`);
   if (filterOpt.classList.contains("active")) {
-    SelectedFilters.innerHTML += `<button class='${type} search-option' onclick='removeFromSearch(this)'>${type}</button>`;
+    // SelectedFilters.innerHTML += `<button class='${type} search-option' onclick='removeFromSearch(this)'>${type}</button>`;
   } else {
     document.querySelector(`.search-option.${type}`).remove();
   }
