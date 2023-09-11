@@ -343,7 +343,7 @@ router.post("/reviewform", async (req, res) => {
   //   pets,
   //   rev,
   // });
-  res.redirect("/petsfoods");
+  // res.redirect("/petsfoods");
 });
 
 module.exports = router;
