@@ -30,21 +30,17 @@ router.get("/", async (req, res) => {
     let appointments = [];
     app = await userSchema
       .find({ mailId: userMail })
-      .populate("appointment.appointmentId")
+      .populate("appointment")
       .lean()
       .exec();
-
-    console.log("one");
 
     for (i = 0; i < user.appointment.length; i++) {
       await appointment.findById(user.appointment[i]).then((p) => {
         appointments.push(p);
       });
     }
-    console.log("two");
 
     console.log("app", appointments);
-    console.log("three");
 
     // let app = await userSchema
     //   .find({ mailId: userMail }, { appointment: 1 })
@@ -57,7 +53,7 @@ router.get("/", async (req, res) => {
     //     appointments.push(p);
     //   });
     // });
-    console.log("appointments", app);
+    console.log("appointments", app[0].appointment);
     let announcements = await announcement.find({}, { id: 0, _v: 0 });
     res.render("./HTML/ProfilePages/userProfile.ejs", {
       userName,

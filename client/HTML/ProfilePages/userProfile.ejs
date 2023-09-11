@@ -68,9 +68,10 @@
                             
 
                                 <div class="col">
-                                    <h2>Announcements </h2>
+                                    <h2>Announcements </h2> 
+                                    <div class="annuncements">
                                     <% if(announcements.length > 0) { %>
-                                        <% for(let i = 0; i < announcements.length; i++) { %>
+                                        <% for(let i = 0; i < announcements.length ; i++) { %>
                                             <div class="announcementBox">
                                                 <h3>ADMIN</h3>
                                                 <h5>Message : <%= announcements[i].message %></h5>
@@ -78,40 +79,95 @@
                                         <% } %>
                                     <% } %>
                                 </div>
+                                </div>
+                            
                                 <div class="row">
+                                    <h2>Appointments </h2> 
+                                    <button onclick="displayAll()">ALL</button> 
+                                    <button onclick="displayDoc()">Doctor</button>
+                                     <button onclick="displaySal()">Salon</button>
+                                   <div class="all">
+                                    <div class="col">
+                                       
+
+                                         
+                                        <% if(appointments.length > 0) { %>
+                                            <% for(let i = 0; i < appointments.length; i++) { %>
+                                               
+                                                        <div class="appointmentbox">
+                                                    <h3>Your appointment</h3> 
+                                                    <p>Appointment type : <%= appointments[i].appointmentType %></p>
+                                                    <% if(appointments[i].appointmentType === "salon"){ %>
+                                                    <p>Total cost :  <%= Number(appointments[i].package)*appointments[i].number %></p>
+                                                    <% } %>
+                                                    <% if(appointments[i].appointmentType === "doctor"){ %>
+                                                    <p>Doctor :  <%= appointments[i].package %></p> <% } %>
+                                                    <p>Date : <%= appointments[i].date %></p>
+                                                    <p>Time : <%= appointments[i].time %></p>
+                                                    <p>status :  <%= appointments[i].status %></p>
+                                                </div>
+                            
+                                                   
+                                                
+                                            <% } %>
+                                        <% } %>
+                                    </div>
+                                   </div> 
+
+                                 <div class="salon">
                                 <div class="col">
-                                    <h2>Appointments </h2>
                                     <% if(appointments.length > 0) { %>
                                         <% for(let i = 0; i < appointments.length; i++) { %>
-                                            <div class="appointmentbox">
-                                                <h3>Your appointment</h3>
+                                           
+                                                
                                                 <!-- <div class="remove">
                                                     <button id="cancel" >Cancel appointment</button>
                                                 </div> -->
-                                                
-                                                <p>Appointment type : <%= appointments[i].appointmentType %></p>
                                                 <% if(appointments[i].appointmentType === "salon"){ %>
+                                                    <div class="appointmentbox">
+                                                <h3>Your appointment</h3> 
+                                                <p>Appointment type : <%= appointments[i].appointmentType %></p>
                                                 <p>Total cost :  <%= Number(appointments[i].package)*appointments[i].number %></p>
                                                 <p>Date : <%= appointments[i].date %></p>
                                                 <p>Time : <%= appointments[i].time %></p
-                                                <% }else{ %>
-                                                <p>Total cost :  1000 </p> 
-                                                <p>Doctor name : <%= appointments[i].package %></p>
-                                                <p>Date : <%= appointments[i].date %></p>
-                                                <p>Time : <%= appointments[i].time %></p>
-                                                <% } %>
                                                 <p>status :  <%= appointments[i].status %></p>
                                             </div>
+                                                    <% } %>
+                        
+                                               
+                                            
                                         <% } %>
                                     <% } %>
                                 </div>
+                                  </div>
+                    
+                                   <div class="doctor">
+                                <div class="col"> 
+                                    <% if(appointments.length > 0) { %>
+                                        <% for(let i = 0; i < appointments.length; i++) { %>
+                                            <% if(appointments[i].appointmentType === "doctor"){ %>
+                                                <div class="appointmentbox">
+                                            <h3>Your appointment</h3> 
+                                            <p>Appointment type : <%= appointments[i].appointmentType %></p>
+                                            <p>Doctor :  <%= appointments[i].package %></p>
+                                            <p>Date : <%= appointments[i].date %></p>
+                                            <p>Time : <%= appointments[i].time %></p
+                                            <p>status :  <%= appointments[i].status %></p>
+                                        </div>
+                                                <% } %>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                 </div>
 
                                 </div>
                                 <div class="row">
                                 <div class="col">
                                     <h2>Orders </h2>
+                                    
                                     <% if(orders.length > 0) { %>
-                                        <% for(let i = 0; i < orders.length; i++) { %>
+                                        <button onclick="viewMore()">View More</button>
+                                        <% for(let i = 0; i < 3; i++) { %>
                                             <div class="appointmentbox">
                                                 <h3>Your Order</h3>
                                                 <!-- <div class="remove">
@@ -124,7 +180,26 @@
                                                 <p>status :  <%= orders[i].status %></p>
                                             </div>
                                         <% } %>
+                                    <% } else {%>
+                                    <p>No orders</p>
                                     <% } %>
+                                    <div class="more">
+                                        <% for(let i = 3; i < orders.length; i++) { %>
+                                            <div class="appointmentbox">
+                                                <h3>Your Order</h3>
+                                                <!-- <div class="remove">
+                                                    <button id="cancel" >Cancel appointment</button>
+                                                </div> -->
+                                                
+                                                <p>Product Name: <%= orders[i].prodId.productDetails.Name %></p>
+                                                <p>Product Price: <%= orders[i].prodId.productDetails.price %></p>
+                                                
+                                                <p>status :  <%= orders[i].status %></p>
+                                            </div>
+                                            
+                                        <% } %>
+                                        <button onclick="viewLess()">View Less</button>
+                                    </div>
                                 </div>
                                 
                                 

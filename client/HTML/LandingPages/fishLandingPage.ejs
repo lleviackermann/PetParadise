@@ -105,42 +105,53 @@
       </div>
     </section>
 
-    <section id="services" class="services">
-      <h3 class="heading">Our Services</h3>
-      <div class="services-list">
-        <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_accessories.png"
-            alt=""
-          />
-          <div class="content">
-            <h3>Accessories</h3>
-            <p>
-              Here, You can find all best deals on Accesories related to pet
-              including Toys,Harnesses
-            </p>
-            <a class="pet pet-service" href="#">Learn More</a>
-          </div>
+    <section class="services" id="services">
+      <h3 class="heading">our <span>services</span></h3>
+      <div class="box-container">
+        <div class="box" onmouseleave="removeboxHover(this)">
+          <i class="fas fa-dog"></i>
+          <h3>Accessories</h3>
+          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <p class="information0" style="display: none; font-size: 1.75rem">
+            Here, You Can Find All Best Deals On Accesories Related To Pet
+            Including Toys,Harnesses
+          </p>
         </div>
-        <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_care.png"
-            alt=""
-            height="250px"
-            width="250px"
-          />
+
+        <div class="box" onmouseleave="removeboxHover(this)">
+          <i class="fas fa-cat"></i>
           <h3>Pet Care</h3>
-          <p>Here You can find all the best medicines to care your Pet</p>
-          <a class="pet pet-service" href="#">Learn More</a>
+          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <p class="information1" style="display: none; font-size: 1.75rem">
+            Here You Can Find All The Best Medicines To Care Your Pet
+          </p>
         </div>
-        <div class="service">
-          <img
-            src="../../img/fishLandingPage/Fish_Images/fish_food.png"
-            alt=""
-          />
+
+        <div class="box" onmouseleave="removeboxHover(this)">
+          <i class="fas fa-drumstick-bite"></i>
           <h3>Food</h3>
-          <p>Feed Your Pet with Love , Affection and High Quality Food!</p>
-          <a class="pet pet-service" href="#">Learn More</a>
+          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <p class="information2" style="display: none; font-size: 1.75rem">
+            Feed Your Pet With Love , Affection And High Quality Food!
+          </p>
+        </div>
+
+        <div class="box" onmouseleave="removeboxHover(this)">
+          <i class="fas fa-bath"></i>
+          <h3>Saloon</h3>
+          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <p class="information3" style="display: none; font-size: 1.75rem">
+            Every Pet Deserves Celebrity Care
+          </p>
+        </div>
+
+        <div class="box" onmouseleave="removeboxHover(this)">
+          <i class="fas fa-baseball-ball"></i>
+          <h3>Training</h3>
+          <button class="btn" onclick="buttonExpand(this)">Read More</button>
+          <p class="information4" style="display: none; font-size: 1.75rem">
+            Give You Pet The Best Training For Desired Behaviours
+          </p>
         </div>
       </div>
     </section>
