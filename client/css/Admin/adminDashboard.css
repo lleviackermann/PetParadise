@@ -242,4 +242,5 @@ tbody:before {
     margin-top: 3rem;
     font-family: var(--roboto-text);
     font-size: 1.6rem;
+    cursor: pointer;
 }

@@ -103,12 +103,12 @@
           <form action="/others/announcement" method="post">
             <textarea
               name="message"
-              id="message"
+              id="announcement-message"
               cols="30"
               rows="10"
               placeholder="Write your message"
             ></textarea>
-            <input type="submit" value="Send Annnouncement" />
+            <input type="submit" value="Send Annnouncement" id="announcementSubmit"/>
           </form>
         </div>
         <!-- <div class="recent-updates">
@@ -177,5 +177,8 @@
     <% } else { %>
     <h1>No page found</h1>
     <% } %>
+
+
+    <script src="../../JavaScript/Admin/adminMessages.js"></script>
   </body>
 </html>

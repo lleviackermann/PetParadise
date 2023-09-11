@@ -144,7 +144,7 @@ exports.pageChange = async (req, res) => {
 exports.announcementAdd = async (req, res) => {
   console.log(req.body);
   const message = req.body.message;
-
+  console.log(message);
   const announcement = new Announcement({
     message: message
   })

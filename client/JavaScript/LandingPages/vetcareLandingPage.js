@@ -26,10 +26,10 @@ selapp.addEventListener("click", (event) => {
   event.preventDefault();
 
   let obj = {
-    selpack: selpack.value,
-    seldate: seldate.value,
-    seltime: seltime.value,
-    selmun: selnum.value,
+    "selpack": selpack.value,
+    "seldate": seldate.value,
+    "seltime": seltime.value,
+    "selmun": selnum.value,
   };
 
   const xhr = new XMLHttpRequest();

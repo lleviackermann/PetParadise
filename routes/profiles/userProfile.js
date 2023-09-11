@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
       .populate("appointment")
       .lean()
       .exec();
-
+    console.log(user.appointment);
     for (i = 0; i < user.appointment.length; i++) {
       await appointment.findById(user.appointment[i]).then((p) => {
         appointments.push(p);
