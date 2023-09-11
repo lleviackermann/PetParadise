@@ -39,7 +39,7 @@ const contactForm = document.querySelector(".contact-form");
 const username = document.querySelector(".input-name");
 const mail = document.querySelector(".input-email");
 const message = document.querySelector(".input-message");
-contactForm.addEventListener("click", async (event) => {
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "/others/contact", true);
@@ -49,5 +49,8 @@ contactForm.addEventListener("click", async (event) => {
     email: mail.value,
     message: message.value,
   };
+  username.value = "";
+  mail.value = "";
+  message.value = "";
   xhr.send(JSON.stringify(details));
 });
